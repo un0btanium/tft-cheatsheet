@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import logo from "./images/spatula.png";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./theme/bootstrap.min.css";
+
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+
+import TFTItemizer from './components/tft-itemizer.component';
+
+const BG = "dark"; // primary, dark, light
+const VARIANT = "dark"; // dark, light
+
+class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
+  render() {
+
+    return (
+      <Router>
+        <div>
+
+          <Navbar bg={BG} variant={VARIANT} style={{ boxShadow: '0px 2px 5px #000000'}}>
+            <Container>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Brand as={Link} to="/">
+                <img src={logo} width="35" height="35" alt="Logo" />
+                {' TFT Itemizer'}
+              </Navbar.Brand>
+              
+              <div className="collapse navbar-collapse">
+
+                <Nav className="mr-auto">
+                  <Nav.Link as={Link} variant="light" to="/">Itemizer</Nav.Link>
+                </Nav>
+
+                <Nav></Nav>
+
+              </div>
+            </Container>
+          </Navbar>
+
+          {/* <div style={{width: "50%", transform: "translate(50%, 50%) scale(2)"}}> */}
+            <Route exact path="/" component={TFTItemizer} />
+          {/* </div> */}
+        </div>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);

@@ -71,7 +71,7 @@ export default class TFTItemizer extends Component {
 
     render () {
 
-        let colStyle = {width: "64px", maxWidth: "64px", height: "64px", maxHeight: "64px", padding: "0px"};
+        let colStyle = {width: "100%", height: "100%", padding: "0px"};
         let rowStyle = {padding: "0px", margin: "0px"};
 
         let axisXHighlighted = [];
@@ -231,7 +231,7 @@ export default class TFTItemizer extends Component {
 
 
         let topRow = <Row style={rowStyle}>
-            {!this.state.isYAxisRightSided && <Col style={{...colStyle, backgroundColor: "#000000", borderTopLeftRadius: "5px" }}></Col>}
+            {!this.state.isYAxisRightSided && <Col style={{...colStyle, backgroundColor: "#000000", borderTopLeftRadius: "5px" }}><div style={{ maxWidth: "64px", maxHeight: "64px", width: "100%", height: "100%"}}></div></Col>}
             {this.state.order.map((itemNameX, posX) => {
                 let baseItemName = this.state.order[posX];
                 return <Col style={colStyle} key={"ItemCol-" + posX + "--1"}>
@@ -280,7 +280,6 @@ export default class TFTItemizer extends Component {
         }
 
 
-
         return <div style={{ display: "inline-block", width: "100%", height:"100%"}}>
             {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <ins class="adsbygoogle"
@@ -292,10 +291,10 @@ export default class TFTItemizer extends Component {
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script> */}
-            <div style={{ display: "flex",  alignItems: "center", justifyContent: "center", marginTop: "25px", marginBottom: "50px"  }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "25px", marginBottom: "50px"  }}>
                 
                 <div style={{ display: "inline-block", width: "600px" }}>
-                    <Container style={{ marginBottom: "10px", height: "80px", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
+                    <Container style={{ marginBottom: "10px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
                         <Row className="fadeIn">
                             <Col style={{ marginTop: "5px" }}>
                                 <Form.Check id="toggleFlippedYAxis" draggable={false} type="checkbox" className="custom-switch" custom="true" label="Flip Y Axis" checked={this.state.isYAxisFlipped} onChange={(e) => this.toggleSetting("isYAxisFlipped")} />
@@ -327,17 +326,19 @@ export default class TFTItemizer extends Component {
                             </Col>
                         </Row>
                     </Container>
-                    <Container style={{ marginBottom: "15px", height: "80px", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
+                    <Container style={{ marginBottom: "15px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
                         <Row className="fadeIn">
                             <Col>
                                 {hoveredItemText}
                             </Col>
                         </Row>
                     </Container>
-                    <div style={{backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
-                        <Container className="fadeIn" style={{ display: "inline-block", margin: "12px", padding: "0px" }}>
-                            {topRow}
-                            {grid}
+                    <div style={{display: "flex", justifyContent: "center", backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%"}}>
+                        <Container className="fadeIn" style={{ margin: "12px", padding: "0px" }}>
+                            <div style={{ width: "100%", height: "100%", backgroundColor: "#000000", border: "solid 3px #000000", borderRadius: "5px"}}>
+                                {topRow}
+                                {grid}
+                            </div>
                         </Container>
                     </div>
                 </div>

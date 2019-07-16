@@ -70,7 +70,7 @@ export default class Item extends Component {
             }
             let description = null;
             if (this.props.isDescriptionVisible) {
-                description = <div style={{ position: "absolute", textAlign: "center", zIndex: "6", top: "0", left: "0", width: "64px", height: "64px", color: "#FFFFFF", fontSize: "10px", pointerEvents: "none" }}>
+                description = <div style={{ position: "absolute", textAlign: "center", zIndex: "20", top: "2px", left: "0px", width: "100%", height: "100%", color: "#FFFFFF", fontSize: "10px", pointerEvents: "none" }}>
                     <span style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
                         {descriptionText}
                     </span>
@@ -91,7 +91,7 @@ export default class Item extends Component {
 
             if (this.props.highlightAlmostBuyableItems) {
                 if (!this.props.isHoverHighlighted && !(this.props.craftableItemAmount > 0 || this.props.isAlmostBuyable)) {
-                    overlayElements.push(<span style={{ position: "absolute", zIndex: "3", top: "0px", left: "0px", height: "64px", width: "64px", backgroundColor: "rgba(0, 0, 0, 0.5)" }} key={"ItemAlmostBuyable-" + this.props.itemName}></span>);
+                    overlayElements.push(<span style={{ position: "absolute", zIndex: "3", top: "0px", left: "0px", height: "100%", width: "100%", backgroundColor: "rgba(0, 0, 0, 0.5)" }} key={"ItemAlmostBuyable-" + this.props.itemName}></span>);
                 }
             }
 
@@ -128,14 +128,14 @@ export default class Item extends Component {
 
             return <div style={divStyle}>
                 {description}
-                <div style={{ position: "absolute", zIndex: "5", top: "0", left: "0", width: "64px", height: "64px", pointerEvents: "none" }}>
+                <div style={{ position: "absolute", zIndex: "5", top: "0", left: "0", width: "100%", height: "100%", pointerEvents: "none" }}>
                     {overlayElements}
                 </div>
                 {missingItemImage}
                 <Image
                     style={imageStyle}
-                    width={64}
-                    height={64}
+                    width={"100%"}
+                    height={"100%"}
                     src={src}
                     alt={this.props.itemName}
                     onClick={(e) => this.props.onItemClick(e, this.props.itemName)}
@@ -148,7 +148,7 @@ export default class Item extends Component {
             </div>
         } else {
             console.log("Unknown item! " + this.props.itemName)
-            return <div style={{width: "64px", height: "64px"}}>Unknown item!</div>;
+            return <div style={{width: "100%", height: "100%"}}>Unknown item!</div>;
         }
     }
 

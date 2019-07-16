@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router'
+import { withRouter, Switch } from 'react-router'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
@@ -18,6 +18,8 @@ import ContactPage from './components/contact-page.component.js';
 
 const BG = "dark"; // primary, dark, light
 const VARIANT = "dark"; // dark, light
+
+const reloadWindow = () => window.location.reload();
 
 class App extends Component {
 
@@ -58,9 +60,14 @@ class App extends Component {
           </Navbar>
 
           {/* <div style={{width: "50%", transform: "translate(50%, 50%) scale(2)"}}> */}
+          <Switch>
             <Route exact path="/" component={TFTItemizer} />
             <Route exact path="/about" component={AboutPage} />
             <Route exact path="/contact" component={ContactPage} />
+            <Route exact path="/sitemap.xml" onEnter={reloadWindow} />
+            <Route exact path="/robots.txt" onEnter={reloadWindow} />
+            <Route component={TFTItemizer} />
+          </Switch>
           {/* </div> */}
         </div>
       </Router>

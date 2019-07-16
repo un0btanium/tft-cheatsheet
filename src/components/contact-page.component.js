@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import { Form, Container, Row, Col } from 'react-bootstrap';
-
 
 export default class ContactPage extends Component {
     

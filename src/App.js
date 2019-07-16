@@ -13,6 +13,8 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 
 import TFTItemizer from './components/tft-itemizer.component';
+import AboutPage from './components/about-page.component.js';
+import ContactPage from './components/contact-page.component.js';
 
 const BG = "dark"; // primary, dark, light
 const VARIANT = "dark"; // dark, light
@@ -46,7 +48,10 @@ class App extends Component {
                   <Nav.Link as={Link} variant="light" to="/">Itemizer</Nav.Link>
                 </Nav>
 
-                <Nav></Nav>
+                <Nav>
+                  <Nav.Link as={Link} variant="light" to="/about">About</Nav.Link>
+                  <Nav.Link as={Link} variant="light" to="/contact">Contact</Nav.Link>
+                </Nav>
 
               </div>
             </Container>
@@ -54,6 +59,8 @@ class App extends Component {
 
           {/* <div style={{width: "50%", transform: "translate(50%, 50%) scale(2)"}}> */}
             <Route exact path="/" component={TFTItemizer} />
+            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/contact" component={ContactPage} />
           {/* </div> */}
         </div>
       </Router>

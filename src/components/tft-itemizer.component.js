@@ -296,7 +296,7 @@ export default class TFTItemizer extends Component {
                 
                 <div style={{ display: "inline-block", width: "600px" }}>
                     <Container style={{ marginBottom: "10px", height: "80px", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
-                        <Row >
+                        <Row className="fadeIn">
                             <Col style={{ marginTop: "5px" }}>
                                 <Form.Check id="toggleFlippedYAxis" draggable={false} type="checkbox" className="custom-switch" custom="true" label="Flip Y Axis" checked={this.state.isYAxisFlipped} onChange={(e) => this.toggleSetting("isYAxisFlipped")} />
                             </Col>
@@ -307,7 +307,7 @@ export default class TFTItemizer extends Component {
                                 <Form.Check id="toggleDescriptionText" type="checkbox" className="custom-switch" custom="true" label="Show Descriptions" checked={this.state.isDescriptionVisible} onChange={(e) => this.toggleSetting("isDescriptionVisible")} />
                             </Col>
                         </Row>
-                        <Row >
+                        <Row className="fadeIn">
                             <Col xs={4}>
                                 <Form.Check id="toggleIsOtherHalfIgnored" type="checkbox" className="custom-switch" custom="true" label="Hide Duplicate Items" checked={this.state.isOtherHalfIgnored} onChange={(e) => this.toggleSetting("isOtherHalfIgnored")} />
                             </Col>
@@ -318,7 +318,7 @@ export default class TFTItemizer extends Component {
                                 <Form.Check id="toggleHighlightOnHover" type="checkbox" className="custom-switch" custom="true" label="Highlight on Hover" checked={this.state.highlightOnHover} onChange={(e) => this.toggleSetting("highlightOnHover")} />
                             </Col>
                         </Row>
-                        <Row >
+                        <Row className="fadeIn">
                             <Col xs={4}>
                             <Form.Check id="toggleAdditonalHighlighting" type="checkbox" className="custom-switch" custom="true" label="Highlight Borders" checked={this.state.additionalHighlighting} onChange={(e) => this.toggleSetting("additionalHighlighting")} />
                             </Col>
@@ -328,14 +328,14 @@ export default class TFTItemizer extends Component {
                         </Row>
                     </Container>
                     <Container style={{ marginBottom: "15px", height: "80px", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
-                        <Row >
+                        <Row className="fadeIn">
                             <Col>
                                 {hoveredItemText}
                             </Col>
                         </Row>
                     </Container>
                     <div style={{backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
-                        <Container style={{ display: "inline-block", margin: "12px", padding: "0px" }}>
+                        <Container className="fadeIn" style={{ display: "inline-block", margin: "12px", padding: "0px" }}>
                             {topRow}
                             {grid}
                         </Container>

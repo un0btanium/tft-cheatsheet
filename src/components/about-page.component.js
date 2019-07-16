@@ -15,6 +15,10 @@ export default class AboutPage extends Component {
                     <p>This tool for the League of Legends Teamfight Tactics gamemode provides you with a fast overview of your items and which options you have when it comes to combining them into more advanced ones. Add and remove items with ease and see everything you need to know via many customizable highlighting features.</p>
                     <p>I created this project in my freetime, because most of the other tools I found on the internet were always lacking in one or two aspects, so I took it upon myself to create a tool which would fit my needs. The result is shared on this website for everyone to use. I hope that it will help you to learn and improve as well as concentrate on the more important aspects of the game.</p>
                     <p>See you on the chess board, summoner!</p>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p>TFT Itemizer isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</p>
                 </div>
             </div>
         </div>

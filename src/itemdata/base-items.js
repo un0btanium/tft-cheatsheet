@@ -5,11 +5,11 @@ var baseItems = {
     },
     "Needlessly Large Rod": {
         img: "1058",
-        effect: "+20% Spell Damage (Abilities & Items)"
+        effect: "+20% Spell Damage"
     },
     "Recurve Bow": {
         img: "1043",
-        effect: "+15% Attack Speed"
+        effect: "+20% Attack Speed"
     },
     "Tear of the Goddess": {
         img: "3070",
@@ -29,7 +29,8 @@ var baseItems = {
     },
     "Spatula": {
         altimg: "spatula",
-        effect: "It must do something..."
+        effect: "Used to craft special items. When combined with another item, doubles that other items' stat power.",
+        effectShort: "Doubles the stat power of the other, 2nd item."
     }
 };
 

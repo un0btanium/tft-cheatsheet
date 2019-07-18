@@ -5,7 +5,7 @@ export default class ContactPage extends Component {
     
     render () {
         return <div style={{ display: "inline-block", width: "100%", height:"100%"}}>
-            <div style={{ margin: "auto", width: "600px", backgroundColor: "#4e5d6c", borderRadius: "5px", textAlign: "justify", marginTop: "100px" }}>
+            <div style={{ margin: "auto", width: "600px", backgroundColor: "#4e5d6c", borderRadius: "5px", textAlign: "justify", marginTop: "100px", boxShadow: '2px 2px 5px #000000' }}>
                 <div className="fadeIn" style={{margin: "5px", padding: "30px"}}>
                     <h2 style={{ textAlign: "center"}}>Contact</h2>
                     <br/>

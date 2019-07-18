@@ -294,7 +294,7 @@ export default class TFTItemizer extends Component {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "25px", marginBottom: "50px"  }}>
                 
                 <div style={{ display: "inline-block", width: "600px" }}>
-                    <Container style={{ marginBottom: "10px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
+                    <Container style={{ marginBottom: "10px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
                             <Col style={{ marginTop: "5px" }}>
                                 <Form.Check id="toggleFlippedYAxis" draggable={false} type="checkbox" className="custom-switch" custom="true" label="Flip Y Axis" checked={this.state.isYAxisFlipped} onChange={(e) => this.toggleSetting("isYAxisFlipped")} />
@@ -326,14 +326,14 @@ export default class TFTItemizer extends Component {
                             </Col>
                         </Row>
                     </Container>
-                    <Container style={{ marginBottom: "15px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px"}}>
+                    <Container style={{ marginBottom: "15px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
                             <Col>
                                 {hoveredItemText}
                             </Col>
                         </Row>
                     </Container>
-                    <div style={{display: "flex", justifyContent: "center", backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%"}}>
+                    <div style={{display: "flex", justifyContent: "center", backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
                         <Container className="fadeIn" style={{ margin: "12px", padding: "0px" }}>
                             <div style={{ width: "100%", height: "100%", backgroundColor: "#000000", border: "solid 3px #000000", borderRadius: "5px"}}>
                                 {topRow}

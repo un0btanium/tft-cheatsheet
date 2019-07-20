@@ -36,7 +36,7 @@ export default class Item extends Component {
             if (this.props.item.img === null || this.props.item.img === undefined) {
                 src = altimages[this.props.item.altimg];
             } else {
-                src = "http://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/" + this.props.item.img + ".png";
+                src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + this.props.item.img + ".png";
             }
 
             let imageStyle = { border: "solid 3px #000000" }; // black
@@ -101,7 +101,7 @@ export default class Item extends Component {
                 if (this.props.missingItem.img === null || this.props.missingItem.img === undefined) {
                     missingItemSrc = altimages[this.props.missingItem.altimg];
                 } else {
-                    missingItemSrc = "http://ddragon.leagueoflegends.com/cdn/9.13.1/img/item/" + this.props.missingItem.img + ".png";
+                    missingItemSrc = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + this.props.missingItem.img + ".png";
                 }
                 missingItemImage = <Image
                     key={"MissingItemImage" + this.props.itemName}

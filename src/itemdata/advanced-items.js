@@ -6,8 +6,8 @@ let advancedItems = {
     },
     "Hextech Gunblade": {
         img: "3146",
-        effect: "Heal 25% of all damage dealt, except damage dealt from item effects",
-        effectShort: "Heal 25% of all damage dealt"
+        effect: "Heal 33% of all damage dealt, except damage dealt from item effects",
+        effectShort: "Heal 33% of all damage dealt"
     },
     "Sword of the Divine": {
         img: "3131",
@@ -85,7 +85,7 @@ let advancedItems = {
     },
     "Cursed Blade": {
         altimg: "cursedblade",
-        effect: "On every Basic Attack: 20% chance to shrink the target, removing 1 star. Can reduce targets to 0 star.",
+        effect: "On every Basic Attack: 25% chance to shrink the target, removing 1 star. Can reduce targets to 0 star.",
         effectShort: "Basic attacks can shrink the target by one Star"
     },
     "Titanic Hydra": {
@@ -108,7 +108,7 @@ let advancedItems = {
     },
     "Hush": {
         altimg: "hush",
-        effect: "On every Basic Attack: 30% chance to silence the target",
+        effect: "On every Basic Attack: 30% chance to silence the target for 5s",
         effectShort: "Basic Attacks can silence the target"
     },
     "Redemption": {
@@ -127,7 +127,7 @@ let advancedItems = {
     },
     "Sword Breaker": {
         altimg: "swordbreaker",
-        effect: "On every Basic attack: 20% chance to disarm the target",
+        effect: "On every Basic attack: 25% chance to disarm the target for 4s",
         effectShort: "Basic Attacks can disarm the target"
     },
     "Red Buff": {

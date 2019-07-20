@@ -270,12 +270,12 @@ export default class TFTItemizer extends Component {
                 descriptionText = "No description available! Check back later :)";
             }
             hoveredItemText = <div style={{ textAlign: "center"}}>
-                <h5 style={{margin: "4px 0px 0px 0px"}}>{this.state.hoveredItem.itemName}</h5>
+                <h5 style={{margin: "0px 0px 0px 0px"}}>{this.state.hoveredItem.itemName}</h5>
                 <p style={{margin: "auto auto auto auto", maxWidth: "525px", wordWrap: "normal"}}>{descriptionText}</p>
             </div>
         } else {
             hoveredItemText = <div style={{ textAlign: "center"}}>
-            <p style={{margin: "3px auto auto auto", maxWidth: "550px", wordWrap: "normal"}}>If you acquire a base item in your match, <b>Leftclick</b> on the item. <b>Rightclick</b> will remove it again. If you are combining two items into an upgraded one, <b>Leftclick</b> on the item you just crafted to remove the two required base items.</p>
+            <p style={{margin: "0px auto auto auto", maxWidth: "550px", wordWrap: "normal"}}>If you acquire a base item in your match, <b>Leftclick</b> on the item. <b>Rightclick</b> will remove it again. If you are combining two items into an upgraded one, <b>Leftclick</b> on the item you just crafted to remove the two required base items.</p>
         </div>
         }
 
@@ -291,18 +291,17 @@ export default class TFTItemizer extends Component {
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script> */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "25px", marginBottom: "50px"  }}>
-                
-                <div style={{ display: "inline-block", width: "600px" }}>
-                    <Container style={{ marginBottom: "10px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 0px 0px" }}>
+                <div style={{ maxWidth: "640px" }}>
+                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
-                            <Col style={{ marginTop: "5px" }}>
+                            <Col>
                                 <Form.Check id="toggleFlippedYAxis" draggable={false} type="checkbox" className="custom-switch" custom="true" label="Flip Y Axis" checked={this.state.isYAxisFlipped} onChange={(e) => this.toggleSetting("isYAxisFlipped")} />
                             </Col>
-                            <Col style={{ marginTop: "5px" }}>
+                            <Col>
                                 <Form.Check id="toggleYAxisSide" draggable={false} type="checkbox" className="custom-switch" custom="true" label="Rightsided Y Axis" checked={this.state.isYAxisRightSided} onChange={(e) => this.toggleSetting("isYAxisRightSided")} />
                             </Col>
-                            <Col style={{ marginTop: "5px" }}>
+                            <Col>
                                 <Form.Check id="toggleDescriptionText" type="checkbox" className="custom-switch" custom="true" label="Show Descriptions" checked={this.state.isDescriptionVisible} onChange={(e) => this.toggleSetting("isDescriptionVisible")} />
                             </Col>
                         </Row>
@@ -326,20 +325,20 @@ export default class TFTItemizer extends Component {
                             </Col>
                         </Row>
                     </Container>
-                    <Container style={{ marginBottom: "15px", height: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "85px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
                             <Col>
                                 {hoveredItemText}
                             </Col>
                         </Row>
                     </Container>
-                    <div style={{display: "flex", justifyContent: "center", backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
-                        <Container className="fadeIn" style={{ margin: "12px", padding: "0px" }}>
-                            <div style={{ width: "100%", height: "100%", backgroundColor: "#000000", border: "solid 3px #000000", borderRadius: "5px"}}>
+                    <div style={{backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
+                        <div className="fadeIn" style={{ display: "flex", padding: "0px", margin: "0px" }}>
+                            <Container style={{ padding: "0px", backgroundColor: "#000000", margin: "12px", border: "solid 3px #000000", borderRadius: "5px"}}>
                                 {topRow}
                                 {grid}
-                            </div>
-                        </Container>
+                            </Container>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -48,3 +48,135 @@ code {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+
+
+
+.champion-image-tier1:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #FFFFFF;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.champion-image-tier1:hover:after {
+  opacity: 0.0;
+}
+
+
+.champion-image-tier2:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #00e33d;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.champion-image-tier2:hover:after {
+  opacity: 0.0;
+}
+
+.champion-image-tier3:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #0099ff;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.champion-image-tier3:hover:after {
+  opacity: 0.0;
+}
+
+
+.champion-image-tier4:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #cc00ff;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.champion-image-tier4:hover:after {
+  opacity: 0.0;
+}
+
+.champion-image-tier5:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #ffdd00;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.champion-image-tier5:hover:after {
+  opacity: 0.0;
+}
+
+
+.champion-image-selected:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #ff0000;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.champion-image-selected:hover:after {
+  opacity: 0.2;
+}
+
+.champion-image-default:after {
+  content:'';
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  background: #ffffff;
+  opacity: 0.0;
+  pointer-events: none;
+}
+
+.champion-image-default:hover:after {
+  opacity: 0.2;
+}

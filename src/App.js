@@ -10,7 +10,6 @@ import "./theme/bootstrap.css";
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
 
 import TFTItemizer from './components/tft-itemizer.component';
 import TFTChampionGrid from './components/tft-champion-grid.component';

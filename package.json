@@ -1,7 +1,8 @@
 {
-  "name": "tft-itemizer",
+  "name": "tft-cheatsheet",
   "version": "1.0.0",
   "private": true,
+  "homepage":"https://un0btanium.github.io/tft-cheatsheet",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
@@ -19,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "scp -r ./build/* tft-itemizer.com:/home/build/"
+    "deploy": "scp -r ./build/* tft-cheatsheet.com:/home/build/"
   },
   "eslintConfig": {
     "extends": "react-app"

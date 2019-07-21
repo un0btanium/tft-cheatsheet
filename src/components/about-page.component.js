@@ -10,7 +10,7 @@ export default class AboutPage extends Component {
                 <div className="fadeIn" style={{margin: "5px", padding: "30px"}}>
                     <h2 style={{ textAlign: "center"}}>About TFT CheatSheet</h2>
                     <br/>
-                    <p>This tool for the League of Legends Teamfight Tactics gamemode provides you with a fast overview of your items and champions and which options you have when it comes to combining items into more advanced ones as well as your options when creating your team composition. Add and remove items/champions with ease and see everything you need to know via many customizable highlighting features.</p>
+                    <p>This tool for the League of Legends Teamfight Tactics gamemode provides you with a fast overview of your items and champions and which options you have when it comes to combining items into more advanced ones as well as your options when creating your team composition. Add and remove items/champions with ease and see everything you need to know via many customizable highlighting features. If you set your game to Borderless Fullscreen window mode, you can quickly Alt+TAB in and out of your game.</p>
                     <p>I created this project in my freetime, because most of the other tools I found on the internet were always lacking in one or two aspects, so I took it upon myself to create a tool which would fit my needs. The result is shared on this website for everyone to use. I hope that it will help you to learn and improve as well as concentrate on the more important aspects of the game.</p>
                     <p>See you on the chess board, summoner!</p>
                     <br/>

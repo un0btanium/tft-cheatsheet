@@ -21,12 +21,14 @@ export default class TFTChampionGrid extends Component {
             championGridShowOriginAndClassTooltips: true
         }
 
+        let isFirstVisit = true;
         for (let setting in defaultSettings) {
             let localStorageEntry = localStorage.getItem(setting);
             if (localStorageEntry === null && (localStorageEntry !== "true" || localStorageEntry !== "false")) {
                 localStorage.setItem(setting, defaultSettings[setting]);
             } else {
                 defaultSettings[setting] = (localStorage.getItem(setting) === "true");
+                isFirstVisit = false;
             }
         }
 
@@ -95,9 +97,15 @@ export default class TFTChampionGrid extends Component {
                 }
             }
         }
+            
+        let championsByName = {};
+        for (let champion of champions) {
+            championsByName[champion.name] = champion;
+        }
 
         this.state = {
             champions: champions,
+            championsByName: championsByName,
 
             littleLegendLevel: 1,
 
@@ -123,6 +131,53 @@ export default class TFTChampionGrid extends Component {
         this.onClassOrOriginHover = this.onClassOrOriginHover.bind(this);
         this.onChampionClick = this.onChampionClick.bind(this);
 
+
+        if (isFirstVisit) {
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Lucian"]);
+            }, 1000);
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Tristana"]);
+            }, 2000);
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Kennen"]);
+            }, 3000);
+            
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Poppy"]);
+            }, 4000);
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Garen"]);
+            }, 5000);
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Fiora"]);
+            }, 6000);
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Draven"]);
+            }, 7000);
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Yasuo"]);
+            }, 8000);
+            
+
+            setTimeout(() => {
+                this.toggleChampionSelection(championsByName["Lucian"]);
+                this.toggleChampionSelection(championsByName["Tristana"]);
+                this.toggleChampionSelection(championsByName["Kennen"]);
+                this.toggleChampionSelection(championsByName["Poppy"]);
+                this.toggleChampionSelection(championsByName["Garen"]);
+                this.toggleChampionSelection(championsByName["Fiora"]);
+                this.toggleChampionSelection(championsByName["Draven"]);
+                this.toggleChampionSelection(championsByName["Yasuo"]);
+            }, 11000);
+        }
     }
 
     importImages(imageContext) {
@@ -255,6 +310,44 @@ export default class TFTChampionGrid extends Component {
             </Col>
         });
 
+        let selectedChampionsByTier = [];
+        let selectedChampionList = [];
+        for (let championName in this.state.selectedChampions) {
+            console.log(championName);
+            if (this.state.selectedChampions[championName]) {
+                selectedChampionsByTier.push(this.state.championsByName[championName]);
+            }
+        }
+        selectedChampionsByTier = selectedChampionsByTier.sort((champion1, champion2) => {
+            if (champion1.tier > champion2.tier) {
+                return -1;
+            } else if (champion1.tier < champion2.tier) {
+                return 1;
+            }
+            return 0;
+        });
+        for (let champion of selectedChampionsByTier) {
+            if (selectedChampionList.length < 11) {
+                selectedChampionList.push(<Col sm={1} style={{...colStyle, maxWidth: "8.2%", margin: "2px"}} key={"ChampionList-" + champion.name}>
+                    <ChampionContainer
+                        x={-1} y={-1}
+                        tooltipDirection="bottom"
+                        champions={[champion]}
+                        className={null}
+                        originName={null}
+                        selectedChampions={[]}
+                        selectedClasses={this.state.selectedClasses}
+                        selectedOrigins={this.state.selectedOrigins}
+                        showChampionTierBorder={this.state.championGridShowChampionTierBorder}
+                        showChampionTierOverlay={this.state.championGridShowChampionTierOverlay}
+                        showChampionTooltip={this.state.championGridShowChampionTooltip}
+                        onChampionHover={this.onChampionHover}
+                        onChampionClick={this.onChampionClick}
+                    />
+                </Col>);
+            }
+        }
+
 
         return <div style={{ display: "inline-block", width: "100%", height:"100%"}}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 25px 0px" }}>
@@ -277,22 +370,15 @@ export default class TFTChampionGrid extends Component {
                             </Col>
                         </Row>
                     </Container>
-                    {/* <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "150px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
-                        <Row className="fadeIn">
-                            <Col sm={1}>
-                                <div style={{ display: "block", width: "100%", height: "100%", margin: "5px", textAlign: "center", background: "#000000", borderRadius: "5px"}}>
-                                    <h1>{this.state.littleLegendLevel}</h1>
-                                </div>
-                            </Col>
-                            <Col sm={11}>
-
-                            </Col>
+                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px", height: "80px", maxHeight: "80px", width: "100%", maxWidth: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+                        <Row className="fadeIn" key="SelectedChampionOverviewList" style={{ ...rowStyle, margin: "5px"}}>
+                            {selectedChampionList}
                         </Row>
-                    </Container> */}
+                    </Container>
                     <div style={{backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
                         <div className="fadeIn" style={{ display: "flex", padding: "0px", margin: "0px" }}>
                             <Container style={{ padding: "0px", backgroundColor: "#000000", margin: "12px", border: "solid 3px #000000", borderRadius: "5px"}}>
-                                <Row style={rowStyle} key={"ClassesRow"}>
+                                <Row style={rowStyle} key="ClassesRow">
                                     <Col style={{...colStyle, visibility: "hidden"}} key={"HiddenCornerCol"}>
                                         <Image
                                             style={{ margin: "0px", padding: "2px 10px 7px 10px"  }}
@@ -353,34 +439,38 @@ export default class TFTChampionGrid extends Component {
         e.preventDefault();
 
         if (e.type === 'click') {
-            let selectedChampions = {...this.state.selectedChampions};
-            let selectedClasses = {...this.state.selectedClasses};
-            let selectedOrigins = {...this.state.selectedOrigins};
-
-            if (selectedChampions[champion.name]) { // is selected, got unselected, remove
-                for (let className of champion.classes) {
-                    selectedClasses[className] = selectedClasses[className]-1;
-                }
-                for (let originName of champion.origins) {
-                    selectedOrigins[originName] = selectedOrigins[originName]-1;
-                }
-            } else { // is not selected, got selected, add
-                for (let className of champion.classes) {
-                    selectedClasses[className] = selectedClasses[className]+1;
-                }
-                for (let originName of champion.origins) {
-                    selectedOrigins[originName] = selectedOrigins[originName]+1;
-                }
-            }
-
-            selectedChampions[champion.name] = !selectedChampions[champion.name];
-            this.setState({
-                selectedChampions: selectedChampions,
-                selectedClasses: selectedClasses,
-                selectedOrigins: selectedOrigins
-            })
+            this.toggleChampionSelection(champion);
         } else if (e.type === 'contextmenu') {
             
         }
+    }
+
+    toggleChampionSelection(champion) {
+        let selectedChampions = {...this.state.selectedChampions};
+        let selectedClasses = {...this.state.selectedClasses};
+        let selectedOrigins = {...this.state.selectedOrigins};
+
+        if (selectedChampions[champion.name]) { // is selected, got unselected, remove
+            for (let className of champion.classes) {
+                selectedClasses[className] = selectedClasses[className]-1;
+            }
+            for (let originName of champion.origins) {
+                selectedOrigins[originName] = selectedOrigins[originName]-1;
+            }
+        } else { // is not selected, got selected, add
+            for (let className of champion.classes) {
+                selectedClasses[className] = selectedClasses[className]+1;
+            }
+            for (let originName of champion.origins) {
+                selectedOrigins[originName] = selectedOrigins[originName]+1;
+            }
+        }
+
+        selectedChampions[champion.name] = !selectedChampions[champion.name];
+        this.setState({
+            selectedChampions: selectedChampions,
+            selectedClasses: selectedClasses,
+            selectedOrigins: selectedOrigins
+        })
     }
 }

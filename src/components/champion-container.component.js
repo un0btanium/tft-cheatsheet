@@ -99,7 +99,7 @@ export default class ChampionContainer extends Component {
                         <div style={{ width: championPictureStretch, height: "100%", maxWidth: championPictureStretch, textIndent: championPictureTextIndentNegative }}>
                             
                             <OverlayTrigger
-                                placement="top"
+                                placement={this.props.tooltipDirection ? this.props.tooltipDirection : "top"}
                                 delay={{ show: tooltipShowDelay, hide: 0 }}
                                 overlay={
                                     <Popover

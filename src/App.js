@@ -21,9 +21,11 @@ import ContactPage from './components/contact-page.component.js';
 const BG = "dark"; // primary, dark, light
 const VARIANT = "dark"; // dark, light
 
+
 const reloadWindow = () => window.location.reload();
 
-const WEBSITE_URL = "tft-itemizer.com";
+const WEBSITE_URL = "tft-cheatsheet.com";
+const PATCH_VERSION = "9.14.1";
 
 class App extends Component {
 
@@ -46,31 +48,30 @@ class App extends Component {
 
     return (
       <Router>
-          <Navbar bg={BG} variant={VARIANT} style={{ boxShadow: '0px 2px 5px #000000'}}>
-            <Container>
-              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-              <Navbar.Brand>
-                <a href="http://tft-itemizer.com">
-                  <img src={logo} width="35" height="35" alt="Logo" />
-                  {' tft-itemizer.com'}
-                </a>
-              </Navbar.Brand>
-              
-              <div className="collapse navbar-collapse">
+          <Navbar bg={BG} variant={VARIANT} expand="lg" style={{ boxShadow: '0px 2px 5px #000000'}}>
+            <Navbar.Brand style={{ marginLeft: "15%"}}>
+              <a href={"http://" + WEBSITE_URL}>
+                <img src={logo} width="35" height="35" alt="Logo" />
+                <b>{' ' + WEBSITE_URL}</b>
+              </a>
+            </Navbar.Brand>
 
-                <Nav className="mr-auto">
-                  <Nav.Link as={Link} variant="light" to="/items">Items</Nav.Link>
-                  <Nav.Link as={Link} variant="light" to="/champions">Champions</Nav.Link>
-                  <Nav.Link as={Link} variant="light" to="/multiview">Multiview</Nav.Link>
-                </Nav>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav" style={{ marginRight: "10%"}}>
 
-                <Nav>
-                  <Nav.Link as={Link} variant="light" to="/about">About</Nav.Link>
-                  <Nav.Link as={Link} variant="light" to="/contact">Contact</Nav.Link>
-                </Nav>
+              <Nav className="mr-auto">
+                <Nav.Link as={Link} variant="light" to="/items"><b>Items</b></Nav.Link>
+                <Nav.Link as={Link} variant="light" to="/champions"><b>Champions</b></Nav.Link>
+                <Nav.Link as={Link} variant="light" to="/multiview"><b>Multiview</b></Nav.Link>
+              </Nav>
 
-              </div>
-            </Container>
+              <Nav>
+                <Nav.Link as={Link} variant="light" to="/about"><b>About</b></Nav.Link>
+                <Nav.Link as={Link} variant="light" to="/contact"><b>Contact</b></Nav.Link>
+                <Navbar.Text style={{ color: "rgb(223, 105, 26)", marginLeft: "20px"}}><b>Patch {PATCH_VERSION}</b></Navbar.Text>
+              </Nav>
+            </Navbar.Collapse>
+
           </Navbar>
           <div>
           <div style={{ width: "100%", height:"100%"}}>

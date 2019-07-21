@@ -21,6 +21,7 @@ export default class TFTItemizer extends Component {
     constructor(props) {
         super(props);
 
+
         let defaultSettings = {
             isYAxisFlipped: false,
             isYAxisRightSided: false,
@@ -32,12 +33,15 @@ export default class TFTItemizer extends Component {
             highlightOnHover: false
         }
 
+
+        let isFirstVisit = true;
         for (let setting in defaultSettings) {
             let localStorageEntry = localStorage.getItem(setting);
             if (localStorageEntry === null && (localStorageEntry !== "true" || localStorageEntry !== "false")) {
                 localStorage.setItem(setting, defaultSettings[setting]);
             } else {
                 defaultSettings[setting] = (localStorage.getItem(setting) === "true");
+                isFirstVisit = false;
             }
         }
         
@@ -47,6 +51,7 @@ export default class TFTItemizer extends Component {
             selectedBaseItems[baseItem] = 0;
             order.push(baseItem);
         }
+
 
         this.state = {
             selectedBaseItems: selectedBaseItems,
@@ -67,6 +72,53 @@ export default class TFTItemizer extends Component {
         this.toggleSetting = this.toggleSetting.bind(this);
         this.onItemHover = this.onItemHover.bind(this);
         this.onItemClick = this.onItemClick.bind(this);
+
+
+        if (isFirstVisit) {
+            
+            setTimeout(() => {
+                let selectedBaseItems2 = {...this.state.selectedBaseItems};
+                selectedBaseItems2["Recurve Bow"] = selectedBaseItems2["Recurve Bow"]+1;
+                this.setState({
+                    selectedBaseItems: selectedBaseItems2
+                });
+            }, 1500);
+
+            setTimeout(() => {
+                let selectedBaseItems2 = {...this.state.selectedBaseItems};
+                selectedBaseItems2["Chain Vest"] = selectedBaseItems2["Chain Vest"]+1;
+                this.setState({
+                    selectedBaseItems: selectedBaseItems2
+                });
+            }, 3000);
+
+            setTimeout(() => {
+                let selectedBaseItems2 = {...this.state.selectedBaseItems};
+                selectedBaseItems2["Chain Vest"] = selectedBaseItems2["Chain Vest"]+1;
+                this.setState({
+                    selectedBaseItems: selectedBaseItems2
+                });
+            }, 4500);
+            
+            setTimeout(() => {
+                let selectedBaseItems2 = {...this.state.selectedBaseItems};
+                selectedBaseItems2["Recurve Bow"] = Math.max(0, selectedBaseItems2["Recurve Bow"]-1);
+                selectedBaseItems2["Chain Vest"] = Math.max(0, selectedBaseItems2["Chain Vest"]-1);
+                this.setState({
+                    selectedBaseItems: selectedBaseItems2
+                });
+                
+            }, 6000);
+
+            setTimeout(() => {
+                let selectedBaseItems2 = {...this.state.selectedBaseItems};
+                selectedBaseItems2["Chain Vest"] = Math.max(0, selectedBaseItems2["Chain Vest"]-1);
+                this.setState({
+                    selectedBaseItems: selectedBaseItems2
+                });
+                
+            }, 7500);
+        }
     }
 
     render () {

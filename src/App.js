@@ -23,6 +23,8 @@ const VARIANT = "dark"; // dark, light
 
 const reloadWindow = () => window.location.reload();
 
+const WEBSITE_URL = "tft-itemizer.com";
+
 class App extends Component {
 
 
@@ -30,6 +32,12 @@ class App extends Component {
     super(props);
 
     this.state = {};
+
+    let url = '' + window.location.href;
+    if (!(url.includes("localhost:3000") || url.includes(WEBSITE_URL))) {
+      console.log("Yo wtf u doin?");
+      window.location.assign("http://" + WEBSITE_URL + "/");
+    }
 
     // TODO axios request latest league patch for icon url
   }
@@ -41,9 +49,11 @@ class App extends Component {
           <Navbar bg={BG} variant={VARIANT} style={{ boxShadow: '0px 2px 5px #000000'}}>
             <Container>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-              <Navbar.Brand as={Link} to="/">
-                <img src={logo} width="35" height="35" alt="Logo" />
-                {' TFT Itemizer'}
+              <Navbar.Brand>
+                <a href="http://tft-itemizer.com">
+                  <img src={logo} width="35" height="35" alt="Logo" />
+                  {' tft-itemizer.com'}
+                </a>
               </Navbar.Brand>
               
               <div className="collapse navbar-collapse">
@@ -62,7 +72,13 @@ class App extends Component {
               </div>
             </Container>
           </Navbar>
-
+          <div>
+          <div style={{ width: "100%", height:"100%"}}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "0x 0px 0px 0px" }}>
+                <iframe style={{marginTop: "25px"}} frameBorder="0" border="0" width="320" height="50" title="Amazon" src="https://rcm-eu.amazon-adsystem.com/e/cm?o=3&p=288&l=ez&f=ifr&linkID=16a5d25b2b5cdbac352adcd7eddf3054&t=tftcheatsheet-21&tracking_id=tftcheatsheet-21"></iframe>
+              </div>
+            </div>
+          </div>
           {/* <div style={{width: "50%", transform: "translate(50%, 50%) scale(2)"}}> */}
           <Switch>
             <Route exact path="/" component={TFTItemizer} />

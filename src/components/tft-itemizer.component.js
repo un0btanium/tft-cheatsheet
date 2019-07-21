@@ -291,7 +291,7 @@ export default class TFTItemizer extends Component {
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script> */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 0px 0px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 25px 0px" }}>
                 <div style={{ maxWidth: "640px" }}>
                     <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">

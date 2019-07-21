@@ -52,8 +52,8 @@ let advancedItems = {
     },
     "Locket of the Iron Solari": {
         img: "3190",
-        effect: "On Round Start: The weaerer and adjacent allies two space to left and right gain a 300 Health shield",
-        effectShort: "On Round Start: 300HP Shield"
+        effect: "On Round Start: The weaerer and adjacent allies two space to left and right gain a 200 Health shield",
+        effectShort: "On Round Start: 200HP Shield"
     },
     "Ionic Spark": {
         altimg: "ionicspark",

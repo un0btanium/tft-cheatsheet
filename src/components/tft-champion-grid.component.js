@@ -377,7 +377,7 @@ export default class TFTChampionGrid extends Component {
 
         if (selectedChampionList.length === 0) {
             selectedChampionList = <Col style={{ textAlign: "center"}}>
-                <p style={{margin: "5px auto", maxWidth: "600px", wordWrap: "normal"}}><b>Leftclick</b> on a champion to add him your team. <b>Leftclick</b> again to remove him from your team. <b>Rightclick</b> allows you to add origin and classes via the spatula items.</p>
+                <p style={{margin: "5px auto", maxWidth: "600px", wordWrap: "normal"}}><b>Leftclick</b> on a champion to add him to your team. <b>Leftclick</b> again to remove him. <b>Rightclick</b> allows you to add additional origins and classes via the spatula items.</p>
             </Col>
         }
 

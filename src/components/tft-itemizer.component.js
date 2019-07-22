@@ -331,8 +331,8 @@ export default class TFTItemizer extends Component {
             </div>
         } else {
             hoveredItemText = <div style={{ textAlign: "center"}}>
-            <p style={{margin: "0px auto auto auto", maxWidth: "550px", wordWrap: "normal"}}>If you acquire a base item in your match, <b>Leftclick</b> on the item. <b>Rightclick</b> will remove it again. If you are combining two items into an upgraded one, <b>Leftclick</b> on the item you just crafted to remove the two required base items.</p>
-        </div>
+                <p style={{margin: "0px auto auto auto", maxWidth: "550px", wordWrap: "normal"}}>If you acquire a base item in your match, <b>Leftclick</b> on the item. <b>Rightclick</b> will remove it again. If you are combining two items into an upgraded one, <b>Leftclick</b> on the item you just crafted to remove the two required base items.</p>
+            </div>
         }
 
 

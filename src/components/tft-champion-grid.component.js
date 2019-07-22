@@ -349,7 +349,7 @@ export default class TFTChampionGrid extends Component {
 
 
         return <div style={{ display: "inline-block", width: "100%", height:"100%"}}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 25px 0px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 15px 0px" }}>
                 <div style={{ maxWidth: "700px" }}>
                     <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "35px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">

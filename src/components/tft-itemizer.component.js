@@ -123,6 +123,10 @@ export default class TFTItemizer extends Component {
 
     render () {
 
+        // TODO REWORK THIS MESS FOR MORE FUNCTIONALITY
+        // DO I LIKE WITH THE CHAMPIONS: SEND SELECTEDBASEITEMS TO ITEMCOMPONENT AND LET IT HANDLE MOST THE HIGHLIGHTING.
+        // FIGURE OUT THE LIMITATIONS OF THIS IMPLEMENTATION AND IF IT CAN BE CHANGED
+
         let colStyle = {width: "100%", height: "100%", padding: "0px"};
         let rowStyle = {padding: "0px", margin: "0px"};
 
@@ -343,7 +347,7 @@ export default class TFTItemizer extends Component {
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script> */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 25px 0px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 15px 0px" }}>
                 <div style={{ maxWidth: "640px" }}>
                     <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">

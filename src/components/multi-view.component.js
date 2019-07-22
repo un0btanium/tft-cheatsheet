@@ -42,7 +42,7 @@ export default class MultiView extends Component {
         </div>
 
         if (this.state.swapSide) {
-            return <div style={{ display: "inline-block", marginBottom: "15px", width: "100%", height:"100%"}}>
+            return <div style={{ display: "inline-block", marginBottom: "0px", width: "100%", height:"100%"}}>
                 {settingsBox}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 0px 0px" }}>
                     <TFTChampionGrid></TFTChampionGrid>
@@ -50,7 +50,7 @@ export default class MultiView extends Component {
                 </div>
             </div>
         } else {
-            return <div style={{ display: "inline-block", marginBottom: "15px", width: "100%", height:"100%"}}>
+            return <div style={{ display: "inline-block", marginBottom: "0px", width: "100%", height:"100%"}}>
                 {settingsBox}
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 0px 0px" }}>
                     <TFTItemizer></TFTItemizer>

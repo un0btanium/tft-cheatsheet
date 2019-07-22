@@ -73,12 +73,14 @@ class App extends Component {
 
           </Navbar>
           <div>
-          <div style={{ width: "100%", height:"100%"}}>
+
+          {/* <div style={{ width: "100%", height:"100%"}}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "0x 0px 0px 0px" }}>
                 <iframe style={{marginTop: "25px"}} frameBorder="0" border="0" width="320" height="50" title="Amazon" src="https://rcm-eu.amazon-adsystem.com/e/cm?o=3&p=288&l=ez&f=ifr&linkID=16a5d25b2b5cdbac352adcd7eddf3054&t=tftcheatsheet-21&tracking_id=tftcheatsheet-21"></iframe>
               </div>
             </div>
-          </div>
+          </div> */}
+
           {/* <div style={{width: "50%", transform: "translate(50%, 50%) scale(2)"}}> */}
           <Switch>
             <Route exact path="/" component={TFTItemizer} />

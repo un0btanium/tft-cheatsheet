@@ -34,11 +34,11 @@ class App extends Component {
 
     this.state = {};
 
-    let url = '' + window.location.href;
-    if ( !(url.indexOf("localhost") >= 0 || url.indexOf(WEBSITE_URL) >= 0) ) {
-      console.log("Yo wtf u doin?");
-      window.location.assign("http://" + WEBSITE_URL + "/");
-    }
+    // let url = '' + window.location.href;
+    // if ( !(url.indexOf("localhost") >= 0 || url.indexOf(WEBSITE_URL) >= 0)  ) {
+    //   console.log("Yo wtf u doin?");
+    //   window.location.assign("http://" + WEBSITE_URL + "/");
+    // }
 
     // TODO axios request latest league patch for icon url
   }

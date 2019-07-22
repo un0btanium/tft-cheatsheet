@@ -313,7 +313,6 @@ export default class TFTChampionGrid extends Component {
         let selectedChampionsByTier = [];
         let selectedChampionList = [];
         for (let championName in this.state.selectedChampions) {
-            console.log(championName);
             if (this.state.selectedChampions[championName]) {
                 selectedChampionsByTier.push(this.state.championsByName[championName]);
             }

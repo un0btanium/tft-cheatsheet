@@ -24,6 +24,7 @@ const VARIANT = "dark"; // dark, light
 const reloadWindow = () => window.location.reload();
 
 const WEBSITE_URL = "tft-cheatsheet.com";
+const GITHUB_PAGE_URL = "un0btanium.github.io/tft-cheatsheet";
 const PATCH_VERSION = "9.14.1";
 
 class App extends Component {
@@ -34,11 +35,11 @@ class App extends Component {
 
     this.state = {};
 
-    let url = '' + window.location.href;
-    if (!(url.includes("localhost:3000") || url.includes(WEBSITE_URL))) {
-      console.log("Yo wtf u doin?");
-      window.location.assign("http://" + WEBSITE_URL + "/");
-    }
+    // let url = '' + window.location.href;
+    // if (!(url.includes("localhost:3000") || url.includes(WEBSITE_URL) || url.includes(GITHUB_PAGE_URL) || url.includes("tft-itemizer.com") )) {
+    //   console.log("Yo wtf u doin?");
+    //   window.location.assign("http://" + WEBSITE_URL + "/");
+    // }
 
     // TODO axios request latest league patch for icon url
   }
@@ -51,7 +52,7 @@ class App extends Component {
             <Navbar.Brand style={{ marginLeft: "15%"}}>
               <a href={"http://" + WEBSITE_URL}>
                 <img src={logo} width="35" height="35" alt="Logo" />
-                <b>{' ' + WEBSITE_URL}</b>
+                <b>{' ' + WEBSITE_URL} on Github</b>
               </a>
             </Navbar.Brand>
 

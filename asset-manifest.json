@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.369db9f4.chunk.css",
-    "main.js": "/static/js/main.d7b2c54f.chunk.js",
-    "main.js.map": "/static/js/main.d7b2c54f.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.266e55a5.chunk.css": "/static/css/2.266e55a5.chunk.css",
-    "static/js/2.32a60ece.chunk.js": "/static/js/2.32a60ece.chunk.js",
-    "static/js/2.32a60ece.chunk.js.map": "/static/js/2.32a60ece.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.f3b15b4989b52b42995cc4baf9ea5153.js": "/precache-manifest.f3b15b4989b52b42995cc4baf9ea5153.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.266e55a5.chunk.css.map": "/static/css/2.266e55a5.chunk.css.map",
-    "static/css/main.369db9f4.chunk.css.map": "/static/css/main.369db9f4.chunk.css.map",
-    "static/media/ionicspark.png": "/static/media/ionicspark.b6bca47c.png",
-    "static/media/spatula.png": "/static/media/spatula.b36011b8.png",
-    "static/media/zekesherald.png": "/static/media/zekesherald.1c7e2414.png"
+    "main.css": "/tft-cheatsheet/static/css/main.369db9f4.chunk.css",
+    "main.js": "/tft-cheatsheet/static/js/main.87192011.chunk.js",
+    "main.js.map": "/tft-cheatsheet/static/js/main.87192011.chunk.js.map",
+    "runtime~main.js": "/tft-cheatsheet/static/js/runtime~main.a3a98bb4.js",
+    "runtime~main.js.map": "/tft-cheatsheet/static/js/runtime~main.a3a98bb4.js.map",
+    "static/css/2.266e55a5.chunk.css": "/tft-cheatsheet/static/css/2.266e55a5.chunk.css",
+    "static/js/2.32a60ece.chunk.js": "/tft-cheatsheet/static/js/2.32a60ece.chunk.js",
+    "static/js/2.32a60ece.chunk.js.map": "/tft-cheatsheet/static/js/2.32a60ece.chunk.js.map",
+    "index.html": "/tft-cheatsheet/index.html",
+    "precache-manifest.ec86ff70f8f1c6a4c8ec1211e0274af3.js": "/tft-cheatsheet/precache-manifest.ec86ff70f8f1c6a4c8ec1211e0274af3.js",
+    "service-worker.js": "/tft-cheatsheet/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/tft-cheatsheet/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.369db9f4.chunk.css.map": "/tft-cheatsheet/static/css/main.369db9f4.chunk.css.map",
+    "static/media/ionicspark.png": "/tft-cheatsheet/static/media/ionicspark.b6bca47c.png",
+    "static/media/spatula.png": "/tft-cheatsheet/static/media/spatula.b36011b8.png",
+    "static/media/zekesherald.png": "/tft-cheatsheet/static/media/zekesherald.1c7e2414.png"
   }
 }

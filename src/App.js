@@ -37,7 +37,7 @@ class App extends Component {
     let url = '' + window.location.href;
     if ( !(url.indexOf("localhost:3000") > 0 || url.indexOf(WEBSITE_URL) > 0) ) {
       console.log("Yo wtf u doin?");
-      window.location.assign("http://www." + WEBSITE_URL + "/");
+      window.location.assign("http://" + WEBSITE_URL + "/");
     }
 
     // TODO axios request latest league patch for icon url

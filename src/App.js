@@ -35,7 +35,7 @@ class App extends Component {
     this.state = {};
 
     let url = '' + window.location.href;
-    if ( !(url.includes("localhost:3000") || url.includes(WEBSITE_URL)) ) {
+    if ( !(url.indexOf("localhost:3000") > 0 || url.indexOf(WEBSITE_URL) > 0) ) {
       console.log("Yo wtf u doin?");
       window.location.assign("http://" + WEBSITE_URL + "/");
     }

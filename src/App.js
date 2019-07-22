@@ -35,7 +35,7 @@ class App extends Component {
     this.state = {};
 
     let url = '' + window.location.href;
-    if ( !(url.indexOf("localhost:3000") > 0 || url.indexOf(WEBSITE_URL) > 0) ) {
+    if ( !(url.indexOf("localhost") >= 0 || url.indexOf(WEBSITE_URL) >= 0) ) {
       console.log("Yo wtf u doin?");
       window.location.assign("http://" + WEBSITE_URL + "/");
     }
@@ -72,7 +72,7 @@ class App extends Component {
             </Navbar.Collapse>
 
           </Navbar>
-          
+
           {/* <div>
             <div style={{ width: "100%", height:"100%"}}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "0x 0px 0px 0px" }}>

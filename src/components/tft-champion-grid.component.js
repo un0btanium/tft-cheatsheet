@@ -4,7 +4,7 @@ import { Form, Container, Row, Col, Image, OverlayTrigger, Popover } from 'react
 
 import ChampionContainer from './champion-container.component';
 
-import championData from '../championdata/champions';
+import champions from '../championdata/champions';
 
 let classIcons = {};
 let originIcons = {};
@@ -31,9 +31,6 @@ export default class TFTChampionGrid extends Component {
                 isFirstVisit = false;
             }
         }
-
-
-        let champions = championData.list;
         
         let selectedClasses = {};
         let selectedOrigins = {};
@@ -75,36 +72,18 @@ export default class TFTChampionGrid extends Component {
         classes = classes.sort(sortFunction);
         origins = origins.sort(sortFunction);
 
-        let selectedChampions = {};
+        let selectedChampions = [];
+        let championsByName = [];
         for (let champion of champions) {
+            champion["defaultClasses"] = [...champion.classes];
+            champion["defaultOrigins"] = [...champion.origins];
+            championsByName[champion.name] = champion;
             selectedChampions[champion.name] = false;
         }
 
-        let grid = [];
-        for (let champion of champions) {
-            for (let className of champion.classes) {
-                for (let originName of champion.origins) {
-                    let classIndex = classes.indexOf(className);
-                    let originIndex = origins.indexOf(originName);
-                    if (grid[classIndex] === null || grid[classIndex] === undefined) {
-                        grid[classIndex] = [];
-                    }
-                    let entry = grid[classIndex][originIndex];
-                    if (entry === null || entry === undefined) {
-                        grid[classIndex][originIndex] = [];
-                    }
-                    grid[classIndex][originIndex].push(champion);
-                }
-            }
-        }
-            
-        let championsByName = {};
-        for (let champion of champions) {
-            championsByName[champion.name] = champion;
-        }
+        let grid = this.createGrid(championsByName, classes, origins);
 
         this.state = {
-            champions: champions,
             championsByName: championsByName,
 
             littleLegendLevel: 1,
@@ -130,6 +109,7 @@ export default class TFTChampionGrid extends Component {
         this.onChampionHover = this.onChampionHover.bind(this);
         this.onClassOrOriginHover = this.onClassOrOriginHover.bind(this);
         this.onChampionClick = this.onChampionClick.bind(this);
+        this.addClassOrOriginToChampion = this.addClassOrOriginToChampion.bind(this);
 
 
         if (isFirstVisit) {
@@ -180,6 +160,32 @@ export default class TFTChampionGrid extends Component {
         }
     }
 
+    createGrid(championsByName, classes, origins) {
+        let grid = [];
+
+        // initialize grid
+        for (let className of classes) {
+            let classIndex = classes.indexOf(className);
+            grid[classIndex] = [];
+            for (let originName of origins) {
+                let originIndex = origins.indexOf(originName);
+                grid[classIndex][originIndex] = [];
+            }
+        }
+
+        for (let championName in championsByName) {
+            let champion = championsByName[championName];
+            for (let className of champion.classes) {
+                for (let originName of champion.origins) {
+                    let classIndex = classes.indexOf(className);
+                    let originIndex = origins.indexOf(originName);
+                    grid[classIndex][originIndex].push(champion);
+                }
+            }
+        }
+        return grid;
+    }
+
     importImages(imageContext) {
         let images = {};
         imageContext.keys().forEach((imageName) => {
@@ -209,7 +215,7 @@ export default class TFTChampionGrid extends Component {
                 // is a champ selected, then highlight border
                 let finalColStyle;
                 let isChampionSelected = false;
-                if (champions !== undefined && champions !== null) {
+                if (champions !== undefined && champions !== null && champions.length !== 0) {
                     for (let champion of champions) {
                         if (this.state.selectedChampions[champion.name]) {
                             isChampionSelected = true;
@@ -229,22 +235,43 @@ export default class TFTChampionGrid extends Component {
                     }
                 }
 
-                return <Col style={finalColStyle} key={"ChampionCol-" + posX + "-" + posY}>
-                    <ChampionContainer
-                        x={posX} y={posY}
-                        champions={champions}
-                        className={className}
-                        originName={originName}
-                        selectedChampions={this.state.selectedChampions}
-                        selectedClasses={this.state.selectedClasses}
-                        selectedOrigins={this.state.selectedOrigins}
-                        showChampionTierBorder={this.state.championGridShowChampionTierBorder}
-                        showChampionTierOverlay={this.state.championGridShowChampionTierOverlay}
-                        showChampionTooltip={this.state.championGridShowChampionTooltip}
-                        onChampionHover={this.onChampionHover}
-                        onChampionClick={this.onChampionClick}
-                    />
-                </Col>
+                if (champions === null || champions === undefined || champions.length === 0) {
+                    return <Col style={finalColStyle} key={"ChampionCol-" + posX + "-" + posY} onContextMenu={this.preventEvent} onClick={this.preventEvent} >
+                        <ChampionContainer
+                            x={posX} y={posY}
+                            champions={champions}
+                            className={className}
+                            originName={originName}
+                            selectedChampions={this.state.selectedChampions}
+                            selectedClasses={this.state.selectedClasses}
+                            selectedOrigins={this.state.selectedOrigins}
+                            showChampionTierBorder={this.state.championGridShowChampionTierBorder}
+                            showChampionTierOverlay={this.state.championGridShowChampionTierOverlay}
+                            showChampionTooltip={this.state.championGridShowChampionTooltip}
+                            onChampionHover={this.onChampionHover}
+                            onChampionClick={this.onChampionClick}
+                            addClassOrOriginToChampion={this.addClassOrOriginToChampion}
+                        />
+                    </Col>
+                } else {
+                    return <Col style={finalColStyle} key={"ChampionCol-" + posX + "-" + posY}>
+                        <ChampionContainer
+                            x={posX} y={posY}
+                            champions={champions}
+                            className={className}
+                            originName={originName}
+                            selectedChampions={this.state.selectedChampions}
+                            selectedClasses={this.state.selectedClasses}
+                            selectedOrigins={this.state.selectedOrigins}
+                            showChampionTierBorder={this.state.championGridShowChampionTierBorder}
+                            showChampionTierOverlay={this.state.championGridShowChampionTierOverlay}
+                            showChampionTooltip={this.state.championGridShowChampionTooltip}
+                            onChampionHover={this.onChampionHover}
+                            onChampionClick={this.onChampionClick}
+                            addClassOrOriginToChampion={this.addClassOrOriginToChampion}
+                        />
+                    </Col>
+                }
             });
 
             let originColumn = <Col style={{...colStyle, borderRight: "solid 4px #FFFFFF"}} key={"OriginCol"+originName}>
@@ -275,7 +302,7 @@ export default class TFTChampionGrid extends Component {
                 </OverlayTrigger>
             </Col>
 
-            return <Row style={rowStyle} key={"ChampionRow-" + posY}>{originColumn}{row}</Row>
+            return <Row style={rowStyle} key={"ChampionRow-" + posY} onContextMenu={this.preventEvent} onClick={this.preventEvent}>{originColumn}{row}</Row>
 
         });
 
@@ -342,16 +369,23 @@ export default class TFTChampionGrid extends Component {
                         showChampionTooltip={this.state.championGridShowChampionTooltip}
                         onChampionHover={this.onChampionHover}
                         onChampionClick={this.onChampionClick}
+                        addClassOrOriginToChampion={this.addClassOrOriginToChampion}
                     />
                 </Col>);
             }
+        }
+
+        if (selectedChampionList.length === 0) {
+            selectedChampionList = <Col style={{ textAlign: "center"}}>
+                <p style={{margin: "5px auto", maxWidth: "600px", wordWrap: "normal"}}><b>Leftclick</b> on a champion to add him your team. <b>Leftclick</b> again to remove him from your team. <b>Rightclick</b> allows you to add origin and classes via the spatula items.</p>
+            </Col>
         }
 
 
         return <div style={{ display: "inline-block", width: "100%", height:"100%"}}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 15px 0px" }}>
                 <div style={{ maxWidth: "700px" }}>
-                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "35px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+                    <Container className="disableSelection" style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "35px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
                             <Col xs={6}>
                                 <Form.Check id="toggleChampionGridShowChampionTierBorder" type="checkbox" className="custom-switch" custom="true" label="Show Champion Tier Borders" checked={this.state.championGridShowChampionTierBorder} onChange={(e) => this.toggleSetting("championGridShowChampionTierBorder")} />
@@ -369,12 +403,12 @@ export default class TFTChampionGrid extends Component {
                             </Col>
                         </Row>
                     </Container>
-                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px", height: "80px", maxHeight: "80px", width: "100%", maxWidth: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+                    <Container className="disableSelection" style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px", minHeight: "80px", width: "100%", maxWidth: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn" key="SelectedChampionOverviewList" style={{ ...rowStyle, margin: "5px"}}>
                             {selectedChampionList}
                         </Row>
                     </Container>
-                    <div style={{backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
+                    <div className="disableSelection" style={{backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
                         <div className="fadeIn" style={{ display: "flex", padding: "0px", margin: "0px" }}>
                             <Container style={{ padding: "0px", backgroundColor: "#000000", margin: "12px", border: "solid 3px #000000", borderRadius: "5px"}}>
                                 <Row style={rowStyle} key="ClassesRow">
@@ -444,6 +478,97 @@ export default class TFTChampionGrid extends Component {
         }
     }
 
+    addClassOrOriginToChampion(champion, classOrOrigin) {
+        if (this.state.classes.indexOf(classOrOrigin) >= 0) {
+            if (champion.classes.indexOf(classOrOrigin) < 0) {
+                // add class
+                
+                let championNew = this.state.championsByName[champion.name];
+                championNew.classes.push(classOrOrigin);
+
+                let championsByName = {...this.state.championsByName};
+                championsByName[champion.name] = championNew;
+
+                let selectedClasses = {...this.state.selectedClasses};
+                if (this.state.selectedChampions[champion.name]) {
+                    selectedClasses[classOrOrigin] = selectedClasses[classOrOrigin]+1;
+                }
+
+                let grid = this.createGrid(championsByName, this.state.classes, this.state.origins);
+
+                this.setState({
+                    championsByName: championsByName,
+                    selectedClasses: selectedClasses,
+                    grid: grid
+                });
+
+            } else {
+                // remove class
+                
+                let championNew = this.state.championsByName[champion.name];
+                championNew.classes.splice(championNew.classes.indexOf(classOrOrigin), 1);
+
+                let championsByName = {...this.state.championsByName};
+                championsByName[champion.name] = championNew;
+
+                let selectedClasses = {...this.state.selectedClasses};
+                if (this.state.selectedChampions[champion.name]) {
+                    selectedClasses[classOrOrigin] = selectedClasses[classOrOrigin]-1;
+                }
+
+                this.setState({
+                    championsByName: championsByName,
+                    selectedClasses: selectedClasses,
+                    grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+                });
+            }
+
+        } else if (this.state.origins.indexOf(classOrOrigin) >= 0) {
+            if (champion.origins.indexOf(classOrOrigin) < 0) {
+                // add origin
+                
+                let championNew = this.state.championsByName[champion.name];
+                championNew.origins.push(classOrOrigin);
+
+                let championsByName = {...this.state.championsByName};
+                championsByName[champion.name] = championNew;
+
+                let selectedOrigins = {...this.state.selectedOrigins};
+                if (this.state.selectedChampions[champion.name]) {
+                    selectedOrigins[classOrOrigin] = selectedOrigins[classOrOrigin]+1;
+                }
+
+                this.setState({
+                    championsByName: championsByName,
+                    selectedOrigins: selectedOrigins,
+                    grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+                });
+
+            } else {
+                // remove origin
+                
+                let championNew = this.state.championsByName[champion.name];
+                championNew.origins.splice(championNew.origins.indexOf(classOrOrigin), 1);
+
+                let championsByName = {...this.state.championsByName};
+                championsByName[champion.name] = championNew;
+
+                let selectedOrigins = {...this.state.selectedOrigins};
+                if (this.state.selectedChampions[champion.name]) {
+                    selectedOrigins[classOrOrigin] = selectedOrigins[classOrOrigin]-1;
+                }
+
+                this.setState({
+                    championsByName: championsByName,
+                    selectedOrigins: selectedOrigins,
+                    grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+                });
+            }
+        }
+
+        
+    }
+
     toggleChampionSelection(champion) {
         let selectedChampions = {...this.state.selectedChampions};
         let selectedClasses = {...this.state.selectedClasses};
@@ -471,5 +596,9 @@ export default class TFTChampionGrid extends Component {
             selectedClasses: selectedClasses,
             selectedOrigins: selectedOrigins
         })
+    }
+
+    preventEvent(e) {
+        e.preventDefault();
     }
 }

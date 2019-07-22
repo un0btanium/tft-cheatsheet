@@ -1,7 +1,47 @@
 import React, {Component} from 'react';
 
-import { Image, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Image, OverlayTrigger, Popover, Dropdown } from 'react-bootstrap';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
+import advancedItems from '../itemdata/advanced-items';
+
+import darkin from '../images/darkin.png';
+import yuumi from '../images/yuumi.png';
+
+let altimages = {
+    "darkin": darkin,
+    "yuumi": yuumi
+}
+
+
+const extraOriginsAndClasses = [
+    {
+        name: "Assassin",
+        item: advancedItems["Youmuu's Ghostblade"]
+    },
+    {
+        name: "Sorcerer",
+        item: advancedItems["Yuumi"]
+    },
+    {
+        name: "Blademaster",
+        item: advancedItems["Blade of the Ruined King"]
+    },
+    {
+        name: "Demon",
+        item: advancedItems["Darkin"]
+    },
+    {
+        name: "Knight",
+        item: advancedItems["Knight's Vow"]
+    },
+    {
+        name: "Glacial",
+        item: advancedItems["Frozen Mallet"]
+    }
+];
 
 let borderColorsByTier = [
     "#FFFFFF",
@@ -29,11 +69,22 @@ let textIndent = [
 
 export default class ChampionContainer extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.toggleContextMenu = this.toggleContextMenu.bind(this);
+
+        this.state = {
+            showContextMenu: null,
+        }
+
+    }
+
     render () {
 
         let champions = this.props.champions;
         
-        if (champions === null || champions === undefined) {
+        if (champions === null || champions === undefined || champions.length === 0) {
 
             let intensity = Math.min(255, (Math.max(this.props.selectedOrigins[this.props.originName], this.props.selectedClasses[this.props.className]))*40);
 
@@ -44,7 +95,7 @@ export default class ChampionContainer extends Component {
                 backgroundColor = "rgb(" + intensity + ", 50, 50)";
             }
 
-            return <div style={{ display: "block", width: "100%", height: "100%", background: backgroundColor, pointerEvents: "none"}}>
+            return <div onContextMenu={this.preventEvent} onClick={this.preventEvent} style={{ display: "block", width: "100%", height: "100%", background: backgroundColor}}>
                 
                 <div style={{ visibility: "hidden", maxWidth: "100%", overflow: "hidden", pointerEvents: "none" }}>
                     <Image
@@ -93,6 +144,56 @@ export default class ChampionContainer extends Component {
                 if (!this.props.showChampionTooltip) {
                     tooltipShowDelay = 9999999;
                 }
+                
+
+                let contextMenu = null;
+                if (this.state.showContextMenu && this.state.showContextMenu.name === champion.name) {
+                    
+                    let dropDownEntries = [];
+                    for (let extra of extraOriginsAndClasses) {
+                        if (champion.defaultClasses.indexOf(extra.name) === -1 && champion.defaultOrigins.indexOf(extra.name) === -1) {
+                            let src;
+                            
+                                if (extra.item.img === null || extra.item.img === undefined) {
+                                    src = altimages[extra.item.altimg];
+                                } else {
+                                    src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + extra.item.img + ".png"; // TODO version number
+                                }
+
+                            dropDownEntries.push(
+                                <Dropdown.Item
+                                    key={"Extra" + champion.name + extra.name}
+                                    onClick={(e) => { e.preventDefault(); this.props.addClassOrOriginToChampion(champion, extra.name); this.setState({ showContextMenu: false}); }}
+                                >
+                                    {(champion.classes.indexOf(extra.name) >= 0 || champion.origins.indexOf(extra.name) >= 0) ? <FontAwesomeIcon style={{marginRight: "20px", color: "lightgreen"}}icon={faCheck} /> : <FontAwesomeIcon style={{visibility: "hidden", marginRight: "20px"}} icon={faCheck} />}
+                                    <div style={{ display: "inline"}}>
+                                        <Image
+                                            width={"20%"}
+                                            height={"20%"} 
+                                            src={src}
+                                            alt={extra.item.altimg}
+                                            // onClick={(e) => this.props.onItemClick(e, this.props.itemName)}
+                                            // onContextMenu={(e) => this.props.onItemClick(e, this.props.itemName)}
+                                            onDragStart={this.preventEvent}
+                                            draggable={false}
+                                            // onMouseEnter={(e) => this.props.onItemHover(this.props.itemName, this.props.x, this.props.y)}
+                                            // onMouseLeave={(e) => this.props.onItemHover(null)}
+                                        />
+                                    </div>
+                                    <span style={{ marginLeft: "15px"}}>{extra.name}</span>
+                                    
+                                </Dropdown.Item>
+                            );
+                        }
+                    }
+
+                    contextMenu = <Dropdown.Menu show onContextMenu={this.preventEvent} >
+                        <Dropdown.Header>Add class or origin to champion</Dropdown.Header>
+                        <Dropdown.Divider />
+                        {dropDownEntries}
+                    </Dropdown.Menu>
+                }
+
 
                 return <div key={"champion"+champion.name} style={{ position: "absolute", top: "0px", left: championPicturexOffsetInPercent, width: "100%", height: "100%"}}>
                     <div className={overlayName} style={{ position: "absolute", top: "0px", left: "0px", width: championPictureWidth, height: "100%", overflow: "hidden", border: championPictureBorder}}>
@@ -118,7 +219,7 @@ export default class ChampionContainer extends Component {
                                     src={src}
                                     alt={champion.name}
                                     onClick={(e) => this.props.onChampionClick(e, champion)}
-                                    onContextMenu={(e) => this.props.onChampionClick(e, champion)}
+                                    onContextMenu={(e) => { this.toggleContextMenu(e, champion)}}
                                     onDragStart={this.preventEvent}
                                     draggable={false}
                                     // onMouseEnter={(e) => this.props.onItemHover(this.props.itemName, this.props.x, this.props.y)}
@@ -126,6 +227,9 @@ export default class ChampionContainer extends Component {
                                 />
                             </OverlayTrigger>
                         </div>
+                    </div>
+                    <div style={{ position: "absolute", top: "70%", left: "70%"}}>
+                        {contextMenu}
                     </div>
                 </div>
                 
@@ -155,6 +259,20 @@ export default class ChampionContainer extends Component {
                 {championImages}
                 
             </div>
+        }
+    }
+
+    toggleContextMenu(e, champion) {
+        if (this.state.showContextMenu === null || this.state.showContextMenu.name !== champion.name) {
+            this.preventEvent(e);
+            this.setState({
+                showContextMenu: champion
+            });
+        } else {
+            this.preventEvent(e);
+            this.setState({
+                showContextMenu: null
+            });
         }
     }
 

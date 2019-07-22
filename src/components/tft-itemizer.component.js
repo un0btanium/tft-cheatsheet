@@ -349,7 +349,7 @@ export default class TFTItemizer extends Component {
             </script> */}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 15px 0px" }}>
                 <div style={{ maxWidth: "640px" }}>
-                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+                    <Container className="disableSelection" style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "80px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
                             <Col>
                                 <Form.Check id="toggleFlippedYAxis" draggable={false} type="checkbox" className="custom-switch" custom="true" label="Flip Y Axis" checked={this.state.isYAxisFlipped} onChange={(e) => this.toggleSetting("isYAxisFlipped")} />
@@ -381,14 +381,14 @@ export default class TFTItemizer extends Component {
                             </Col>
                         </Row>
                     </Container>
-                    <Container style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "85px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
+                    <Container className="disableSelection" style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "85px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
                         <Row className="fadeIn">
                             <Col>
                                 {hoveredItemText}
                             </Col>
                         </Row>
                     </Container>
-                    <div style={{backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
+                    <div className="disableSelection" style={{backgroundColor: "#4e5d6c", borderRadius: "5px", width: "100%", boxShadow: '2px 2px 5px #000000'}}>
                         <div className="fadeIn" style={{ display: "flex", padding: "0px", margin: "0px" }}>
                             <Container style={{ padding: "0px", backgroundColor: "#000000", margin: "12px", border: "solid 3px #000000", borderRadius: "5px"}}>
                                 {topRow}

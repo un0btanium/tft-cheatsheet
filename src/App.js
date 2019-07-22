@@ -23,7 +23,7 @@ const VARIANT = "dark"; // dark, light
 
 const reloadWindow = () => window.location.reload();
 
-// const WEBSITE_URL = "tft-cheatsheet.com";
+const WEBSITE_URL = "tft-cheatsheet.com";
 const PATCH_VERSION = "9.14.1";
 
 class App extends Component {

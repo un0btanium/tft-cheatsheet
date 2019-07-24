@@ -225,3 +225,7 @@ code {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
+
+.fullscreen-enabled {
+	background: #2B3E50;
+}

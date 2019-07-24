@@ -1,47 +1,10 @@
 import React, {Component} from 'react';
 
-import { Image, OverlayTrigger, Popover, Dropdown } from 'react-bootstrap';
+import { Image, Dropdown } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
-import advancedItems from '../itemdata/advanced-items';
-
-import darkin from '../images/darkin.png';
-import yuumi from '../images/yuumi.png';
-
-let altimages = {
-	"darkin": darkin,
-	"yuumi": yuumi
-}
-
-
-const extraOriginsAndClasses = [
-	{
-		name: "Assassin",
-		item: advancedItems["Youmuu's Ghostblade"]
-	},
-	{
-		name: "Sorcerer",
-		item: advancedItems["Yuumi"]
-	},
-	{
-		name: "Blademaster",
-		item: advancedItems["Blade of the Ruined King"]
-	},
-	{
-		name: "Demon",
-		item: advancedItems["Darkin"]
-	},
-	{
-		name: "Knight",
-		item: advancedItems["Knight's Vow"]
-	},
-	{
-		name: "Glacial",
-		item: advancedItems["Frozen Mallet"]
-	}
-];
 
 let borderColorsByTier = [
 	"#FFFFFF",
@@ -73,9 +36,39 @@ export default class ChampionContainer extends Component {
 		super(props);
 
 		this.toggleContextMenu = this.toggleContextMenu.bind(this);
+		this.onChampionHover = this.onChampionHover.bind(this);
+
+		let extraOriginsAndClasses = [
+			{
+				name: "Assassin",
+				item: this.props.advancedItems["Youmuu's Ghostblade"]
+			},
+			{
+				name: "Sorcerer",
+				item: this.props.advancedItems["Yuumi"]
+			},
+			{
+				name: "Blademaster",
+				item: this.props.advancedItems["Blade of the Ruined King"]
+			},
+			{
+				name: "Demon",
+				item: this.props.advancedItems["Darkin"]
+			},
+			{
+				name: "Knight",
+				item: this.props.advancedItems["Knight's Vow"]
+			},
+			{
+				name: "Glacial",
+				item: this.props.advancedItems["Frozen Mallet"]
+			}
+		];
 
 		this.state = {
 			showContextMenu: null,
+			showChampionTooltip: null,
+			extraOriginsAndClasses: extraOriginsAndClasses
 		}
 
 	}
@@ -140,22 +133,26 @@ export default class ChampionContainer extends Component {
 					overlayName = "champion-image-tier"+champion.tier;
 				}
 				
-				let tooltipShowDelay = 50;
-				if (!this.props.showChampionTooltip) {
-					tooltipShowDelay = 9999999;
+				let tooltip = null;
+				if (this.props.showChampionTooltip && this.state.showChampionTooltip && this.state.showChampionTooltip.name === champion.name) {
+					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100" }}>
+						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", top: "-100px", minWidth: "150px", left: "-50px", padding: "15px", textAlign: "center", background: "rgba(0,0,0,0.85)", color: "#FFFFFF" }}>
+							{this.state.showChampionTooltip.name}
+						</div>
+					</div>
 				}
-				
+
 
 				let contextMenu = null;
 				if (this.state.showContextMenu && this.state.showContextMenu.name === champion.name) {
 					
 					let dropDownEntries = [];
-					for (let extra of extraOriginsAndClasses) {
+					for (let extra of this.state.extraOriginsAndClasses) {
 						if (champion.defaultClasses.indexOf(extra.name) === -1 && champion.defaultOrigins.indexOf(extra.name) === -1) {
 							let src;
 							
 								if (extra.item.img === null || extra.item.img === undefined) {
-									src = altimages[extra.item.altimg];
+									src = this.props.itemImages[extra.item.altimg];
 								} else {
 									src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + extra.item.img + ".png"; // TODO version number
 								}
@@ -199,38 +196,25 @@ export default class ChampionContainer extends Component {
 					<div className={overlayName} style={{ position: "absolute", top: "0px", left: "0px", width: championPictureWidth, height: "100%", overflow: "hidden", border: championPictureBorder}}>
 						<div style={{ width: championPictureStretch, height: "100%", maxWidth: championPictureStretch, textIndent: championPictureTextIndentNegative }}>
 							
-							<OverlayTrigger
-								placement={this.props.tooltipDirection ? this.props.tooltipDirection : "top"}
-								delay={{ show: tooltipShowDelay, hide: 0 }}
-								overlay={
-									<Popover
-										style={{ background: 'rgba(0,0,0, 0.8)', backgroundColor: 'rgba(0,0,0, 0.8)', textAlign: 'left', wordBreak: 'keep-all', whiteSpace: 'pre'}}
-										//arrowProps={style="{{background: 'rgba(0,0,0, 0.8)'}}"}
-										id="tooltipHighlighting"
-									>
-										<><span><h6>{champion.name}</h6></span></>
-									</Popover>
-								}
-							>
-								<Image
-									style={{ textIndent: championPictureTextIndent, margin: "0", padding: "0" }}
-									width={"100%"}
-									height={"100%"}
-									src={src}
-									alt={champion.name}
-									onClick={(e) => this.props.onChampionClick(e, champion)}
-									onContextMenu={(e) => { this.toggleContextMenu(e, champion)}}
-									onDragStart={this.preventEvent}
-									draggable={false}
-									// onMouseEnter={(e) => this.props.onItemHover(this.props.itemName, this.props.x, this.props.y)}
-									// onMouseLeave={(e) => this.props.onItemHover(null)}
-								/>
-							</OverlayTrigger>
+							<Image
+								style={{ textIndent: championPictureTextIndent, margin: "0", padding: "0" }}
+								width={"100%"}
+								height={"100%"}
+								src={src}
+								alt={champion.name}
+								onClick={(e) => this.props.onChampionClick(e, champion)}
+								onContextMenu={(e) => { this.toggleContextMenu(e, champion)}}
+								onDragStart={this.preventEvent}
+								draggable={false}
+								onMouseEnter={(e) => this.onChampionHover(champion)}
+								onMouseLeave={(e) => this.onChampionHover(null)}
+							/>
 						</div>
 					</div>
 					<div style={{ position: "absolute", top: "70%", left: "70%"}}>
 						{contextMenu}
 					</div>
+					{tooltip}
 				</div>
 				
 			});
@@ -272,6 +256,14 @@ export default class ChampionContainer extends Component {
 			this.preventEvent(e);
 			this.setState({
 				showContextMenu: null
+			});
+		}
+	}
+
+	onChampionHover(champion) {
+		if (this.props.showChampionTooltip) {
+			this.setState({
+				showChampionTooltip: champion
 			});
 		}
 	}

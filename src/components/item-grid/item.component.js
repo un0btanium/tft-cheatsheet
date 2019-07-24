@@ -3,30 +3,6 @@ import React, {Component} from 'react';
 import { Image } from 'react-bootstrap';
 
 
-import cursedblade from '../images/cursedblade.png';
-import darkin from '../images/darkin.png';
-import dragonsclaw from '../images/dragonsclaw.png';
-import hush from '../images/hush.png';
-import ionicspark from '../images/ionicspark.png';
-import redbuff from '../images/redbuff.png';
-import spatula from '../images/spatula.png';
-import swordbreaker from '../images/swordbreaker.png';
-import yuumi from '../images/yuumi.png';
-import zekesherald from '../images/zekesherald.png';
-
-let altimages = {
-	"cursedblade": cursedblade,
-	"darkin": darkin,
-	"dragonsclaw": dragonsclaw,
-	"hush": hush,
-	"ionicspark": ionicspark,
-	"redbuff": redbuff,
-	"spatula": spatula,
-	"swordbreaker": swordbreaker,
-	"yuumi": yuumi,
-	"zekesherald": zekesherald
-}
-
 export default class Item extends Component {
 
 	render () {
@@ -34,7 +10,7 @@ export default class Item extends Component {
 		if (this.props.item !== null && this.props.item !== undefined) {
 			let src;
 			if (this.props.item.img === null || this.props.item.img === undefined) {
-				src = altimages[this.props.item.altimg];
+				src = this.props.itemImages[this.props.item.altimg];
 			} else {
 				src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + this.props.item.img + ".png";
 			}
@@ -45,7 +21,7 @@ export default class Item extends Component {
 			} else if (this.props.isHoverHighlighted) {
 				imageStyle = { ...imageStyle, border: "solid 3px rgba(232, 198, 7)" }; // gold
 			} else {
-				if (this.props.additionalHighlighting) {
+				if (this.props.itemGridAdditionalHighlighting) {
 					if (this.props.craftableItemAmount > 0) {
 						if (this.props.useBlueColor) {
 							imageStyle = { ...imageStyle, border: "solid 3px rgba(0, 125, 255)" }; // blue
@@ -66,10 +42,9 @@ export default class Item extends Component {
 				} else {
 					descriptionText = this.props.item.effectShort;
 				}
-
 			}
 			let description = null;
-			if (this.props.isDescriptionVisible) {
+			if (this.props.itemGridIsDescriptionVisible) {
 				description = <div style={{ position: "absolute", textAlign: "center", zIndex: "20", top: "2px", left: "0px", width: "100%", height: "100%", color: "#FFFFFF", fontSize: "10px", pointerEvents: "none" }}>
 					<span style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
 						{descriptionText}
@@ -89,7 +64,7 @@ export default class Item extends Component {
 				overlayElements.push(<span style={style} key={"ItemCounter-" + this.props.itemName}><b>{this.props.craftableItemAmount}</b></span>);
 			}
 
-			if (this.props.highlightAlmostBuyableItems) {
+			if (this.props.itemGridHighlightAlmostBuyableItems) {
 				if (!this.props.isHoverHighlighted && !(this.props.craftableItemAmount > 0 || this.props.isAlmostBuyable)) {
 					overlayElements.push(<span style={{ position: "absolute", zIndex: "3", top: "0px", left: "0px", height: "100%", width: "100%", backgroundColor: "rgba(0, 0, 0, 0.5)" }} key={"ItemAlmostBuyable-" + this.props.itemName}></span>);
 				}
@@ -99,7 +74,7 @@ export default class Item extends Component {
 			if (this.props.missingItem !== null && (this.props.craftableItemAmount === 0)) {
 				let missingItemSrc;
 				if (this.props.missingItem.img === null || this.props.missingItem.img === undefined) {
-					missingItemSrc = altimages[this.props.missingItem.altimg];
+					missingItemSrc = this.props.itemImages[this.props.missingItem.altimg];
 				} else {
 					missingItemSrc = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + this.props.missingItem.img + ".png";
 				}

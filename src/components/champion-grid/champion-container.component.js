@@ -133,11 +133,19 @@ export default class ChampionContainer extends Component {
 					overlayName = "champion-image-tier"+champion.tier;
 				}
 				
+
+				let tooltipStyle = { position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", width: "700px", left: "-320px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + borderColorsByTier[champion.tier-1], color: "#FFFFFF" };
+				if (this.props.y < 5) {
+					tooltipStyle.top = "40px";
+				} else {
+					tooltipStyle.bottom = "21px";
+				}
+
 				let tooltip = null;
 				if (this.props.showChampionTooltip && this.state.showChampionTooltip && this.state.showChampionTooltip.name === champion.name) {
 					
 					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100" }}>
-						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", bottom: "20px", width: "700px", left: "-320px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + borderColorsByTier[champion.tier-1], color: "#FFFFFF" }}>
+						<div style={tooltipStyle}>
 							<h5 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.name}</b></h5>
 							<h6 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.specialAbility.name}</b></h6>
 							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.state.showChampionTooltip.specialAbility.originalDescription}</b></h6>

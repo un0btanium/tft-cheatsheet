@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { Image, Dropdown } from 'react-bootstrap';
+import { Image, Dropdown, Row, Col } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
@@ -135,9 +135,86 @@ export default class ChampionContainer extends Component {
 				
 				let tooltip = null;
 				if (this.props.showChampionTooltip && this.state.showChampionTooltip && this.state.showChampionTooltip.name === champion.name) {
+					
 					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100" }}>
-						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", top: "-100px", minWidth: "150px", left: "-50px", padding: "15px", textAlign: "center", background: "rgba(0,0,0,0.85)", color: "#FFFFFF" }}>
-							{this.state.showChampionTooltip.name}
+						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", bottom: "20px", width: "700px", left: "-320px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + borderColorsByTier[champion.tier-1], color: "#FFFFFF" }}>
+							<h5 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.name}</b></h5>
+							<h6 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.specialAbility.name}</b></h6>
+							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.state.showChampionTooltip.specialAbility.originalDescription}</b></h6>
+							<Row>
+								<Col sm={5}></Col>
+								<Col sm={1}>Tier</Col>
+								<Col sm={3}>{champion.tier}</Col>
+							</Row>
+							<Row>
+								<Col sm={5}></Col>
+								<Col sm={1}>{champion.classes.length > 1 ? "Classes" : "Class"}</Col>
+								<Col sm={3}>{champion.classes.join(", ")}</Col>
+							</Row>
+							<Row>
+								<Col sm={5}></Col>
+								<Col sm={1}>{champion.origins.length > 1 ? "Origins" : "Origin"}</Col>
+								<Col sm={3}>{champion.origins.join(", ")}</Col>
+							</Row>
+							
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: borderColorsByTier[champion.tier-1]}}/>
+							<Row>
+								<Col sm={1}><h6><b></b></h6></Col>
+								<Col sm={1}><h6><b>Champion Stats (1/2/3 stars)</b></h6></Col>
+								<Col sm={5}><h6><b></b></h6></Col>
+								<Col sm={1}><h6><b>Ability Stats (0/1/2/3/4 stars)</b></h6></Col>
+							</Row>
+							
+							<Row>
+								<Col sm={3}>Healthpoints</Col>
+								<Col sm={2}>{champion.maxHealthpoints}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor)}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor*champion.hpScaleFactor)}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? champion.specialAbility.variables[0].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? champion.specialAbility.variables[0].values.join("/") : ""}</Col>
+							</Row>
+							<Row>
+								<Col sm={3}>Mana</Col>
+								<Col sm={2}>{champion.maxMana}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 1 ? champion.specialAbility.variables[1].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 1 ? champion.specialAbility.variables[1].values.join("/") : ""}</Col>
+							</Row>
+							<Row>
+								<Col sm={3}>Attack Damage</Col>
+								<Col sm={2}>{champion.damage}/{this.roundNumber(champion.damage*champion.damageScaleFactor)}/{this.roundNumber(champion.damage*champion.damageScaleFactor*champion.damageScaleFactor)}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? champion.specialAbility.variables[2].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? champion.specialAbility.variables[2].values.join("/") : ""}</Col>							
+							</Row>
+							<Row>
+								<Col sm={3}>Armor</Col>
+								<Col sm={2}>{champion.armor}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 3 ? champion.specialAbility.variables[3].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 3 ? champion.specialAbility.variables[3].values.join("/") : ""}</Col>
+							</Row>
+							<Row>
+								<Col sm={3}>Magic Resistance</Col>
+								<Col sm={2}>{champion.magicResistance}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 4 ? champion.specialAbility.variables[4].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 4 ? champion.specialAbility.variables[4].values.join("/") : ""}</Col>
+							</Row>
+							<Row>
+								<Col sm={3}>Base Attack Speed</Col>
+								<Col sm={2}>{champion.attackSpeed}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 5 ? champion.specialAbility.variables[5].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 5 ? champion.specialAbility.variables[5].values.join("/") : ""}</Col>
+							</Row>
+							<Row>
+								<Col sm={3}>Auto Attack Range</Col>
+								<Col sm={2}>{champion.range}</Col>
+								<Col sm={1}></Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 6 ? champion.specialAbility.variables[6].name : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 6 ? champion.specialAbility.variables[6].values.join("/") : ""}</Col>
+							</Row>
+							
 						</div>
 					</div>
 				}
@@ -270,5 +347,9 @@ export default class ChampionContainer extends Component {
 
 	preventEvent(e) {
 		e.preventDefault();
+	}
+
+	roundNumber(number) {
+		return parseFloat((Math.round(number * 100)/100).toFixed(2));
 	}
 }

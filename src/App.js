@@ -19,7 +19,7 @@ import MultiViewPage from './components/pages/multi-view-page.component';
 import AboutPage from './components/pages/about-page.component';
 import ContactPage from './components/pages/contact-page.component';
 
-import champions from './championdata/champions';
+import tftData from './tft-data/data.js';
 
 import baseItems from './itemdata/base-items';
 import advancedItems from './itemdata/advanced-items';
@@ -47,7 +47,10 @@ class App extends Component {
 		let selectedOrigins = {};
 		let origins = [];
 		let classes = [];
-		for (let champion of champions) {
+		for (let championName in tftData.champions) {
+			let champion = tftData.champions[championName];
+			console.log(championName)
+			console.log(champion)
 			for (let className of champion.classes) {
 				if (selectedClasses[className] === null || selectedClasses[className] === undefined) {
 					selectedClasses[className] = 0;
@@ -117,17 +120,16 @@ class App extends Component {
 
 		/* Selection Champions */
 		let selectedChampions = [];
-		let championsByName = [];
-		for (let champion of champions) {
+		for (let championName in tftData.champions) {
+			let champion = tftData.champions[championName];
 			champion["defaultClasses"] = [...champion.classes];
 			champion["defaultOrigins"] = [...champion.origins];
-			championsByName[champion.name] = champion;
 			selectedChampions[champion.name] = false;
 		}
 
 
 		/* Champion Grid */
-		let championGrid = this.createGrid(championsByName, classes, origins);
+		let championGrid = this.createGrid(tftData.champions, classes, origins);
 
 
 		/* Base Items */
@@ -209,7 +211,7 @@ class App extends Component {
 				itemImages: itemImages,
 
 			/* Champion Grid */ 
-				championsByName: championsByName,
+				championsByName: tftData.champions,
 
 				littleLegendLevel: 1,
 

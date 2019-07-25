@@ -12,11 +12,12 @@ export default class ChampionGridInfo extends Component {
 		let rowStyle = {padding: "0px", margin: "0px"};
 
 		let selectedChampionList = [];
+		let i = 0;
 		for (let champion of this.props.selectedChampionsByTier) {
 			if (selectedChampionList.length < 11) {
 				selectedChampionList.push(<Col sm={1} style={{...colStyle, maxWidth: "8.2%", margin: "2px"}} key={"ChampionList-" + champion.name}>
 					<ChampionContainer
-						x={-1} y={-1}
+						x={i-1} y={-1}
 						tooltipDirection="bottom"
 						champions={[champion]}
 						advancedItems={this.props.advancedItems}
@@ -35,6 +36,7 @@ export default class ChampionGridInfo extends Component {
 					/>
 				</Col>);
 			}
+			i++;
 		}
 
 		if (selectedChampionList.length === 0) {

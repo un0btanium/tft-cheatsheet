@@ -145,7 +145,7 @@ export default class ChampionContainer extends Component {
 				let tooltip = null;
 				if (this.props.showChampionTooltip && this.state.showChampionTooltip && this.state.showChampionTooltip.name === champion.name) {
 					
-					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100" }}>
+					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100", pointerEvents: "none" }}>
 						<div style={tooltipStyle}>
 							<h5 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.name}</b></h5>
 							<h6 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.specialAbility.name}</b></h6>
@@ -176,7 +176,7 @@ export default class ChampionContainer extends Component {
 							
 							<Row>
 								<Col sm={3}>Healthpoints</Col>
-								<Col sm={2}>{champion.maxHealthpoints}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor)}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor*champion.hpScaleFactor)}</Col>
+								<Col sm={2}>{champion.maxHealthpoints}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor)}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor*2)}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? champion.specialAbility.variables[0].name : ""}</Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? champion.specialAbility.variables[0].values.join("/") : ""}</Col>
@@ -190,7 +190,7 @@ export default class ChampionContainer extends Component {
 							</Row>
 							<Row>
 								<Col sm={3}>Attack Damage</Col>
-								<Col sm={2}>{champion.damage}/{this.roundNumber(champion.damage*champion.damageScaleFactor)}/{this.roundNumber(champion.damage*champion.damageScaleFactor*champion.damageScaleFactor)}</Col>
+								<Col sm={2}>{champion.damage}/{this.roundNumber(champion.damage*champion.hpScaleFactor)}/{this.roundNumber(champion.damage*champion.hpScaleFactor*2)}</Col> {/* why hpScaleFactor? */}
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? champion.specialAbility.variables[2].name : ""}</Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? champion.specialAbility.variables[2].values.join("/") : ""}</Col>							

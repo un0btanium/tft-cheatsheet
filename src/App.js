@@ -49,8 +49,6 @@ class App extends Component {
 		let classes = [];
 		for (let championName in tftData.champions) {
 			let champion = tftData.champions[championName];
-			console.log(championName)
-			console.log(champion)
 			for (let className of champion.classes) {
 				if (selectedClasses[className] === null || selectedClasses[className] === undefined) {
 					selectedClasses[className] = 0;

@@ -95,7 +95,7 @@ export default class ChampionContainer extends Component {
 						style={{ maxWidth: "initial", margin: "0", padding: "0", pointerEvents: "none" }}
 						width={"100%"}
 						height={"100%"}
-						src={"http://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/Ashe.png"}
+						src={"https://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/Ashe.png"}
 						alt={""}
 						onDragStart={this.preventEvent}
 						draggable={false}
@@ -109,9 +109,9 @@ export default class ChampionContainer extends Component {
 
 				let src;
 				if (champion.icon !== null && champion.icon !== undefined) {
-					src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champion.icon + ".png";
+					src = "https://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champion.icon + ".png";
 				} else {
-					src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champion.name + ".png";
+					src = "https://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champion.name + ".png";
 				}
 
 				let championPictureBorder;
@@ -240,7 +240,7 @@ export default class ChampionContainer extends Component {
 								if (extra.item.img === null || extra.item.img === undefined) {
 									src = this.props.itemImages[extra.item.altimg];
 								} else {
-									src = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + extra.item.img + ".png"; // TODO version number
+									src = "https://ddragon.leagueoflegends.com/cdn/9.14.1/img/item/" + extra.item.img + ".png"; // TODO version number
 								}
 
 							dropDownEntries.push(
@@ -308,9 +308,9 @@ export default class ChampionContainer extends Component {
 			
 			let srcHiddenImage;
 			if (champions[0].icon !== null && champions[0].icon !== undefined) {
-				srcHiddenImage = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champions[0].icon + ".png";
+				srcHiddenImage = "https://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champions[0].icon + ".png";
 			} else {
-				srcHiddenImage = "http://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champions[0].name + ".png";
+				srcHiddenImage = "https://ddragon.leagueoflegends.com/cdn/9.14.1/img/champion/" + champions[0].name + ".png";
 			}
 
 			return <div style={{ display: "block", width: "100%", height: "100%", backgroundColor: "#000000"}}>

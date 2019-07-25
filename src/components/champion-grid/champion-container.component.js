@@ -134,7 +134,7 @@ export default class ChampionContainer extends Component {
 				}
 				
 
-				let tooltipStyle = { position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", width: "700px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + borderColorsByTier[champion.tier-1], color: "#FFFFFF" };
+				let tooltipStyle = { position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", minWidth: "700px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + borderColorsByTier[champion.tier-1], color: "#FFFFFF" };
 				if (this.props.y < 5) {
 					tooltipStyle.top = "40px";
 				} else {

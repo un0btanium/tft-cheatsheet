@@ -45,24 +45,18 @@ class App extends Component {
 		/* Classes and Origins  */
 		let selectedClasses = {};
 		let selectedOrigins = {};
-		let origins = [];
-		let classes = [];
-		for (let championName in tftData.champions) {
-			let champion = tftData.champions[championName];
-			for (let className of champion.classes) {
-				if (selectedClasses[className] === null || selectedClasses[className] === undefined) {
-					selectedClasses[className] = 0;
-					classes.push(className);
-				}
-			}
-			for (let originName of champion.origins) {
-				if (selectedOrigins[originName] === null || selectedOrigins[originName] === undefined) {
-					selectedOrigins[originName] = 0;
-					origins.push(originName);
-				}
-			}
+		let classes = tftData.classes;
+		let origins = tftData.origins;
+		let classNames = [];
+		let originNames = [];
+		for (let className in classes) {
+			selectedClasses[className] = 0;
+			classNames.push(className);
 		}
-
+		for (let originName in origins) {
+			selectedOrigins[originName] = 0;
+			originNames.push(originName);
+		}
 		
 		/* Item Recipes by Name */
 		let recipesByItems = {};
@@ -80,10 +74,10 @@ class App extends Component {
 		/* Classes and Origins Icons */
 		let classIcons = {};
 		let originIcons = {};
-		for (let className of classes) {
+		for (let className in classes) {
 			classIcons[className] = images[className];
 		}
-		for (let originName of origins) {
+		for (let originName in origins) {
 			originIcons[originName] = images[originName];
 		}
 
@@ -112,8 +106,8 @@ class App extends Component {
 			}
 			return 0;
 		};
-		classes = classes.sort(sortFunction);
-		origins = origins.sort(sortFunction);
+		classNames = classNames.sort(sortFunction);
+		originNames = originNames.sort(sortFunction);
 
 
 		/* Selection Champions */
@@ -127,7 +121,7 @@ class App extends Component {
 
 
 		/* Champion Grid */
-		let championGrid = this.createGrid(tftData.champions, classes, origins);
+		let championGrid = this.createGrid(tftData.champions, classNames, originNames);
 
 
 		/* Base Items */
@@ -213,8 +207,10 @@ class App extends Component {
 
 				littleLegendLevel: 1,
 
-				classes: classes,
-				origins: origins,
+				classes: classNames,
+				origins: originNames,
+				classesData: classes,
+				originsData: origins,
 				grid: championGrid,
 
 				selectedChampions: selectedChampions,

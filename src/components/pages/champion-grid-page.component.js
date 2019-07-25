@@ -66,10 +66,24 @@ export default class ChampionGridPage extends Component {
 			<div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 15px 0px" }}>
 				<div style={{ maxWidth: "700px" }}>
 					<ChampionGridSettings 
-						{...this.props}
+						toggleSetting={this.props.toggleSetting}
+						championGridShowChampionTierBorder={this.props.championGridShowChampionTierBorder}
+						championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
+						championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
+						championGridShowOriginAndClassTooltips={this.props.championGridShowOriginAndClassTooltips}
 					/>
 					<ChampionGridInfo 
-						{...this.props}
+						selectedChampionsByTier={this.props.selectedChampionsByTier}
+						advancedItems={this.props.advancedItems}
+						itemImages={this.props.itemImages}
+						selectedClasses={this.props.selectedClasses}
+						selectedOrigins={this.props.selectedOrigins}
+						championGridShowChampionTierBorder={this.props.championGridShowChampionTierBorder}
+						championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
+						championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
+						onChampionHover={this.props.onChampionHover}
+						onChampionClick={this.props.onChampionClick}
+						addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
 					/>
 					<ChampionGrid
 						{...this.props}

@@ -95,10 +95,23 @@ export default class ChampionGrid extends Component {
 
 			let tooltip = null;
 			if (this.props.championGridShowOriginAndClassTooltips && this.state.showIconTooltip !== null && this.state.showIconTooltip === originName) {
-				tooltip = <div style={{ position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%"}}>
+				let unitRequirements = [];
+				for (let effect of this.props.originsData[originName].effects) {
+					let unitRequirement = <Row key={originName + "Units" + effect.requiredUnits}>
+						<Col sm={1}></Col>
+						<Col sm={2}>{effect.requiredUnits}+ Units</Col>
+						<Col style={{whiteSpace: "normal"}} sm={9}>{effect.effect}</Col>
+					</Row>
+					unitRequirements.push(unitRequirement);
+				}
+				tooltip = <div style={{ position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%", fontSize: "14px", pointerEvents: "none"}}>
 					<div style={{ position: "relative", display: "inline-block", zIndex: "100" }}>
-						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", top: "-15px", minWidth: "150px", left: "50px", padding: "15px", textAlign: "center", background: "rgba(0,0,0,0.85)", color: "#FFFFFF" }}>
-							{originName}
+						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", top: "-75px", border: "solid 3px #FFFFFF", minWidth: "500px", left: "56px", padding: "15px", background: "rgba(0,0,0,0.9)", color: "#FFFFFF" }}>
+							<h5 style={{textAlign: "center"}}><b>{originName}</b></h5>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
+							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.props.originsData[originName].description}</b></h6>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
+							{unitRequirements}
 						</div>
 					</div>
 				</div>
@@ -131,10 +144,25 @@ export default class ChampionGrid extends Component {
 
 			let tooltip = null;
 			if (this.props.championGridShowOriginAndClassTooltips && this.state.showIconTooltip !== null && this.state.showIconTooltip === className) {
-				tooltip = <div style={{ position: "absolute", top: "0px", left: "0px", width: "100%", height: "100%"}}>
+				let unitRequirements = [];
+				for (let effect of this.props.classesData[className].effects) {
+					let unitRequirement = <Row key={className + "Units" + effect.requiredUnits}>
+						<Col sm={1}></Col>
+						<Col sm={2}>{effect.requiredUnits}+ Units</Col>
+						<Col style={{whiteSpace: "normal"}} sm={9}>{effect.effect}</Col>
+					</Row>
+					unitRequirements.push(unitRequirement);
+				}
+				let tooltipStyle = { position: "absolute", bottom: "-41px", width: "100%", height: "100%", fontSize: "14px", pointerEvents: "none"};
+				tooltipStyle.left = -200 + -(i-4)*61 + "px";
+				tooltip = <div style={tooltipStyle}>
 					<div style={{ position: "relative", display: "inline-block", zIndex: "100" }}>
-						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", top: "35px", minWidth: "150px", left: "-45px", padding: "15px", textAlign: "center", background: "rgba(0,0,0,0.85)", color: "#FFFFFF" }}>
-							{className}
+						<div style={{position: "absolute", zIndex: "10", whiteSpace: "nowrap", minWidth: "500px", border: "solid 3px #FFFFFF", padding: "15px", background: "rgba(0,0,0,0.9)", color: "#FFFFFF"}}>
+							<h5 style={{textAlign: "center"}}><b>{className}</b></h5>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
+							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.props.classesData[className].description}</b></h6>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
+							{unitRequirements}
 						</div>
 					</div>
 				</div>

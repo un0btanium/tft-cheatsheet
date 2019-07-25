@@ -2967,6 +2967,310 @@ var data = {
                 ]
             }
         }
+    },
+    "classes": {
+        "Knight": {
+            "name": "Knight",
+            "description": "Knights block damage from basic attacks.",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "20 Damage Blocked"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "40 Damage Blocked"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "80 Damage Blocked"
+                }
+            ]
+        },
+        "Elementalist": {
+            "name": "Elementalist",
+			"description": "Innate: Elementalists gain double mana from attacks",
+			"note": "Golem HP: 2200",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "At the start of combat, summon a Golem"
+                }
+            ]
+        },
+        "Shapeshifter": {
+            "name": "Shapeshifter",
+            "description": "Shapeshifters gain bonus maximum Health when they transform",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "60% Bonus Maximum Health"
+                }
+            ]
+        },
+        "Sorcerer": {
+            "name": "Sorcerer",
+            "description": "Innate: Sorcerers gain double mana from attacks. All Allies have increased Spell Power",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "+45% Spell Power"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "+100% Spell Power"
+                }
+            ]
+        },
+        "Guardian": {
+            "name": "Guardian",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Trigger: At the start of combat, all Guardians and each of their adjacent allies gain +40 Armor. This Armor can stack."
+                }
+            ]
+        },
+        "Brawler": {
+            "name": "Brawler",
+            "description": "Brawlers gain bonus maximum health",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "300 Bonus Health"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "700 Bonus Health"
+                }
+            ]
+        },
+        "Ranger": {
+            "name": "Ranger",
+            "description": "Rangers gain a chance to double their attack speed every 3s for the next 3s",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "25% Chance to Double Attack Speed"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "65% Chance to Double Attack Speed"
+                }
+            ]
+        },
+        "Blademaster": {
+            "name": "Blademaster",
+            "description": "Blademaster attacks have a 45% chance to trigger additional attacks on-hit",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "One Additional Attack"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "Two Additional Attacks"
+                }
+            ]
+        },
+        "Gunslinger": {
+            "name": "Gunslinger",
+            "description": "Gunslinger attacks gain a 50% chance to trigger additional attacks on-hit",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Attack another random enemy"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "Attack 3 random enemies"
+                }
+            ]
+        },
+        "Assassin": {
+            "name": "Assassin",
+            "description": "Innate: At the start of combat, Assassins leap to the farthest enemy. Assassins gain bonus Critical Strike Damage.",
+			"note": "Patch 9.14.1b: Crit Damage Amplifiers are now stacking additively (nerf)",
+			"effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "+125% Critical Strike Damage"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "+350% Critical Strike Damage"
+                }
+            ]
+        }
+    },
+    "origins": {
+        "Robot": {
+            "name": "Robot",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "Robots start combat at full mana"
+                }
+            ]
+        },
+        "Glacial": {
+            "name": "Glacial",
+            "description": "Glacial attacks gain a chance to stun enemies for 2s",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "20% Chance to Stun"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "30% Chance to Stun"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "45% Chance to Stun"
+                }
+            ]
+        },
+        "Noble": {
+            "name": "Noble",
+            "description": "Gain +100 Armor and heal 35 health on-hit",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "1 Random Ally"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "All Allies"
+                }
+            ]
+        },
+        "Exile": {
+            "name": "Exile",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "If an Exile has no adjacent allies at the start of combat, they gain a shield equal to 100% of their maximum Health"
+                }
+            ]
+        },
+        "Demon": {
+            "name": "Demon",
+            "description": "Attacks from Demons have a chance to burn all of an enemy's mana and deal true damage equal to mana burned",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "25% Chance to Mana Burn"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "50% Chance to Mana Burn"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "85% Chance to Mana Burn"
+                }
+            ]
+        },
+        "Ninja": {
+            "name": "Ninja",
+            "description": "The Ninja Trait is only active when you have *exactly* 1 or all 4 Ninjas",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "Ninja gains +40% Attack Damage"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Ninjas gain +80% Attack Damage"
+                }
+            ]
+        },
+        "Dragon": {
+            "name": "Dragon",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Dragons gain immunity to Magic Damage"
+                }
+            ]
+        },
+        "Void": {
+            "name": "Void",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "All ally basic attacks ignore 50% of the enemy's Armor"
+                }
+            ]
+        },
+        "Wild": {
+            "name": "Wild",
+            "description": "Attacks generate stacks of Fury (stacks up to 5 times). Each stack of Fury gives 10% Attack Speed",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Wild Allies Only"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Allies"
+                }
+            ]
+        },
+        "Imperial": {
+            "name": "Imperial",
+            "description": "Gain Double Damage",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "1 Random Imperial"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Imperials"
+                }
+            ]
+        },
+        "Pirate": {
+            "name": "Pirate",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "At the end of combat against another player, gain up to 4 additional gold"
+                }
+            ]
+        },
+        "Phantom": {
+            "name": "Phantom",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "At the start of combat, curse a random enemy and set their HP to 100"
+                }
+            ]
+        },
+        "Yordle": {
+            "name": "Yordle",
+            "description": "Yordles gain a chance to dodge enemy attacks",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "25% Chance to Dodge"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "60% Chance to Dodge"
+                }
+            ]
+        }
     }
 }
 export default data;

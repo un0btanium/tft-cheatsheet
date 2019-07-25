@@ -2,7 +2,7 @@
 let advancedItems = {
 	"Infinity Edge": {
 		img: "3031",
-		effect: "+100% Critical Strike Damage"
+		effect: "+150% Critical Strike Damage"
 	},
 	"Hextech Gunblade": {
 		img: "3146",
@@ -62,7 +62,7 @@ let advancedItems = {
 	},
 	"Morellonomicon": {
 		img: "3165",
-		effect: "Special Ability applies a burn for 3 seconds, dealing 3% of target's maximum health as true damage per second and preventing healing",
+		effect: "Special Ability applies a burn for 3 seconds, dealing 5% of target's maximum health as true damage per second and preventing healing",
 		effectShort: "Ability applies burn and prevents healing"
 	},
 	"Yuumi": {
@@ -85,7 +85,7 @@ let advancedItems = {
 	},
 	"Cursed Blade": {
 		altimg: "cursedblade",
-		effect: "On every Basic Attack: 25% chance to shrink the target, removing 1 star. Can reduce targets to 0 star.",
+		effect: "On every Basic Attack: 20% chance to shrink the target, removing 1 star. Can reduce targets to 0 star.",
 		effectShort: "Basic attacks can shrink the target by one Star"
 	},
 	"Titanic Hydra": {
@@ -108,7 +108,7 @@ let advancedItems = {
 	},
 	"Hush": {
 		altimg: "hush",
-		effect: "On every Basic Attack: 30% chance to silence the target for 5s",
+		effect: "On every Basic Attack: 50% chance to silence the target for 5s",
 		effectShort: "Basic Attacks can silence the target"
 	},
 	"Redemption": {

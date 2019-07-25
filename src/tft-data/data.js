@@ -153,7 +153,7 @@ var data = {
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.7,
+            "attackSpeed": 0.65,
             "range": 4,
             "specialAbility": {
                 "name": "Explosive Charge",
@@ -450,10 +450,10 @@ var data = {
             "origins": [
                 "Demon"
             ],
-            "maxHealthpoints": 600,
+            "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 50,
+            "damage": 60,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -466,7 +466,7 @@ var data = {
                 "originalDescription": "Evelynn deals damage to the 3 closest enemies and teleports away. Damage is increased against low health enemies",
                 "variables": [
                     {
-                        "name": "Crit Multiplieriplier",
+                        "name": "Crit Multiplier",
                         "values": [
                             1,
                             3,
@@ -1239,11 +1239,11 @@ var data = {
                     {
                         "name": "Damage Part2",
                         "values": [
-                            200,
+                            100,
                             300,
-                            400,
                             500,
-                            600
+                            700,
+                            900
                         ]
                     },
                     {
@@ -1298,7 +1298,7 @@ var data = {
             "origins": [
                 "Phantom"
             ],
-            "maxHealthpoints": 500,
+            "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
             "damage": 50,
@@ -1365,7 +1365,7 @@ var data = {
             "origins": [
                 "Ninja"
             ],
-            "maxHealthpoints": 700,
+            "maxHealthpoints": 650,
             "hpScaleFactor": 1.8,
             "maxMana": 25,
             "damage": 70,
@@ -1374,7 +1374,7 @@ var data = {
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.75,
+            "attackSpeed": 0.7,
             "range": 1,
             "specialAbility": {
                 "name": "Five Point Strike",
@@ -1416,7 +1416,7 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 150,
-            "damage": 70,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -1717,10 +1717,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             25,
-                            100,
-                            175,
-                            250,
-                            325
+                            200,
+                            300,
+                            400,
+                            500
                         ]
                     }
                 ]
@@ -1751,7 +1751,7 @@ var data = {
                 "originalDescription": "Innate: Graves' attacks deal increased damage and hit all enemies in front of him",
                 "variables": [
                     {
-                        "name": "Damage Multiplieriplier",
+                        "name": "Damage Multiplier",
                         "values": [
                             0,
                             0.05,
@@ -1777,11 +1777,11 @@ var data = {
             "maxMana": 75,
             "damage": 75,
             "damageScaleFactor": 1.25,
-            "armor": 35,
+            "armor": 30,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.65,
+            "attackSpeed": 0.55,
             "range": 1,
             "specialAbility": {
                 "name": "Thunder Claws",
@@ -1808,7 +1808,7 @@ var data = {
                         ]
                     },
                     {
-                        "name": "Chain Attack Damage Multiplier",
+                        "name": "Chain Attack Damage Mult",
                         "values": [
                             0.7,
                             0.8,
@@ -1852,7 +1852,7 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 55,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -1865,7 +1865,7 @@ var data = {
                 "originalDescription": "Rengar leaps to the lowest health enemy and stabs them for bonus on-hit damage. After dealing damage, Rengar gains Attack Speed and @CritBuff*100@% Critical Strike Chance",
                 "variables": [
                     {
-                        "name": "Attack Damage Multiplier",
+                        "name": "Attack Damage Mult",
                         "values": [
                             1,
                             2,
@@ -2170,7 +2170,7 @@ var data = {
                         ]
                     },
                     {
-                        "name": "Attack Damage Multiplier",
+                        "name": "Attack Damage Mult",
                         "values": [
                             1,
                             1.5,
@@ -2508,7 +2508,7 @@ var data = {
                         ]
                     },
                     {
-                        "name": "Transform Attack Damage",
+                        "name": "Transform A D",
                         "values": [
                             0,
                             30,
@@ -2632,7 +2632,7 @@ var data = {
                 "originalDescription": "Braum gains a barrier that blocks incoming damage",
                 "variables": [
                     {
-                        "name": "Shield Damage Reduction",
+                        "name": "Shield D R",
                         "values": [
                             60,
                             70,

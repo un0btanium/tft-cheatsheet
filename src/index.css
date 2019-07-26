@@ -229,3 +229,7 @@ code {
 .fullscreen-enabled {
 	background: #2B3E50;
 }
+
+.reduceOpacityOnHover:hover {
+	opacity: 0.8;
+}

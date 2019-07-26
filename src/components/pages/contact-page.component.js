@@ -11,6 +11,7 @@ export default class ContactPage extends Component {
 					<br/>
 					<p>Hi, I am unobtanium. I created this project in my freetime. You can find the project repository with the source code on my GitHub page <a href="https://github.com/un0btanium/tft-itemizer">here</a>.</p>
 					<p>If you want to send me some feedback, feel free to write me an <a href="mailto:unobtaniumlol@gmail.de?subject=TFT-Itemizer%20Feedback">eMail</a>.</p>
+					<p>This project uses the great <a href="https://github.com/stelar7/lol-parser">LoL parser</a> created by stelar7 to data mine the information directly from the game client.</p>
 				</div>
 			</div>
 		</div>

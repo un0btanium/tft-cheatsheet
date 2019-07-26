@@ -76,9 +76,15 @@ class App extends Component {
 		let originIcons = {};
 		for (let className in classes) {
 			classIcons[className] = images[className];
+			classIcons[className + "1"] = images[className + "1"];
+			classIcons[className + "2"] = images[className + "2"];
+			classIcons[className + "3"] = images[className + "3"];
 		}
 		for (let originName in origins) {
 			originIcons[originName] = images[originName];
+			originIcons[originName + "1"] = images[originName + "1"];
+			originIcons[originName + "2"] = images[originName + "2"];
+			originIcons[originName + "3"] = images[originName + "3"];
 		}
 
 		/* Item Images */

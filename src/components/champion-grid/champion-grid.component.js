@@ -116,6 +116,25 @@ export default class ChampionGrid extends Component {
 					</div>
 				</div>
 			}
+			
+			let traitEffect = "";
+			let effectAmount = this.props.originsData[originName].effects.length
+			for (let i = effectAmount-1; i >= 0 ; i--) {
+				if (originName === "Ninja") {
+					if (this.props.selectedOrigins[originName] === this.props.originsData[originName].effects[i].requiredUnits) {
+						traitEffect = i;
+						break;
+					}
+				} else {
+					if (this.props.selectedOrigins[originName] >= this.props.originsData[originName].effects[i].requiredUnits) {
+						traitEffect = i;
+						break;
+					}
+				}
+			}
+			if (traitEffect !== "") {
+				traitEffect = effectAmount-traitEffect;
+			}
 
 			let originColumn = <Col 
 				style={{...colStyle, borderRight: "solid 4px #FFFFFF"}}
@@ -124,10 +143,11 @@ export default class ChampionGrid extends Component {
 				onMouseLeave={(e) => this.showIconTooltip(null)}
 			>
 				<Image
+					className="reduceOpacityOnHover"
 					style={{ margin: "0px", padding: "9px" }}
 					width={"100%"}
 					height={"100%"}
-					src={this.props.originIcons[originName]}
+					src={this.props.originIcons[originName + traitEffect]}
 					alt={originName}
 					onDragStart={this.props.preventEvent}
 					draggable={false}
@@ -168,16 +188,31 @@ export default class ChampionGrid extends Component {
 				</div>
 			}
 
+			
+			let traitEffect = "";
+			let effectAmount = this.props.classesData[className].effects.length
+			for (let i = effectAmount-1; i >= 0 ; i--) {
+				if (this.props.selectedClasses[className] >= this.props.classesData[className].effects[i].requiredUnits) {
+					traitEffect = i;
+					break;
+				}
+			}
+			if (traitEffect !== "") {
+				traitEffect = effectAmount-traitEffect;
+			}
+
+
 			return <Col
 				style={{...colStyle, borderBottom: "solid 4px #FFFFFF"}}
 				key={"Class"+className}
 				onMouseEnter={(e) => this.showIconTooltip(className)}
 				onMouseLeave={(e) => this.showIconTooltip(null)}>
 					<Image
+						className="reduceOpacityOnHover"
 						style={{ margin: "0px", padding: "2px 10px 7px 10px" }}
 						width={"100%"}
 						height={"100%"}
-						src={this.props.classIcons[className]}
+						src={this.props.classIcons[className+traitEffect]}
 						alt={className}
 						onDragStart={this.props.preventEvent}
 						draggable={false}

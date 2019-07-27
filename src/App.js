@@ -33,23 +33,23 @@ let synergyBackgroundColors = [
 	},
 	{
 		rgb: "254, 214, 81",
-		alpha: 0.9,
+		alpha: 0.85,
 		offset: 0
 	},
 	{
 		rgb: "186, 197, 197",
-		alpha: 0.9,
-		offset: 0.1
+		alpha: 1.25,
+		offset: 0.25
 	},
 	{
 		rgb: "210, 140, 75",
-		alpha: 1.0,
-		offset: 0.1
+		alpha: 1.2,
+		offset: 0.2
 	},
 	{
 		rgb: "50, 168, 82",
-		alpha: 0.5,
-		offset: 0.1,
+		alpha: 0.6,
+		offset: 0.15,
 	}
 ]
 

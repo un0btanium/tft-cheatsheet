@@ -119,7 +119,11 @@ export default class ChampionContainer extends Component {
 
 				let overlayName = "champion-image-default";
 				if (this.props.selectedChampions[champion.name]) {
-					overlayName = "champion-image-selected";
+					if (this.props.showChampionTierOverlay) {
+						overlayName = "champion-image-selected-overlay";
+					} else {
+						overlayName = "champion-image-selected";
+					}
 				} else if (this.props.showChampionTierOverlay) {
 					overlayName = "champion-image-tier"+champion.tier;
 				}
@@ -268,9 +272,20 @@ export default class ChampionContainer extends Component {
 					</Dropdown.Menu>
 				}
 
+				let championOpacity = 0.4;
+				if (this.props.selectedChampions[champion.name] || (this.props.className === null && this.props.originName === null)) {
+					championOpacity = 1.0;
+				} else {
+					if (this.props.selectedClasses[this.props.className] > 0) {
+						championOpacity = championOpacity + 0.4
+					}
+					if (this.props.selectedOrigins[this.props.originName] > 0) {
+						championOpacity = championOpacity + 0.4
+					}
+				}
 
 				return <div key={"champion"+champion.name} style={{ position: "absolute", top: "0px", left: championPicturexOffsetInPercent, width: "100%", height: "100%"}}>
-					<div className={overlayName} style={{ position: "absolute", top: "0px", left: "0px", width: championPictureWidth, height: "100%", overflow: "hidden", border: championPictureBorder}}>
+					<div className={overlayName} style={{ position: "absolute", opacity: championOpacity, top: "0px", left: "0px", width: championPictureWidth, height: "100%", overflow: "hidden", border: championPictureBorder}}>
 						<div style={{ width: championPictureStretch, height: "100%", maxWidth: championPictureStretch, textIndent: championPictureTextIndentNegative }}>
 							
 							<Image

@@ -82,7 +82,8 @@ export default class ChampionGrid extends Component {
 				}
 
 				if (isChampionSelected) {
-					finalColStyle = { ...colStyle, border: "solid 3px rgb(255, 100, 150)"}; // red border
+					finalColStyle = { ...colStyle, border: "solid 3px rgb(255, 25, 50)"}; // red border
+					// finalColStyle = { ...colStyle, border: "solid 3px rgb(255, 255, 255)"};
 				} else {
 					finalColStyle = { ...colStyle, border: "solid 3px " + synergyColor};
 				}

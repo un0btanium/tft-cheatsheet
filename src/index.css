@@ -1,23 +1,23 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+	"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+	sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	monospace;
 }
 
 .fadeIn {
   -webkit-animation: fadein 1.1s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein 1.1s; /* Firefox < 16 */
-      -ms-animation: fadein 1.1s; /* Internet Explorer */
-       -o-animation: fadein 1.1s; /* Opera < 12.1 */
-          animation: fadein 1.1s;
+	 -moz-animation: fadein 1.1s; /* Firefox < 16 */
+	  -ms-animation: fadein 1.1s; /* Internet Explorer */
+	   -o-animation: fadein 1.1s; /* Opera < 12.1 */
+		  animation: fadein 1.1s;
 }
 
 @keyframes fadein {
@@ -141,27 +141,46 @@ code {
 }
 
 .champion-image-tier5:hover:after {
-  opacity: 0.0;
+  	opacity: 0.0;
 }
 
 
 .champion-image-selected:after {
-  content:'';
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  background: #ff0000;
-  opacity: 0.35;
-  pointer-events: none;
+	content:'';
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	background: rgb(0, 255, 0);
+	opacity: 0.2;
+	pointer-events: none;
+}
+  
+.champion-image-selected:hover:after {
+	opacity: 0.0;
 }
 
-.champion-image-selected:hover:after {
-  opacity: 0.2;
+.champion-image-selected-overlay:after {
+	content:'';
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	background: rgb(255, 255, 255);
+	opacity: 0.0;
+	pointer-events: none;
 }
+
+.champion-image-selected-overlay:hover:after {
+	opacity: 0.2;
+}
+  
 
 .champion-image-default:after {
   content:'';
@@ -194,17 +213,17 @@ code {
 
 @keyframes clickEffect{
   0%{
-    opacity: 1;
-    width: 0.5em;
-    height: 0.5em;
-    margin: -0.25em;
-    border-width: 0.5em;
-    }
+	opacity: 1;
+	width: 0.5em;
+	height: 0.5em;
+	margin: -0.25em;
+	border-width: 0.5em;
+	}
   100%{
-    opacity:0.2;
-    width:15em; height:15em;
-    margin:-7.5em;
-    border-width:0.03em;
+	opacity:0.2;
+	width:15em; height:15em;
+	margin:-7.5em;
+	border-width:0.03em;
   }
 }
 

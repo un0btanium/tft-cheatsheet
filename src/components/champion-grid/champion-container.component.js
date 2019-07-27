@@ -79,16 +79,7 @@ export default class ChampionContainer extends Component {
 		
 		if (champions === null || champions === undefined || champions.length === 0) {
 
-			let intensity = Math.min(255, (Math.max(this.props.selectedOrigins[this.props.originName], this.props.selectedClasses[this.props.className]))*40);
-
-			let backgroundColor;
-			if (intensity === 0) {
-				backgroundColor = "#000000";
-			} else {
-				backgroundColor = "rgb(" + intensity + ", 50, 50)";
-			}
-
-			return <div onContextMenu={this.preventEvent} onClick={this.preventEvent} style={{ display: "block", width: "100%", height: "100%", background: backgroundColor}}>
+			return <div onContextMenu={this.preventEvent} onClick={this.preventEvent} style={{ display: "block", width: "100%", height: "100%", background: this.props.synergyColor}}>
 				
 				<div style={{ visibility: "hidden", maxWidth: "100%", overflow: "hidden", pointerEvents: "none" }}>
 					<Image
@@ -101,7 +92,7 @@ export default class ChampionContainer extends Component {
 						draggable={false}
 					/>
 				</div>
-		</div>
+			</div>
 		} else {
 
 			let championImages = champions.map((champion, i) => {

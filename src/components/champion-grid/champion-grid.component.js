@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import ChampionContainer from '../champion-grid/champion-container.component';
 
+
 export default class ChampionGrid extends Component {
 	
 	constructor(props) {
@@ -37,22 +38,60 @@ export default class ChampionGrid extends Component {
 						}
 					}
 				}
+
+
+				// OR: check if row AND col are selected, not just one
+
+				// let synergyLevel = Math.min(originSynergyLevel, classSynergyLevel);
+				// // let requiredUnitsForNextSynergy = classSynergyLevel < originSynergyLevel ? this.props.nextSynergyLevelInfo[className].remainingRequiredUnits : this.props.nextSynergyLevelInfo[originName].remainingRequiredUnits; 
+				// // let requiredUnitsForNextSynergy = Math.max(
+				// 	// 	this.props.requiredUnitsForNextSynergy[className],
+				// 	// 	this.props.requiredUnitsForNextSynergy[originName]
+				// // );
+				// 
+
+				// if (className === "Elementalist" && originName === "Exile") {
+				// 	console.log(className + " " + classSynergyLevel + " " + this.props.nextSynergyLevelInfo[className].remainingRequiredUnits);
+				// 	console.log(originName + " " + originSynergyLevel + " " + this.props.nextSynergyLevelInfo[originName].remainingRequiredUnits);
+				// 	console.log("Required Units " + requiredUnitsForNextSynergy);
+				// }
+
+				let classSynergyLevel = this.props.traitSynergyInfo[className].synergy;
+				let originSynergyLevel = this.props.traitSynergyInfo[originName].synergy;
+				
+				let synergyColor;
+				if (this.props.selectedClasses[className] > 0 && this.props.selectedOrigins[originName] > 0) {
+					if (classSynergyLevel === originSynergyLevel) {
+						if (this.props.traitSynergyInfo[className].priority > this.props.traitSynergyInfo[originName].priority) {
+							synergyColor = this.props.traitSynergyInfo[className].color;
+						} else {
+							synergyColor = this.props.traitSynergyInfo[originName].color;
+						}
+					} else if (classSynergyLevel < originSynergyLevel) {
+						synergyColor = this.props.traitSynergyInfo[className].color;
+					} else {
+						synergyColor = this.props.traitSynergyInfo[originName].color;
+					}
+					
+				} else if (this.props.selectedClasses[className] > 0) {
+					synergyColor = this.props.traitSynergyInfo[className].color;
+				} else if (this.props.selectedOrigins[originName] > 0) {
+					synergyColor = this.props.traitSynergyInfo[originName].color;
+				} else {
+					synergyColor = "rgb(0, 0, 0)";
+				}
+
 				if (isChampionSelected) {
-					// finalColStyle = { ...colStyle, border: "solid 3px rgb(232, 198, 7)"}; // golden border
 					finalColStyle = { ...colStyle, border: "solid 3px rgb(255, 100, 150)"}; // red border
 				} else {
-					let intensity = Math.min(255, (Math.max(this.props.selectedOrigins[originName], this.props.selectedClasses[className]))*40);        
-					if (intensity === 0) {
-						finalColStyle = { ...colStyle, border: "solid 3px rgb(" + intensity + ", 0, 0)"};
-					} else {
-						finalColStyle = { ...colStyle, border: "solid 3px rgb(" + intensity + ", 50, 50)"};
-					}
+					finalColStyle = { ...colStyle, border: "solid 3px " + synergyColor};
 				}
 
 				if (champions === null || champions === undefined || champions.length === 0) {
 					return <Col style={finalColStyle} key={"ChampionCol-" + posX + "-" + posY} onContextMenu={this.preventEvent} onClick={this.preventEvent} >
 						<ChampionContainer
 							x={posX} y={posY}
+							synergyColor={synergyColor}
 							champions={champions}
 							advancedItems={this.props.advancedItems}
 							itemImages={this.props.itemImages}
@@ -61,6 +100,8 @@ export default class ChampionGrid extends Component {
 							selectedChampions={this.props.selectedChampions}
 							selectedClasses={this.props.selectedClasses}
 							selectedOrigins={this.props.selectedOrigins}
+							selectedUnitAmountByClasses={this.props.selectedUnitAmountByClasses}
+							selectedUnitAmountByOrigins={this.props.selectedUnitAmountByOrigins}
 							showChampionTierBorder={this.props.championGridShowChampionTierBorder}
 							showChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 							showChampionTooltip={this.props.championGridShowChampionTooltip}
@@ -73,6 +114,7 @@ export default class ChampionGrid extends Component {
 					return <Col style={finalColStyle} key={"ChampionCol-" + posX + "-" + posY}>
 						<ChampionContainer
 							x={posX} y={posY}
+							synergyColor={synergyColor}
 							champions={champions}
 							advancedItems={this.props.advancedItems}
 							itemImages={this.props.itemImages}
@@ -99,7 +141,7 @@ export default class ChampionGrid extends Component {
 				for (let effect of this.props.originsData[originName].effects) {
 					let unitRequirement = <Row key={originName + "Units" + effect.requiredUnits}>
 						<Col sm={1}></Col>
-						<Col sm={2}>{effect.requiredUnits}+ Units</Col>
+						<Col sm={2}>{effect.requiredUnits}{originName === "Ninja" ? (effect.requiredUnits === 1 ? " Unit" : " Units") : "+ Units"}</Col>
 						<Col style={{whiteSpace: "normal"}} sm={9}>{effect.effect}</Col>
 					</Row>
 					unitRequirements.push(unitRequirement);
@@ -117,25 +159,6 @@ export default class ChampionGrid extends Component {
 				</div>
 			}
 			
-			let traitEffect = "";
-			let effectAmount = this.props.originsData[originName].effects.length
-			for (let i = effectAmount-1; i >= 0 ; i--) {
-				if (originName === "Ninja") {
-					if (this.props.selectedOrigins[originName] === this.props.originsData[originName].effects[i].requiredUnits) {
-						traitEffect = i;
-						break;
-					}
-				} else {
-					if (this.props.selectedOrigins[originName] >= this.props.originsData[originName].effects[i].requiredUnits) {
-						traitEffect = i;
-						break;
-					}
-				}
-			}
-			if (traitEffect !== "") {
-				traitEffect = effectAmount-traitEffect;
-			}
-
 			let originColumn = <Col 
 				style={{...colStyle, borderRight: "solid 4px #FFFFFF"}}
 				key={"OriginCol"+originName}
@@ -147,7 +170,7 @@ export default class ChampionGrid extends Component {
 					style={{ margin: "0px", padding: "9px" }}
 					width={"100%"}
 					height={"100%"}
-					src={this.props.originIcons[originName + traitEffect]}
+					src={this.props.originIcons[originName + this.props.traitSynergyInfo[originName].synergy]}
 					alt={originName}
 					onDragStart={this.props.preventEvent}
 					draggable={false}
@@ -188,20 +211,6 @@ export default class ChampionGrid extends Component {
 				</div>
 			}
 
-			
-			let traitEffect = "";
-			let effectAmount = this.props.classesData[className].effects.length
-			for (let i = effectAmount-1; i >= 0 ; i--) {
-				if (this.props.selectedClasses[className] >= this.props.classesData[className].effects[i].requiredUnits) {
-					traitEffect = i;
-					break;
-				}
-			}
-			if (traitEffect !== "") {
-				traitEffect = effectAmount-traitEffect;
-			}
-
-
 			return <Col
 				style={{...colStyle, borderBottom: "solid 4px #FFFFFF"}}
 				key={"Class"+className}
@@ -212,7 +221,7 @@ export default class ChampionGrid extends Component {
 						style={{ margin: "0px", padding: "2px 10px 7px 10px" }}
 						width={"100%"}
 						height={"100%"}
-						src={this.props.classIcons[className+traitEffect]}
+						src={this.props.classIcons[className + this.props.traitSynergyInfo[className].synergy]}
 						alt={className}
 						onDragStart={this.props.preventEvent}
 						draggable={false}
@@ -231,7 +240,7 @@ export default class ChampionGrid extends Component {
 								style={{ margin: "0px", padding: "2px 10px 7px 10px"  }}
 								width={"100%"}
 								height={"100%"}
-								src={this.props.originIcons["Demon"]}
+								src={this.props.originIcons["Demon4"]}
 								alt={"HiddenCornerImage"}
 								onDragStart={this.props.preventEvent}
 								draggable={false}

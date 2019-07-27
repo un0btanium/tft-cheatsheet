@@ -25,6 +25,33 @@ import baseItems from './itemdata/base-items';
 import advancedItems from './itemdata/advanced-items';
 import itemRecipes from './itemdata/item-recipes';
 
+let synergyBackgroundColors = [
+	{
+		rgb: "50, 168, 82",
+		alpha: 0.6,
+		offset: 0.1
+	},
+	{
+		rgb: "254, 214, 81",
+		alpha: 0.9,
+		offset: 0
+	},
+	{
+		rgb: "186, 197, 197",
+		alpha: 0.9,
+		offset: 0.1
+	},
+	{
+		rgb: "210, 140, 75",
+		alpha: 1.0,
+		offset: 0.1
+	},
+	{
+		rgb: "50, 168, 82",
+		alpha: 0.5,
+		offset: 0.1,
+	}
+]
 
 const BG = "dark"; // primary, dark, light
 const VARIANT = "dark"; // dark, light
@@ -74,17 +101,20 @@ class App extends Component {
 		/* Classes and Origins Icons */
 		let classIcons = {};
 		let originIcons = {};
+		let traitSynergyInfo = {};
 		for (let className in classes) {
-			classIcons[className] = images[className];
+			classIcons[className + "4"]  = images[className];
 			classIcons[className + "1"] = images[className + "1"];
 			classIcons[className + "2"] = images[className + "2"];
 			classIcons[className + "3"] = images[className + "3"];
+			traitSynergyInfo[className] = this.getSynergyInfo(className, 0, tftData.classes[className]);
 		}
 		for (let originName in origins) {
-			originIcons[originName] = images[originName];
+			originIcons[originName + "4"] = images[originName];
 			originIcons[originName + "1"] = images[originName + "1"];
 			originIcons[originName + "2"] = images[originName + "2"];
 			originIcons[originName + "3"] = images[originName + "3"];
+			traitSynergyInfo[originName] = this.getSynergyInfo(originName, 0, tftData.origins[originName]);
 		}
 
 		/* Item Images */
@@ -223,6 +253,7 @@ class App extends Component {
 				selectedChampionsByTier: [],
 				selectedClasses: selectedClasses,
 				selectedOrigins: selectedOrigins,
+				traitSynergyInfo: traitSynergyInfo,
 
 				classIcons: classIcons,
 				originIcons: originIcons,
@@ -403,6 +434,7 @@ class App extends Component {
 		let selectedChampions = {...this.state.selectedChampions};
 		let selectedClasses = {...this.state.selectedClasses};
 		let selectedOrigins = {...this.state.selectedOrigins};
+		let traitSynergyInfo = {...this.state.traitSynergyInfo};
 
 		if (selectedChampions[champion.name]) { // is selected, got unselected, remove
 			for (let className of champion.classes) {
@@ -418,6 +450,12 @@ class App extends Component {
 			for (let originName of champion.origins) {
 				selectedOrigins[originName] = selectedOrigins[originName]+1;
 			}
+		}
+		for (let className of champion.classes) {
+			traitSynergyInfo[className] = this.getSynergyInfo(className, selectedClasses[className], this.state.classesData[className]);
+		}
+		for (let originName of champion.origins) {
+			traitSynergyInfo[originName] = this.getSynergyInfo(originName, selectedOrigins[originName], this.state.originsData[originName]);
 		}
 		selectedChampions[champion.name] = !selectedChampions[champion.name];
 		
@@ -440,7 +478,8 @@ class App extends Component {
 			selectedChampions: selectedChampions,
 			selectedChampionsByTier: selectedChampionsByTier,
 			selectedClasses: selectedClasses,
-			selectedOrigins: selectedOrigins
+			selectedOrigins: selectedOrigins,
+			traitSynergyInfo: traitSynergyInfo
 		})
 	}
 
@@ -460,9 +499,13 @@ class App extends Component {
 					selectedClasses[classOrOrigin] = selectedClasses[classOrOrigin]+1;
 				}
 
+				let traitSynergyInfo = {...this.state.traitSynergyInfo};
+				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedClasses[classOrOrigin], this.state.classesData[classOrOrigin]);
+
 				this.setState({
 					championsByName: championsByName,
 					selectedClasses: selectedClasses,
+					traitSynergyInfo: traitSynergyInfo,
 					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
 				});
 
@@ -480,9 +523,13 @@ class App extends Component {
 					selectedClasses[classOrOrigin] = selectedClasses[classOrOrigin]-1;
 				}
 
+				let traitSynergyInfo = {...this.state.traitSynergyInfo};
+				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedClasses[classOrOrigin], this.state.classesData[classOrOrigin]);
+
 				this.setState({
 					championsByName: championsByName,
 					selectedClasses: selectedClasses,
+					traitSynergyInfo: traitSynergyInfo,
 					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
 				});
 			}
@@ -502,9 +549,13 @@ class App extends Component {
 					selectedOrigins[classOrOrigin] = selectedOrigins[classOrOrigin]+1;
 				}
 
+				let traitSynergyInfo = {...this.state.traitSynergyInfo};
+				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedOrigins[classOrOrigin], this.state.originsData[classOrOrigin]);
+
 				this.setState({
 					championsByName: championsByName,
 					selectedOrigins: selectedOrigins,
+					traitSynergyInfo: traitSynergyInfo,
 					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
 				});
 
@@ -522,13 +573,70 @@ class App extends Component {
 					selectedOrigins[classOrOrigin] = selectedOrigins[classOrOrigin]-1;
 				}
 
+				let traitSynergyInfo = {...this.state.traitSynergyInfo};
+				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedOrigins[classOrOrigin], this.state.originsData[classOrOrigin]);
+
 				this.setState({
 					championsByName: championsByName,
 					selectedOrigins: selectedOrigins,
+					traitSynergyInfo: traitSynergyInfo,
 					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
 				});
 			}
 		}
+	}
+
+	getSynergyInfo(traitName, selectedChampions, traitData) {
+		let synergy = 4;
+		let effectAmount = traitData.effects.length;
+		for (let i = effectAmount-1; i >= 0 ; i--) {
+			if (traitName === "Ninja") {
+				if (selectedChampions === traitData.effects[i].requiredUnits) {
+					synergy = i;
+					break;
+				}
+			} else {
+				if (selectedChampions >= traitData.effects[i].requiredUnits) {
+					synergy = i;
+					break;
+				}
+			}
+		}
+		if (synergy !== 4) {
+			synergy = effectAmount-synergy;
+		}
+
+		let remainingRequiredUnits;
+		let totalRequiredUnits;
+		if (synergy === 4) {
+			remainingRequiredUnits = traitData.effects[0].requiredUnits - selectedChampions; // units required till first synergy
+			totalRequiredUnits = traitData.effects[0].requiredUnits;
+		} else if (synergy === 1) {
+			remainingRequiredUnits = 0; // already at max synergy
+			totalRequiredUnits = 1;
+		} else if (synergy === 2) {
+			remainingRequiredUnits = traitData.effects[effectAmount-1].requiredUnits - selectedChampions; // units required till third synergy
+			totalRequiredUnits = traitData.effects[effectAmount-1].requiredUnits - (traitData.effects[effectAmount-2].requiredUnits || 0);
+		} else if (synergy === 3) {
+			remainingRequiredUnits = traitData.effects[effectAmount-2].requiredUnits - selectedChampions; // units required till second synergy
+			totalRequiredUnits = traitData.effects[effectAmount-2].requiredUnits - (traitData.effects[effectAmount-3].requiredUnits || 0);
+		} else {
+			remainingRequiredUnits = 0; // just for safety
+			totalRequiredUnits = 1; // just for safety
+		}
+
+		let synergyLevelInfo = {
+			priority: 1 - (remainingRequiredUnits / totalRequiredUnits),
+			color: "rgba(" + synergyBackgroundColors[synergy].rgb + ", " + (synergyBackgroundColors[synergy].alpha - (remainingRequiredUnits * synergyBackgroundColors[synergy].offset)) + ")",
+			synergy: synergy
+		}
+
+		console.log(traitName);
+		console.log(synergy)
+		console.log(remainingRequiredUnits + " / " + totalRequiredUnits + " = " + synergyLevelInfo.priority)
+		console.log(synergyLevelInfo);
+		console.log("")
+		return synergyLevelInfo;
 	}
 
 	createGrid(championsByName, classes, origins) {

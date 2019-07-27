@@ -39,23 +39,6 @@ export default class ChampionGrid extends Component {
 					}
 				}
 
-
-				// OR: check if row AND col are selected, not just one
-
-				// let synergyLevel = Math.min(originSynergyLevel, classSynergyLevel);
-				// // let requiredUnitsForNextSynergy = classSynergyLevel < originSynergyLevel ? this.props.nextSynergyLevelInfo[className].remainingRequiredUnits : this.props.nextSynergyLevelInfo[originName].remainingRequiredUnits; 
-				// // let requiredUnitsForNextSynergy = Math.max(
-				// 	// 	this.props.requiredUnitsForNextSynergy[className],
-				// 	// 	this.props.requiredUnitsForNextSynergy[originName]
-				// // );
-				// 
-
-				// if (className === "Elementalist" && originName === "Exile") {
-				// 	console.log(className + " " + classSynergyLevel + " " + this.props.nextSynergyLevelInfo[className].remainingRequiredUnits);
-				// 	console.log(originName + " " + originSynergyLevel + " " + this.props.nextSynergyLevelInfo[originName].remainingRequiredUnits);
-				// 	console.log("Required Units " + requiredUnitsForNextSynergy);
-				// }
-
 				let classSynergyLevel = this.props.traitSynergyInfo[className].synergy;
 				let originSynergyLevel = this.props.traitSynergyInfo[originName].synergy;
 				

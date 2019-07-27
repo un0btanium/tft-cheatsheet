@@ -630,12 +630,7 @@ class App extends Component {
 			color: "rgba(" + synergyBackgroundColors[synergy].rgb + ", " + (synergyBackgroundColors[synergy].alpha - (remainingRequiredUnits * synergyBackgroundColors[synergy].offset)) + ")",
 			synergy: synergy
 		}
-
-		console.log(traitName);
-		console.log(synergy)
-		console.log(remainingRequiredUnits + " / " + totalRequiredUnits + " = " + synergyLevelInfo.priority)
-		console.log(synergyLevelInfo);
-		console.log("")
+		
 		return synergyLevelInfo;
 	}
 

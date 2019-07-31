@@ -82,6 +82,7 @@ export default class ChampionGrid extends Component {
 							className={className}
 							originName={originName}
 							selectedChampions={this.props.selectedChampions}
+							selectedChampionsCount={this.props.selectedChampionsCount}
 							selectedClasses={this.props.selectedClasses}
 							selectedOrigins={this.props.selectedOrigins}
 							selectedUnitAmountByClasses={this.props.selectedUnitAmountByClasses}
@@ -89,6 +90,7 @@ export default class ChampionGrid extends Component {
 							showChampionTierBorder={this.props.championGridShowChampionTierBorder}
 							showChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 							showChampionTooltip={this.props.championGridShowChampionTooltip}
+							showOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 							onChampionHover={this.props.onChampionHover}
 							onChampionClick={this.props.onChampionClick}
 							addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
@@ -105,11 +107,13 @@ export default class ChampionGrid extends Component {
 							className={className}
 							originName={originName}
 							selectedChampions={this.props.selectedChampions}
+							selectedChampionsCount={this.props.selectedChampionsCount}
 							selectedClasses={this.props.selectedClasses}
 							selectedOrigins={this.props.selectedOrigins}
 							showChampionTierBorder={this.props.championGridShowChampionTierBorder}
 							showChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 							showChampionTooltip={this.props.championGridShowChampionTooltip}
+							showOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 							onChampionHover={this.props.onChampionHover}
 							onChampionClick={this.props.onChampionClick}
 							addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}

@@ -273,14 +273,14 @@ export default class ChampionContainer extends Component {
 				}
 
 				let championOpacity = 0.4;
-				if (this.props.selectedChampions[champion.name] || (this.props.className === null && this.props.originName === null)) {
+				if (!this.props.showOnlySynergeticChampions || this.props.selectedChampionsCount === 0 || this.props.selectedChampions[champion.name] || (this.props.className === null && this.props.originName === null)) {
 					championOpacity = 1.0;
 				} else {
 					if (this.props.selectedClasses[this.props.className] > 0) {
-						championOpacity = championOpacity + 0.4
+						championOpacity = championOpacity + 0.5
 					}
 					if (this.props.selectedOrigins[this.props.originName] > 0) {
-						championOpacity = championOpacity + 0.4
+						championOpacity = championOpacity + 0.5
 					}
 				}
 

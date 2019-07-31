@@ -22,6 +22,11 @@ export default class ChampionGridSettings extends Component {
 					<Form.Check id="toogleChampionGridShowOriginAndClassTooltips" type="checkbox" className="custom-switch" custom="true" label="Show Origin & Class Tooltips on Hover" checked={this.props.championGridShowOriginAndClassTooltips} onChange={(e) => this.props.toggleSetting("championGridShowOriginAndClassTooltips")} />
 				</Col>
 			</Row>
+			<Row className="fadeIn">
+				<Col xs={6}>
+					<Form.Check id="toggleChampionGridShowOnlySynergeticChampions" type="checkbox" className="custom-switch" custom="true" label="Highlight Only Champions sharing a synergy" checked={this.props.championGridShowOnlySynergeticChampions} onChange={(e) => this.props.toggleSetting("championGridShowOnlySynergeticChampions")} />
+				</Col>
+			</Row>
 		</Container>
 	}
 

@@ -71,6 +71,7 @@ export default class ChampionGridPage extends Component {
 						championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 						championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
 						championGridShowOriginAndClassTooltips={this.props.championGridShowOriginAndClassTooltips}
+						championGridShowOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 					/>
 					<ChampionGridInfo 
 						selectedChampionsByTier={this.props.selectedChampionsByTier}

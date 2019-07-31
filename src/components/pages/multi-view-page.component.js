@@ -40,6 +40,7 @@ export default class MultiViewPage extends Component {
 									championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 									championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
 									championGridShowOriginAndClassTooltips={this.props.championGridShowOriginAndClassTooltips}
+									championGridShowOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 								/>
 								}
 								<ChampionGrid
@@ -146,6 +147,7 @@ export default class MultiViewPage extends Component {
 									championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 									championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
 									championGridShowOriginAndClassTooltips={this.props.championGridShowOriginAndClassTooltips}
+									championGridShowOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 								/>}
 								<ChampionGrid
 									{...this.props}

@@ -196,6 +196,7 @@ class App extends Component {
 			championGridShowChampionTierOverlay: true,
 			championGridShowChampionTooltip: true,
 			championGridShowOriginAndClassTooltips: true,
+			championGridShowOnlySynergeticChampions: true,
 			
 			/* Item Grid */ 
 			itemGridIsYAxisFlipped: false,
@@ -250,6 +251,7 @@ class App extends Component {
 				grid: championGrid,
 
 				selectedChampions: selectedChampions,
+				selectedChampionsCount: 0,
 				selectedChampionsByTier: [],
 				selectedClasses: selectedClasses,
 				selectedOrigins: selectedOrigins,
@@ -474,8 +476,16 @@ class App extends Component {
 			return 0;
 		});
 
+		let selectedChampionsCount;
+		if (selectedChampions[champion.name]) { // if true, then champion is now selected and vise versa
+			selectedChampionsCount = this.state.selectedChampionsCount+1;
+		} else {
+			selectedChampionsCount = this.state.selectedChampionsCount-1;
+		}
+
 		this.setState({
 			selectedChampions: selectedChampions,
+			selectedChampionsCount: selectedChampionsCount,
 			selectedChampionsByTier: selectedChampionsByTier,
 			selectedClasses: selectedClasses,
 			selectedOrigins: selectedOrigins,

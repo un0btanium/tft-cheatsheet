@@ -29,9 +29,9 @@ var data = {
                         "values": [
                             50,
                             100,
-                            150,
                             200,
-                            250
+                            300,
+                            400
                         ]
                     },
                     {
@@ -87,12 +87,12 @@ var data = {
             "origins": [
                 "Noble"
             ],
-            "maxHealthpoints": 800,
+            "maxHealthpoints": 750,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
             "damage": 70,
             "damageScaleFactor": 1.25,
-            "armor": 35,
+            "armor": 40,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -102,16 +102,6 @@ var data = {
                 "name": "Divine Judgement",
                 "originalDescription": "Kayle shields the weakest ally, making them immune to damage",
                 "variables": [
-                    {
-                        "name": "Damage",
-                        "values": [
-                            200,
-                            500,
-                            800,
-                            1100,
-                            1400
-                        ]
-                    },
                     {
                         "name": "Shield Duration",
                         "values": [
@@ -329,7 +319,7 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
-            "damage": 60,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -391,11 +381,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            225,
-                            300,
+                            125,
+                            250,
                             375,
-                            450,
-                            525
+                            500,
+                            625
                         ]
                     },
                     {
@@ -488,11 +478,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            150,
+                            100,
                             200,
-                            250,
                             300,
-                            350
+                            400,
+                            500
                         ]
                     },
                     {
@@ -530,26 +520,26 @@ var data = {
             "range": 3,
             "specialAbility": {
                 "name": "Requiem",
-                "originalDescription": "Karthus deals damage to 4/7/10 random enemies after a long channel",
+                "originalDescription": "Karthus deals damage to 5/9/13 random enemies after a long channel",
                 "variables": [
                     {
                         "name": "Damage",
                         "values": [
                             100,
-                            350,
-                            600,
-                            850,
-                            1100
+                            400,
+                            700,
+                            1000,
+                            1300
                         ]
                     },
                     {
                         "name": "Number Of Targets",
                         "values": [
                             1,
-                            4,
-                            7,
-                            10,
-                            13
+                            5,
+                            9,
+                            13,
+                            17
                         ]
                     }
                 ]
@@ -573,7 +563,7 @@ var data = {
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.55,
+            "attackSpeed": 0.6,
             "range": 1,
             "specialAbility": {
                 "name": "Rupture",
@@ -583,20 +573,20 @@ var data = {
                         "name": "Damage",
                         "values": [
                             0,
-                            200,
-                            400,
-                            600,
-                            800
+                            250,
+                            500,
+                            750,
+                            1000
                         ]
                     },
                     {
                         "name": "Knock Duration",
                         "values": [
+                            0.5,
                             1,
                             1.5,
                             2,
-                            2.5,
-                            3
+                            2.5
                         ]
                     },
                     {
@@ -640,11 +630,11 @@ var data = {
                     {
                         "name": "Total Damage",
                         "values": [
-                            450,
-                            700,
-                            950,
-                            1200,
-                            1450
+                            500,
+                            800,
+                            1100,
+                            1400,
+                            1700
                         ]
                     },
                     {
@@ -682,13 +672,13 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 0,
-            "damage": 45,
+            "damage": 55,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.65,
+            "attackSpeed": 0.6,
             "range": 1,
             "specialAbility": {
                 "name": "Nether Blade",
@@ -764,10 +754,10 @@ var data = {
             "origins": [
                 "Yordle"
             ],
-            "maxHealthpoints": 450,
+            "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 45,
+            "damage": 50,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -881,7 +871,7 @@ var data = {
             ],
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
-            "maxMana": 150,
+            "maxMana": 125,
             "damage": 50,
             "damageScaleFactor": 1.25,
             "armor": 35,
@@ -939,7 +929,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Death Lotus",
-                "originalDescription": "Katarina channels for 2.5/2.5/2.5s and fires daggers at 3/5/7 nearby enemies, dealing damage and reducing healing",
+                "originalDescription": "Katarina channels for 2.5/2.5/2.5s and fires daggers at 4/6/8 nearby enemies, dealing damage and reducing healing",
                 "variables": [
                     {
                         "name": "Damage Per Tick",
@@ -984,11 +974,11 @@ var data = {
                     {
                         "name": "Number Of Targets",
                         "values": [
-                            1,
-                            3,
-                            5,
-                            7,
-                            9
+                            2,
+                            4,
+                            6,
+                            8,
+                            10
                         ]
                     }
                 ]
@@ -1079,10 +1069,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             25,
-                            175,
-                            325,
-                            475,
-                            625
+                            200,
+                            375,
+                            550,
+                            725
                         ]
                     },
                     {
@@ -1110,13 +1100,13 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 0,
-            "damage": 45,
+            "damage": 40,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.65,
+            "attackSpeed": 0.75,
             "range": 3,
             "specialAbility": {
                 "name": "Silver Bolts",
@@ -1298,12 +1288,12 @@ var data = {
             "origins": [
                 "Phantom"
             ],
-            "maxHealthpoints": 550,
+            "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
             "damage": 50,
             "damageScaleFactor": 1.25,
-            "armor": 35,
+            "armor": 40,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -1378,20 +1368,30 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Five Point Strike",
-                "originalDescription": "Akali throws shurikens in front of her, dealing damage. This spell can critically strike",
+                "originalDescription": "Akali throws kunai at her target, dealing damage. This spell can critically strike",
                 "variables": [
                     {
                         "name": "Damage",
                         "values": [
                             25,
-                            200,
-                            375,
-                            550,
-                            725
+                            150,
+                            275,
+                            400,
+                            525
                         ]
                     },
                     {
-                        "name": "Cone Hex Length",
+                        "name": "Cone Deg",
+                        "values": [
+                            30,
+                            30,
+                            30,
+                            30,
+                            30
+                        ]
+                    },
+                    {
+                        "name": "Hex Range",
                         "values": [
                             1,
                             1,
@@ -1451,11 +1451,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            150,
-                            400,
-                            650,
-                            900,
-                            1150
+                            0,
+                            250,
+                            500,
+                            750,
+                            1000
                         ]
                     },
                     {
@@ -1483,13 +1483,13 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
-            "damage": 55,
+            "damage": 50,
             "damageScaleFactor": 1.25,
-            "armor": 35,
+            "armor": 40,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.55,
+            "attackSpeed": 0.6,
             "range": 1,
             "specialAbility": {
                 "name": "Judgement",
@@ -1518,11 +1518,11 @@ var data = {
                     {
                         "name": "Damage Per Tick",
                         "values": [
-                            35,
-                            50,
+                            15,
+                            40,
                             65,
-                            80,
-                            95
+                            90,
+                            115
                         ]
                     }
                 ]
@@ -1542,7 +1542,7 @@ var data = {
             "maxMana": 100,
             "damage": 45,
             "damageScaleFactor": 1.25,
-            "armor": 55,
+            "armor": 100,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -1603,7 +1603,7 @@ var data = {
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.6,
+            "attackSpeed": 0.7,
             "range": 1,
             "specialAbility": {
                 "name": "Spirit's Refuge",
@@ -1636,7 +1636,7 @@ var data = {
             "maxMana": 100,
             "damage": 50,
             "damageScaleFactor": 1.25,
-            "armor": 20,
+            "armor": 30,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -1716,11 +1716,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            25,
+                            50,
+                            100,
                             200,
                             300,
-                            400,
-                            500
+                            400
                         ]
                     }
                 ]
@@ -1744,7 +1744,7 @@ var data = {
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.5,
+            "attackSpeed": 0.55,
             "range": 1,
             "specialAbility": {
                 "name": "Buckshot",
@@ -1878,10 +1878,10 @@ var data = {
                         "name": "Attackspeed Buff",
                         "values": [
                             0.1,
-                            0.3,
-                            0.5,
+                            0.4,
                             0.7,
-                            0.9
+                            1,
+                            1.3
                         ]
                     },
                     {
@@ -1934,11 +1934,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            200,
-                            400,
+                            150,
+                            300,
                             600,
-                            800,
-                            1000
+                            900,
+                            1200
                         ]
                     },
                     {
@@ -1968,7 +1968,7 @@ var data = {
             "maxMana": 150,
             "damage": 45,
             "damageScaleFactor": 1.25,
-            "armor": 35,
+            "armor": 40,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -2001,11 +2001,11 @@ var data = {
                     {
                         "name": "Stun Duration",
                         "values": [
-                            0.5,
+                            1,
                             2,
-                            3.5,
-                            5,
-                            6.5
+                            4,
+                            6,
+                            8
                         ]
                     }
                 ]
@@ -2082,7 +2082,7 @@ var data = {
             "maxMana": 150,
             "damage": 50,
             "damageScaleFactor": 1.25,
-            "armor": 25,
+            "armor": 20,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -2221,9 +2221,9 @@ var data = {
                         "values": [
                             50,
                             150,
-                            250,
-                            350,
-                            450
+                            300,
+                            450,
+                            600
                         ]
                     },
                     {
@@ -2254,7 +2254,7 @@ var data = {
             "maxMana": 100,
             "damage": 50,
             "damageScaleFactor": 1.25,
-            "armor": 25,
+            "armor": 40,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -2334,11 +2334,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            100,
+                            25,
                             150,
-                            200,
-                            250,
-                            300
+                            275,
+                            400,
+                            525
                         ]
                     },
                     {
@@ -2403,7 +2403,7 @@ var data = {
             "origins": [
                 "Dragon"
             ],
-            "maxHealthpoints": 600,
+            "maxHealthpoints": 650,
             "hpScaleFactor": 1.8,
             "maxMana": 125,
             "damage": 40,
@@ -2423,9 +2423,19 @@ var data = {
                         "values": [
                             50,
                             250,
-                            450,
-                            650,
-                            850
+                            500,
+                            750,
+                            1000
+                        ]
+                    },
+                    {
+                        "name": "Hex Range",
+                        "values": [
+                            8,
+                            8,
+                            8,
+                            8,
+                            8
                         ]
                     }
                 ]
@@ -2445,7 +2455,7 @@ var data = {
             "maxHealthpoints": 750,
             "hpScaleFactor": 1.8,
             "maxMana": 125,
-            "damage": 45,
+            "damage": 50,
             "damageScaleFactor": 1.25,
             "armor": 30,
             "magicResistance": 20,
@@ -2532,7 +2542,7 @@ var data = {
             "maxHealthpoints": 700,
             "hpScaleFactor": 1.8,
             "maxMana": 25,
-            "damage": 65,
+            "damage": 75,
             "damageScaleFactor": 1.25,
             "armor": 35,
             "magicResistance": 20,
@@ -2542,7 +2552,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Tempest Steel",
-                "originalDescription": "Yasuo stabs forward, damaging two enemies in a line. On third cast, Yasuo instead launches a tornado dealing damage and knocking up enemies in a line for 1.5/1.5/1.5s. Applies on hit effects",
+                "originalDescription": "Yasuo stabs forward, damaging two enemies in a line. On third cast, Yasuo instead launches a tornado dealing damage and knocking up enemies in a line for 1.5/1.5/1.5s. <br><br>Applies on hit effects.",
                 "variables": [
                     {
                         "name": "Damage",
@@ -2621,7 +2631,7 @@ var data = {
             "maxMana": 50,
             "damage": 40,
             "damageScaleFactor": 1.25,
-            "armor": 25,
+            "armor": 75,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
@@ -2666,7 +2676,7 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 150,
-            "damage": 55,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -2713,13 +2723,13 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 35,
-            "damage": 65,
+            "damage": 60,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.65,
+            "attackSpeed": 0.7,
             "range": 3,
             "specialAbility": {
                 "name": "Relentless Pursuit",
@@ -2822,11 +2832,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            100,
-                            400,
-                            700,
-                            1000,
-                            1300
+                            50,
+                            350,
+                            650,
+                            950,
+                            1250
                         ]
                     }
                 ]
@@ -2844,7 +2854,7 @@ var data = {
             "maxHealthpoints": 650,
             "hpScaleFactor": 1.8,
             "maxMana": 150,
-            "damage": 40,
+            "damage": 50,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -2859,10 +2869,10 @@ var data = {
                     {
                         "name": "Heal Amount",
                         "values": [
-                            200,
+                            75,
+                            150,
                             300,
-                            400,
-                            500,
+                            450,
                             600
                         ]
                     },
@@ -2900,10 +2910,10 @@ var data = {
                         "name": "Knockup Damage",
                         "values": [
                             50,
-                            150,
-                            250,
-                            350,
-                            450
+                            175,
+                            300,
+                            425,
+                            550
                         ]
                     }
                 ]
@@ -2969,68 +2979,16 @@ var data = {
         }
     },
     "classes": {
-        "Knight": {
-            "name": "Knight",
-            "description": "Knights block damage from basic attacks.",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "20 Damage Blocked"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "40 Damage Blocked"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "80 Damage Blocked"
-                }
-            ]
-        },
         "Elementalist": {
             "name": "Elementalist",
-			"description": "Innate: Elementalists gain double mana from attacks",
-			"note": "Golem HP: 2200",
+            "description": "Innate: Elementalists gain double mana from attacks",
             "effects": [
                 {
                     "requiredUnits": 3,
                     "effect": "At the start of combat, summon a Golem"
                 }
-            ]
-        },
-        "Shapeshifter": {
-            "name": "Shapeshifter",
-            "description": "Shapeshifters gain bonus maximum Health when they transform",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "60% Bonus Maximum Health"
-                }
-            ]
-        },
-        "Sorcerer": {
-            "name": "Sorcerer",
-            "description": "Innate: Sorcerers gain double mana from attacks. All Allies have increased Spell Power",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "+45% Spell Power"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "+100% Spell Power"
-                }
-            ]
-        },
-        "Guardian": {
-            "name": "Guardian",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "Trigger: At the start of combat, all Guardians and each of their adjacent allies gain +40 Armor. This Armor can stack."
-                }
-            ]
+            ],
+            "note": "Golem HP: 2200"
         },
         "Brawler": {
             "name": "Brawler",
@@ -3043,12 +3001,44 @@ var data = {
                 {
                     "requiredUnits": 4,
                     "effect": "700 Bonus Health"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "1200 Bonus Health"
+                }
+            ]
+        },
+        "Guardian": {
+            "name": "Guardian",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Trigger: At the start of combat, Guardians grants +50 Armor to adjacent allies. This Armor can stack."
+                }
+            ]
+        },
+        "Knight": {
+            "name": "Knight",
+            "description": "All allies block damage taken",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "15 Damage Blocked"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "30 Damage Blocked"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "55 Damage Blocked"
                 }
             ]
         },
         "Ranger": {
             "name": "Ranger",
-            "description": "Rangers gain a chance to double their attack speed every 3s for the next 3s",
+            "description": "Rangers gain a chance to double their attack speed every 3s for the next 3s ",
             "effects": [
                 {
                     "requiredUnits": 2,
@@ -3059,6 +3049,67 @@ var data = {
                     "effect": "65% Chance to Double Attack Speed"
                 }
             ]
+        },
+        "Shapeshifter": {
+            "name": "Shapeshifter",
+            "description": "Shapeshifters gain bonus maximum Health when they transform",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "60% Bonus Maximum Health"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "120% Bonus Maximum Health"
+                }
+            ]
+        },
+        "Gunslinger": {
+            "name": "Gunslinger",
+            "description": "Gunslinger attacks gain a 50%  to trigger additional attacks on-hit",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Attack 1 extra enemies"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "Attack 2 extra enemies"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "Attack 3 extra enemies"
+                }
+            ]
+        },
+        "Sorcerer": {
+            "name": "Sorcerer",
+            "description": "Innate: Sorcerers gain double mana from attacksAll Allies have increased Spell Power",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "+45% Spell Power"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "+100% Spell Power"
+                }
+            ]
+        },
+        "Assassin": {
+            "name": "Assassin",
+            "description": "Innate: At the start of combat, Assassins leap to the farthest enemyAssassins gain bonus Critical Strike Damage",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "+125% Critical Strike Damage"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "+350% Critical Strike Damage"
+                }
+            ],
+            "note": "The amplifier is calculated additively since Patch 9.14.1b (nerf)"
         },
         "Blademaster": {
             "name": "Blademaster",
@@ -3071,40 +3122,115 @@ var data = {
                 {
                     "requiredUnits": 6,
                     "effect": "Two Additional Attacks"
-                }
-            ]
-        },
-        "Gunslinger": {
-            "name": "Gunslinger",
-            "description": "Gunslinger attacks gain a 50% chance to trigger additional attacks on-hit",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "Attack another random enemy"
                 },
                 {
-                    "requiredUnits": 4,
-                    "effect": "Attack 3 random enemies"
-                }
-            ]
-        },
-        "Assassin": {
-            "name": "Assassin",
-            "description": "Innate: At the start of combat, Assassins leap to the farthest enemy. Assassins gain bonus Critical Strike Damage.",
-			"note": "Patch 9.14.1b: Crit Damage Amplifiers are now stacking additively (nerf)",
-			"effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "+125% Critical Strike Damage"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "+350% Critical Strike Damage"
+                    "requiredUnits": 9,
+                    "effect": "Four Additional Attacks"
                 }
             ]
         }
     },
     "origins": {
+        "Pirate": {
+            "name": "Pirate",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "At the end of combat against another player, gain up to 4 additional gold"
+                }
+            ]
+        },
+        "Demon": {
+            "name": "Demon",
+            "description": "Attacks from Demons have a chance to burn all of an enemy's mana and deal true damage equal to mana burned",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "20% Chance to Mana Burn"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "40% Chance to Mana Burn"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "80% Chance to Mana Burn"
+                }
+            ]
+        },
+        "Wild": {
+            "name": "Wild",
+            "description": "Attacks generate stacks of Fury (stacks up to 5 times). Each stack of Fury gives 10 Attack Speed",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Wild Allies Only"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Allies"
+                }
+            ]
+        },
+        "Void": {
+            "name": "Void",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "Void champions now deal true damage"
+                }
+            ]
+        },
+        "Dragon": {
+            "name": "Dragon",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Dragons gain immunity to Magic Damage"
+                }
+            ]
+        },
+        "Exile": {
+            "name": "Exile",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "If an Exile has no adjacent allies at the start of combat, they gain a shield equal to 100% of their maximum Health"
+                }
+            ]
+        },
+        "Yordle": {
+            "name": "Yordle",
+            "description": "Yordles gain a chance to dodge enemy attacks",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "30% Chance to Dodge"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "55% Chance to Dodge"
+                }
+            ]
+        },
+        "Ninja": {
+            "name": "Ninja",
+            "description": "The Ninja Trait is only active when you have *exactly* 1 or all 4 Ninjas",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "Ninja gains +40 Attack Damage & +40% Spell Power"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Ninjas gain +60 Attack Damage & +60% Spell Power"
+                }
+            ]
+        },
         "Robot": {
             "name": "Robot",
             "description": "",
@@ -3112,6 +3238,30 @@ var data = {
                 {
                     "requiredUnits": 1,
                     "effect": "Robots start combat at full mana"
+                }
+            ]
+        },
+        "Phantom": {
+            "name": "Phantom",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "At the start of combat, curse a random enemy and set their HP to 100"
+                }
+            ]
+        },
+        "Noble": {
+            "name": "Noble",
+            "description": "Gain +60 Armor and +60 Magic Resistance and heal 35 health on-hit",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "1 Random Ally"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "All Allies"
                 }
             ]
         },
@@ -3133,96 +3283,6 @@ var data = {
                 }
             ]
         },
-        "Noble": {
-            "name": "Noble",
-            "description": "Gain +100 Armor and heal 35 health on-hit",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "1 Random Ally"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "All Allies"
-                }
-            ]
-        },
-        "Exile": {
-            "name": "Exile",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 1,
-                    "effect": "If an Exile has no adjacent allies at the start of combat, they gain a shield equal to 100% of their maximum Health"
-                }
-            ]
-        },
-        "Demon": {
-            "name": "Demon",
-            "description": "Attacks from Demons have a chance to burn all of an enemy's mana and deal true damage equal to mana burned",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "25% Chance to Mana Burn"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "50% Chance to Mana Burn"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "85% Chance to Mana Burn"
-                }
-            ]
-        },
-        "Ninja": {
-            "name": "Ninja",
-            "description": "The Ninja Trait is only active when you have *exactly* 1 or all 4 Ninjas",
-            "effects": [
-                {
-                    "requiredUnits": 1,
-                    "effect": "Ninja gains +40% Attack Damage"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "All Ninjas gain +80% Attack Damage"
-                }
-            ]
-        },
-        "Dragon": {
-            "name": "Dragon",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "Dragons gain immunity to Magic Damage"
-                }
-            ]
-        },
-        "Void": {
-            "name": "Void",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "All ally basic attacks ignore 50% of the enemy's Armor"
-                }
-            ]
-        },
-        "Wild": {
-            "name": "Wild",
-            "description": "Attacks generate stacks of Fury (stacks up to 5 times). Each stack of Fury gives 10% Attack Speed",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "Wild Allies Only"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "All Allies"
-                }
-            ]
-        },
         "Imperial": {
             "name": "Imperial",
             "description": "Gain Double Damage",
@@ -3234,40 +3294,6 @@ var data = {
                 {
                     "requiredUnits": 4,
                     "effect": "All Imperials"
-                }
-            ]
-        },
-        "Pirate": {
-            "name": "Pirate",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "At the end of combat against another player, gain up to 4 additional gold"
-                }
-            ]
-        },
-        "Phantom": {
-            "name": "Phantom",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "At the start of combat, curse a random enemy and set their HP to 100"
-                }
-            ]
-        },
-        "Yordle": {
-            "name": "Yordle",
-            "description": "Yordles gain a chance to dodge enemy attacks",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "25% Chance to Dodge"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "60% Chance to Dodge"
                 }
             ]
         }

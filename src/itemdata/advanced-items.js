@@ -52,13 +52,13 @@ let advancedItems = {
 	},
 	"Locket of the Iron Solari": {
 		img: "3190",
-		effect: "On Round Start: The weaerer and adjacent allies two space to left and right gain a 200 Health shield",
-		effectShort: "On Round Start: 200HP Shield"
+		effect: "On Round Start: The weaerer and adjacent allies two space to left and right gain a 250 Health shield for 4 seconds",
+		effectShort: "On Round Start: 250HP Shield for 4s"
 	},
 	"Ionic Spark": {
 		altimg: "ionicspark",
-		effect: "Enemies take 200 true damage whenever they cast their Special Ability",
-		effectShort: "Enemy Spells deal 200 true damage to caster"
+		effect: "Enemies take 150 true damage whenever they cast their Special Ability",
+		effectShort: "Enemy Spells deal 150 true damage to caster"
 	},
 	"Morellonomicon": {
 		img: "3165",
@@ -75,8 +75,8 @@ let advancedItems = {
 	},
 	"Statikk Shiv": {
 		img: "3087",
-		effect: "On every third Basic Attack: Deal 100 magic damage to the target and 3 additional enemies",
-		effectShort: "Every 3rd attack: 100 magic damage to 4 enemies"
+		effect: "On every third Basic Attack: Deal 90 magic damage to the target and 3 additional enemies",
+		effectShort: "Every 3rd attack: 90 magic damage to 4 enemies"
 	},
 	"Phantom Dancer": {
 		img: "3046",
@@ -108,7 +108,7 @@ let advancedItems = {
 	},
 	"Hush": {
 		altimg: "hush",
-		effect: "On every Basic Attack: 50% chance to silence the target for 5s",
+		effect: "On every Basic Attack: 50% chance to silence the target for 3s",
 		effectShort: "Basic Attacks can silence the target"
 	},
 	"Redemption": {

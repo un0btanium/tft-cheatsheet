@@ -60,7 +60,7 @@ const reloadWindow = () => window.location.reload();
 
 
 const WEBSITE_URL = "tft-cheatsheet.com";
-const PATCH_VERSION = "9.14.1b";
+const PATCH_VERSION = "9.15.0";
 
 class App extends Component {
 

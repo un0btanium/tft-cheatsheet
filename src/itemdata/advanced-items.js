@@ -122,7 +122,7 @@ let advancedItems = {
 	},
 	"Thornmail": {
 		img: "3075",
-		effect: "Reflect 100% of all physical damage mitigated from enemy basic attacks as true damage back to the attacker",
+		effect: "Reflect 100% of all physical damage mitigated from enemy basic attacks as magic damage back to the attacker",
 		effectShort: "Reflect all mitigated physical damage"
 	},
 	"Sword Breaker": {

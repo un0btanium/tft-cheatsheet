@@ -573,10 +573,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             0,
-                            250,
-                            500,
-                            750,
-                            1000
+                            200,
+                            400,
+                            600,
+                            800
                         ]
                     },
                     {
@@ -1288,7 +1288,7 @@ var data = {
             "origins": [
                 "Phantom"
             ],
-            "maxHealthpoints": 500,
+            "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
             "damage": 50,
@@ -3066,7 +3066,7 @@ var data = {
         },
         "Gunslinger": {
             "name": "Gunslinger",
-            "description": "Gunslinger attacks gain a 50%  to trigger additional attacks on-hit",
+            "description": "Gunslinger attacks gain a 50% chance to trigger additional attacks on-hit",
             "effects": [
                 {
                     "requiredUnits": 2,
@@ -3084,7 +3084,7 @@ var data = {
         },
         "Sorcerer": {
             "name": "Sorcerer",
-            "description": "Innate: Sorcerers gain double mana from attacksAll Allies have increased Spell Power",
+            "description": "Innate: Sorcerers gain double mana from attacks. All Allies have increased Spell Power",
             "effects": [
                 {
                     "requiredUnits": 3,
@@ -3098,7 +3098,7 @@ var data = {
         },
         "Assassin": {
             "name": "Assassin",
-            "description": "Innate: At the start of combat, Assassins leap to the farthest enemyAssassins gain bonus Critical Strike Damage",
+            "description": "Innate: At the start of combat, Assassins leap to the farthest enemy. Assassins gain bonus Critical Strike Damage",
             "effects": [
                 {
                     "requiredUnits": 3,
@@ -3189,7 +3189,7 @@ var data = {
             "effects": [
                 {
                     "requiredUnits": 2,
-                    "effect": "Dragons gain immunity to Magic Damage"
+                    "effect": "Dragons gain 83% Magic Damage Resistance"
                 }
             ]
         },

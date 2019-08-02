@@ -21,9 +21,9 @@ export default class ChampionGrid extends Component {
 		let colStyle = {width: "100%", height: "100%", padding: "0px"};
 		let rowStyle = {padding: "0px", margin: "0px"};
 
-		let grid = this.props.origins.map((originName, posY) => {
+		let grid = this.props.originNames.map((originName, posY) => {
 
-			let row = this.props.classes.map((className, posX) => {
+			let row = this.props.classNames.map((className, posX) => {
 
 				let champions = this.props.grid[posX][posY];
 
@@ -32,7 +32,7 @@ export default class ChampionGrid extends Component {
 				let isChampionSelected = false;
 				if (champions !== undefined && champions !== null && champions.length !== 0) {
 					for (let champion of champions) {
-						if (this.props.selectedChampions[champion.name]) {
+						if (this.props.isChampionSelected[champion.name]) {
 							isChampionSelected = true;
 							break;
 						}
@@ -43,7 +43,7 @@ export default class ChampionGrid extends Component {
 				let originSynergyLevel = this.props.traitSynergyInfo[originName].synergy;
 				
 				let synergyColor;
-				if (this.props.selectedClasses[className] > 0 && this.props.selectedOrigins[originName] > 0) {
+				if (this.props.traitsSelectedChampionsCount[className] > 0 && this.props.traitsSelectedChampionsCount[originName] > 0) {
 					if (classSynergyLevel === originSynergyLevel) {
 						if (this.props.traitSynergyInfo[className].priority > this.props.traitSynergyInfo[originName].priority) {
 							synergyColor = this.props.traitSynergyInfo[className].color;
@@ -56,9 +56,9 @@ export default class ChampionGrid extends Component {
 						synergyColor = this.props.traitSynergyInfo[originName].color;
 					}
 					
-				} else if (this.props.selectedClasses[className] > 0) {
+				} else if (this.props.traitsSelectedChampionsCount[className] > 0) {
 					synergyColor = this.props.traitSynergyInfo[className].color;
-				} else if (this.props.selectedOrigins[originName] > 0) {
+				} else if (this.props.traitsSelectedChampionsCount[originName] > 0) {
 					synergyColor = this.props.traitSynergyInfo[originName].color;
 				} else {
 					synergyColor = "rgb(0, 0, 0)";
@@ -81,10 +81,9 @@ export default class ChampionGrid extends Component {
 							itemImages={this.props.itemImages}
 							className={className}
 							originName={originName}
-							selectedChampions={this.props.selectedChampions}
+							isChampionSelected={this.props.isChampionSelected}
 							selectedChampionsCount={this.props.selectedChampionsCount}
-							selectedClasses={this.props.selectedClasses}
-							selectedOrigins={this.props.selectedOrigins}
+							traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 							selectedUnitAmountByClasses={this.props.selectedUnitAmountByClasses}
 							selectedUnitAmountByOrigins={this.props.selectedUnitAmountByOrigins}
 							showChampionTierBorder={this.props.championGridShowChampionTierBorder}
@@ -93,7 +92,7 @@ export default class ChampionGrid extends Component {
 							showOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 							onChampionHover={this.props.onChampionHover}
 							onChampionClick={this.props.onChampionClick}
-							addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
+							addTraitToChampion={this.props.addTraitToChampion}
 						/>
 					</Col>
 				} else {
@@ -106,17 +105,16 @@ export default class ChampionGrid extends Component {
 							itemImages={this.props.itemImages}
 							className={className}
 							originName={originName}
-							selectedChampions={this.props.selectedChampions}
+							isChampionSelected={this.props.isChampionSelected}
 							selectedChampionsCount={this.props.selectedChampionsCount}
-							selectedClasses={this.props.selectedClasses}
-							selectedOrigins={this.props.selectedOrigins}
+							traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 							showChampionTierBorder={this.props.championGridShowChampionTierBorder}
 							showChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 							showChampionTooltip={this.props.championGridShowChampionTooltip}
 							showOnlySynergeticChampions={this.props.championGridShowOnlySynergeticChampions}
 							onChampionHover={this.props.onChampionHover}
 							onChampionClick={this.props.onChampionClick}
-							addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
+							addTraitToChampion={this.props.addTraitToChampion}
 						/>
 					</Col>
 				}
@@ -126,7 +124,7 @@ export default class ChampionGrid extends Component {
 			let tooltip = null;
 			if (this.props.championGridShowOriginAndClassTooltips && this.state.showIconTooltip !== null && this.state.showIconTooltip === originName) {
 				let unitRequirements = [];
-				for (let effect of this.props.originsData[originName].effects) {
+				for (let effect of this.props.traitData[originName].effects) {
 					let unitRequirement = <Row key={originName + "Units" + effect.requiredUnits}>
 						<Col sm={1}></Col>
 						<Col sm={2}>{effect.requiredUnits}{originName === "Ninja" ? (effect.requiredUnits === 1 ? " Unit" : " Units") : "+ Units"}</Col>
@@ -139,7 +137,8 @@ export default class ChampionGrid extends Component {
 						<div style={{ position: "absolute", zIndex: "1", whiteSpace: "nowrap", top: "-75px", border: "solid 3px #FFFFFF", minWidth: "500px", left: "56px", padding: "15px", background: "rgba(0,0,0,0.9)", color: "#FFFFFF" }}>
 							<h5 style={{textAlign: "center"}}><b>{originName}</b></h5>
 							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
-							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.props.originsData[originName].description}</b></h6>
+							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.props.traitData[originName].description}</b></h6>
+							<h6 style={{textAlign: "center", whiteSpace: "normal", color: "#AAAAAA"}}><b>{this.props.traitData[originName].note}</b></h6>
 							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
 							{unitRequirements}
 						</div>
@@ -158,7 +157,7 @@ export default class ChampionGrid extends Component {
 					style={{ margin: "0px", padding: "9px" }}
 					width={"100%"}
 					height={"100%"}
-					src={this.props.originIcons[originName + this.props.traitSynergyInfo[originName].synergy]}
+					src={this.props.traitIcons[originName + this.props.traitSynergyInfo[originName].synergy]}
 					alt={originName}
 					onDragStart={this.props.preventEvent}
 					draggable={false}
@@ -171,12 +170,12 @@ export default class ChampionGrid extends Component {
 		});
 
 
-		let classesRow = this.props.classes.map((className, i) => {
+		let classesRow = this.props.classNames.map((className, i) => {
 
 			let tooltip = null;
 			if (this.props.championGridShowOriginAndClassTooltips && this.state.showIconTooltip !== null && this.state.showIconTooltip === className) {
 				let unitRequirements = [];
-				for (let effect of this.props.classesData[className].effects) {
+				for (let effect of this.props.traitData[className].effects) {
 					let unitRequirement = <Row key={className + "Units" + effect.requiredUnits}>
 						<Col sm={1}></Col>
 						<Col sm={2}>{effect.requiredUnits}+ Units</Col>
@@ -191,7 +190,8 @@ export default class ChampionGrid extends Component {
 						<div style={{position: "absolute", zIndex: "10", whiteSpace: "nowrap", minWidth: "500px", border: "solid 3px #FFFFFF", padding: "15px", background: "rgba(0,0,0,0.9)", color: "#FFFFFF"}}>
 							<h5 style={{textAlign: "center"}}><b>{className}</b></h5>
 							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
-							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.props.classesData[className].description}</b></h6>
+							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.props.traitData[className].description}</b></h6>
+							<h6 style={{textAlign: "center", whiteSpace: "normal", color: "#AAAAAA"}}><b>{this.props.traitData[className].note}</b></h6>
 							<hr style={{ margin: "7px 0px 7px 0px", borderColor: "#FFFFFF"}}/>
 							{unitRequirements}
 						</div>
@@ -209,7 +209,7 @@ export default class ChampionGrid extends Component {
 						style={{ margin: "0px", padding: "2px 10px 7px 10px" }}
 						width={"100%"}
 						height={"100%"}
-						src={this.props.classIcons[className + this.props.traitSynergyInfo[className].synergy]}
+						src={this.props.traitIcons[className + this.props.traitSynergyInfo[className].synergy]}
 						alt={className}
 						onDragStart={this.props.preventEvent}
 						draggable={false}
@@ -228,7 +228,7 @@ export default class ChampionGrid extends Component {
 								style={{ margin: "0px", padding: "2px 10px 7px 10px"  }}
 								width={"100%"}
 								height={"100%"}
-								src={this.props.originIcons["Demon4"]}
+								src={this.props.traitIcons["Demon4"]}
 								alt={"HiddenCornerImage"}
 								onDragStart={this.props.preventEvent}
 								draggable={false}

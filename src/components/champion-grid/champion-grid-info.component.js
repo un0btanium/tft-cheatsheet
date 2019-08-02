@@ -24,15 +24,14 @@ export default class ChampionGridInfo extends Component {
 						itemImages={this.props.itemImages}
 						className={null}
 						originName={null}
-						selectedChampions={[]}
-						selectedClasses={this.props.selectedClasses}
-						selectedOrigins={this.props.selectedOrigins}
+						isChampionSelected={[]}
+						traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 						showChampionTierBorder={this.props.championGridShowChampionTierBorder}
 						showChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 						showChampionTooltip={this.props.championGridShowChampionTooltip}
 						onChampionHover={this.props.onChampionHover}
 						onChampionClick={this.props.onChampionClick}
-						addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
+						addTraitToChampion={this.props.addTraitToChampion}
 					/>
 				</Col>);
 			}

@@ -204,7 +204,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Infinite Duress",
-                "originalDescription": "Warwick pounces onto the lowest health enemy, stunning them for 1.5/1.5/1.5s, damaging them, and healing himself. Applies on-hit effects.",
+                "originalDescription": "Warwick pounces onto the lowest health enemy, stunning them for 1.5s, damaging them, and healing himself. Applies on-hit effects.",
                 "variables": [
                     {
                         "name": "Duration",
@@ -271,7 +271,7 @@ var data = {
             "range": 3,
             "specialAbility": {
                 "name": "Bullet Time",
-                "originalDescription": "Miss Fortune channels for 3/3/3s, firing several waves of bullets damaging enemies in a cone",
+                "originalDescription": "Miss Fortune channels for 3s, firing several waves of bullets damaging enemies in a cone",
                 "variables": [
                     {
                         "name": "Waves",
@@ -381,11 +381,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            125,
-                            250,
-                            375,
-                            500,
-                            625
+                            75,
+                            200,
+                            325,
+                            450,
+                            575
                         ]
                     },
                     {
@@ -443,7 +443,7 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 60,
+            "damage": 70,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -582,11 +582,11 @@ var data = {
                     {
                         "name": "Knock Duration",
                         "values": [
-                            0.5,
-                            1,
+                            1.25,
                             1.5,
+                            1.75,
                             2,
-                            2.5
+                            2.25
                         ]
                     },
                     {
@@ -630,11 +630,11 @@ var data = {
                     {
                         "name": "Total Damage",
                         "values": [
-                            500,
-                            800,
-                            1100,
-                            1400,
-                            1700
+                            450,
+                            700,
+                            950,
+                            1200,
+                            1450
                         ]
                     },
                     {
@@ -682,7 +682,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Nether Blade",
-                "originalDescription": "Kassadin's attacks steal mana from enemies, converting it into a shield that lasts for 4/4/4s",
+                "originalDescription": "Kassadin's attacks steal mana from enemies, converting it into a shield that lasts for 4s",
                 "variables": [
                     {
                         "name": "Shield Duration",
@@ -882,7 +882,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Rocket Grab",
-                "originalDescription": "Blitzcrank pulls the furthest enemy to him and stuns them for 2.5/2.5/2.5s",
+                "originalDescription": "Blitzcrank pulls the furthest enemy to him and stuns them for 2.5s",
                 "variables": [
                     {
                         "name": "Damage",
@@ -929,7 +929,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Death Lotus",
-                "originalDescription": "Katarina channels for 2.5/2.5/2.5s and fires daggers at 4/6/8 nearby enemies, dealing damage and reducing healing",
+                "originalDescription": "Katarina channels for 2.5s and fires daggers at 4/6/8 nearby enemies, dealing damage and reducing healing",
                 "variables": [
                     {
                         "name": "Damage Per Tick",
@@ -1426,7 +1426,7 @@ var data = {
             "range": 2,
             "specialAbility": {
                 "name": "Slicing Maelstrom",
-                "originalDescription": "Kennen summons a storm around him, dealing damage and stunning enemies inside of it for 1.5/1.5/1.5s",
+                "originalDescription": "Kennen summons a storm around him, dealing damage and stunning enemies inside of it for 1.5s",
                 "variables": [
                     {
                         "name": "Tick Rate",
@@ -1452,10 +1452,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             0,
-                            250,
-                            500,
-                            750,
-                            1000
+                            225,
+                            450,
+                            675,
+                            900
                         ]
                     },
                     {
@@ -1493,7 +1493,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Judgement",
-                "originalDescription": "Garen spins his sword around for 4/4/4s, becoming immune to magic damage and dealing damage to nearby enemies",
+                "originalDescription": "Garen spins his sword around for 4s, becoming immune to magic damage and dealing damage to nearby enemies",
                 "variables": [
                     {
                         "name": "Spin Duration",
@@ -1852,17 +1852,17 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 65,
+            "damage": 70,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.55,
+            "attackSpeed": 0.6,
             "range": 1,
             "specialAbility": {
                 "name": "Savagery",
-                "originalDescription": "Rengar leaps to the lowest health enemy and stabs them for bonus on-hit damage. After dealing damage, Rengar gains Attack Speed and @CritBuff*100@% Critical Strike Chance",
+                "originalDescription": "Rengar leaps to the lowest health enemy and stabs them for bonus on-hit damage. After dealing damage, Rengar gains Attack Speed and 25% Critical Strike Chance",
                 "variables": [
                     {
                         "name": "Attack Damage Mult",
@@ -2090,7 +2090,7 @@ var data = {
             "range": 2,
             "specialAbility": {
                 "name": "Wild Growth",
-                "originalDescription": "Lulu grants an ally bonus Health, knocking up enemies near them for 1.25/1.25/1.25s",
+                "originalDescription": "Lulu grants an ally bonus Health, knocking up enemies near them for 1.25s",
                 "variables": [
                     {
                         "name": "Bonus Health",
@@ -2204,7 +2204,7 @@ var data = {
             "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 50,
-            "damage": 50,
+            "damage": 55,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -2309,7 +2309,7 @@ var data = {
             "range": 2,
             "specialAbility": {
                 "name": "Frozen Tomb",
-                "originalDescription": "Lissandra encases the target in ice for 1.5/1.5/1.5s, dealing damage to nearby enemies. Below half HP, Lissandra instead encases herself, becoming untargetable for 2/2/2s",
+                "originalDescription": "Lissandra encases the target in ice for 1.5s, dealing damage to nearby enemies. Below half HP, Lissandra instead encases herself, becoming untargetable for 2s",
                 "variables": [
                     {
                         "name": "Enemy Stun Duration",
@@ -2552,7 +2552,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Tempest Steel",
-                "originalDescription": "Yasuo stabs forward, damaging two enemies in a line. On third cast, Yasuo instead launches a tornado dealing damage and knocking up enemies in a line for 1.5/1.5/1.5s. <br><br>Applies on hit effects.",
+                "originalDescription": "Yasuo stabs forward, damaging two enemies in a line. On third cast, Yasuo instead launches a tornado dealing damage and knocking up enemies in a line for 1.5s. Applies on hit effects.",
                 "variables": [
                     {
                         "name": "Damage",
@@ -2676,7 +2676,7 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 150,
-            "damage": 65,
+            "damage": 60,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -2723,13 +2723,13 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 35,
-            "damage": 60,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.7,
+            "attackSpeed": 0.65,
             "range": 3,
             "specialAbility": {
                 "name": "Relentless Pursuit",
@@ -2770,7 +2770,7 @@ var data = {
             "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 60,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
@@ -2814,7 +2814,7 @@ var data = {
             "origins": [
                 "Demon"
             ],
-            "maxHealthpoints": 750,
+            "maxHealthpoints": 700,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
             "damage": 65,
@@ -2833,10 +2833,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             50,
-                            350,
-                            650,
+                            250,
+                            600,
                             950,
-                            1250
+                            1300
                         ]
                     }
                 ]
@@ -2910,10 +2910,10 @@ var data = {
                         "name": "Knockup Damage",
                         "values": [
                             50,
-                            175,
-                            300,
-                            425,
-                            550
+                            200,
+                            350,
+                            500,
+                            650
                         ]
                     }
                 ]
@@ -2978,7 +2978,17 @@ var data = {
             }
         }
     },
-    "classes": {
+    "traits": {
+        "Pirate": {
+            "name": "Pirate",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "At the end of combat against another player, gain up to 4 additional gold"
+                }
+            ]
+        },
         "Elementalist": {
             "name": "Elementalist",
             "description": "Innate: Elementalists gain double mana from attacks",
@@ -2989,6 +2999,48 @@ var data = {
                 }
             ],
             "note": "Golem HP: 2200"
+        },
+        "Demon": {
+            "name": "Demon",
+            "description": "Attacks from Demons have a chance to burn all of an enemy's mana and deal true damage equal to mana burned",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "20% Chance to Mana Burn"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "35% Chance to Mana Burn"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "60% Chance to Mana Burn"
+                }
+            ]
+        },
+        "Wild": {
+            "name": "Wild",
+            "description": "Attacks generate stacks of Fury (stacks up to 5 times). Each stack of Fury gives 10 Attack Speed",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Wild Allies Only"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Allies"
+                }
+            ]
+        },
+        "Void": {
+            "name": "Void",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "Void champions now deal true damage"
+                }
+            ]
         },
         "Brawler": {
             "name": "Brawler",
@@ -3008,6 +3060,40 @@ var data = {
                 }
             ]
         },
+        "Dragon": {
+            "name": "Dragon",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 2,
+                    "effect": "Dragons gain 83% Resistance to Magic Damage"
+                }
+            ]
+        },
+        "Exile": {
+            "name": "Exile",
+            "description": "",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "If an Exile has no adjacent allies at the start of combat, they gain a shield equal to 100% of their maximum Health"
+                }
+            ]
+        },
+        "Yordle": {
+            "name": "Yordle",
+            "description": "Yordles gain a chance to dodge enemy attacks",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "30% Chance to Dodge"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "55% Chance to Dodge"
+                }
+            ]
+        },
         "Guardian": {
             "name": "Guardian",
             "description": "",
@@ -3016,7 +3102,8 @@ var data = {
                     "requiredUnits": 2,
                     "effect": "Trigger: At the start of combat, Guardians grants +50 Armor to adjacent allies. This Armor can stack."
                 }
-            ]
+            ],
+            "note": "Guardians dont buff themselves."
         },
         "Knight": {
             "name": "Knight",
@@ -3033,6 +3120,20 @@ var data = {
                 {
                     "requiredUnits": 6,
                     "effect": "55 Damage Blocked"
+                }
+            ]
+        },
+        "Ninja": {
+            "name": "Ninja",
+            "description": "The Ninja Trait is only active when you have *exactly* 1 or all 4 Ninjas",
+            "effects": [
+                {
+                    "requiredUnits": 1,
+                    "effect": "Ninja gains +40 Attack Damage & +40% Spell Power"
+                },
+                {
+                    "requiredUnits": 4,
+                    "effect": "All Ninjas gain +60 Attack Damage & +60% Spell Power"
                 }
             ]
         },
@@ -3096,141 +3197,6 @@ var data = {
                 }
             ]
         },
-        "Assassin": {
-            "name": "Assassin",
-            "description": "Innate: At the start of combat, Assassins leap to the farthest enemy. Assassins gain bonus Critical Strike Damage",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "+125% Critical Strike Damage"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "+350% Critical Strike Damage"
-                }
-            ],
-            "note": "The amplifier is calculated additively since Patch 9.14.1b (nerf)"
-        },
-        "Blademaster": {
-            "name": "Blademaster",
-            "description": "Blademaster attacks have a 45% chance to trigger additional attacks on-hit",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "One Additional Attack"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "Two Additional Attacks"
-                },
-                {
-                    "requiredUnits": 9,
-                    "effect": "Four Additional Attacks"
-                }
-            ]
-        }
-    },
-    "origins": {
-        "Pirate": {
-            "name": "Pirate",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "At the end of combat against another player, gain up to 4 additional gold"
-                }
-            ]
-        },
-        "Demon": {
-            "name": "Demon",
-            "description": "Attacks from Demons have a chance to burn all of an enemy's mana and deal true damage equal to mana burned",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "20% Chance to Mana Burn"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "40% Chance to Mana Burn"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "80% Chance to Mana Burn"
-                }
-            ]
-        },
-        "Wild": {
-            "name": "Wild",
-            "description": "Attacks generate stacks of Fury (stacks up to 5 times). Each stack of Fury gives 10 Attack Speed",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "Wild Allies Only"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "All Allies"
-                }
-            ]
-        },
-        "Void": {
-            "name": "Void",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "Void champions now deal true damage"
-                }
-            ]
-        },
-        "Dragon": {
-            "name": "Dragon",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 2,
-                    "effect": "Dragons gain 83% Magic Damage Resistance"
-                }
-            ]
-        },
-        "Exile": {
-            "name": "Exile",
-            "description": "",
-            "effects": [
-                {
-                    "requiredUnits": 1,
-                    "effect": "If an Exile has no adjacent allies at the start of combat, they gain a shield equal to 100% of their maximum Health"
-                }
-            ]
-        },
-        "Yordle": {
-            "name": "Yordle",
-            "description": "Yordles gain a chance to dodge enemy attacks",
-            "effects": [
-                {
-                    "requiredUnits": 3,
-                    "effect": "30% Chance to Dodge"
-                },
-                {
-                    "requiredUnits": 6,
-                    "effect": "55% Chance to Dodge"
-                }
-            ]
-        },
-        "Ninja": {
-            "name": "Ninja",
-            "description": "The Ninja Trait is only active when you have *exactly* 1 or all 4 Ninjas",
-            "effects": [
-                {
-                    "requiredUnits": 1,
-                    "effect": "Ninja gains +40 Attack Damage & +40% Spell Power"
-                },
-                {
-                    "requiredUnits": 4,
-                    "effect": "All Ninjas gain +60 Attack Damage & +60% Spell Power"
-                }
-            ]
-        },
         "Robot": {
             "name": "Robot",
             "description": "",
@@ -3265,6 +3231,21 @@ var data = {
                 }
             ]
         },
+        "Assassin": {
+            "name": "Assassin",
+            "description": "Innate: At the start of combat, Assassins leap to the farthest enemy. Assassins gain bonus Critical Strike Damage",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "+125% Critical Strike Damage"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "+350% Critical Strike Damage"
+                }
+            ],
+            "note": "The amplifier is calculated additively since Patch 9.14.1b (nerf)"
+        },
         "Glacial": {
             "name": "Glacial",
             "description": "Glacial attacks gain a chance to stun enemies for 2s",
@@ -3296,7 +3277,52 @@ var data = {
                     "effect": "All Imperials"
                 }
             ]
+        },
+        "Blademaster": {
+            "name": "Blademaster",
+            "description": "Blademaster attacks have a 45% chance to trigger additional attacks on-hit",
+            "effects": [
+                {
+                    "requiredUnits": 3,
+                    "effect": "One Additional Attack"
+                },
+                {
+                    "requiredUnits": 6,
+                    "effect": "Two Additional Attacks"
+                },
+                {
+                    "requiredUnits": 9,
+                    "effect": "Four Additional Attacks"
+                }
+            ]
         }
-    }
+    },
+    "classNames": [
+        "Elementalist",
+        "Brawler",
+        "Guardian",
+        "Knight",
+        "Ranger",
+        "Shapeshifter",
+        "Gunslinger",
+        "Sorcerer",
+        "Assassin",
+        "Blademaster"
+    ],
+    "originNames": [
+        "Pirate",
+        "Demon",
+        "Wild",
+        "Void",
+        "Dragon",
+        "Exile",
+        "Yordle",
+        "Ninja",
+        "Robot",
+        "Phantom",
+        "Noble",
+        "Glacial",
+        "Imperial"
+    ]
 }
 export default data;

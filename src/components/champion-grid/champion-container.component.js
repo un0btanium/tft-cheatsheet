@@ -118,7 +118,7 @@ export default class ChampionContainer extends Component {
 				let championPictureTextIndentNegative = "-" + championPictureTextIndent;
 
 				let overlayName = "champion-image-default";
-				if (this.props.selectedChampions[champion.name]) {
+				if (this.props.isChampionSelected[champion.name]) {
 					if (this.props.showChampionTierOverlay) {
 						overlayName = "champion-image-selected-overlay";
 					} else {
@@ -143,6 +143,7 @@ export default class ChampionContainer extends Component {
 					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100", pointerEvents: "none" }}>
 						<div style={tooltipStyle}>
 							<h5 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.name}</b></h5>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: borderColorsByTier[champion.tier-1]}}/>
 							<h6 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.specialAbility.name}</b></h6>
 							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.state.showChampionTooltip.specialAbility.originalDescription}</b></h6>
 							<Row>
@@ -166,58 +167,78 @@ export default class ChampionContainer extends Component {
 								<Col sm={1}><h6><b></b></h6></Col>
 								<Col sm={1}><h6><b>Champion Stats (1/2/3 stars)</b></h6></Col>
 								<Col sm={5}><h6><b></b></h6></Col>
-								<Col sm={1}><h6><b>Ability Stats (0/1/2/3/4 stars)</b></h6></Col>
+								<Col sm={1}><h6><b>Ability Stats (<span style={{color: "#AAAAAA"}}>0/</span>1/2/3 stars)</b></h6></Col>
 							</Row>
 							
 							<Row>
 								<Col sm={3}>Healthpoints</Col>
-								<Col sm={2}>{champion.maxHealthpoints}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor)}/{this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor*2)}</Col>
+								<Col sm={2}>{champion.maxHealthpoints} / {this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor)} / {this.roundNumber(champion.maxHealthpoints*champion.hpScaleFactor*2)}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? champion.specialAbility.variables[0].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? champion.specialAbility.variables[0].values.join("/") : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 0 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[0].values) : ""}</Col>
 							</Row>
 							<Row>
 								<Col sm={3}>Mana</Col>
 								<Col sm={2}>{champion.maxMana}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 1 ? champion.specialAbility.variables[1].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 1 ? champion.specialAbility.variables[1].values.join("/") : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 1 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[1].values) : ""}</Col>
 							</Row>
 							<Row>
 								<Col sm={3}>Attack Damage</Col>
-								<Col sm={2}>{champion.damage}/{this.roundNumber(champion.damage*champion.hpScaleFactor)}/{this.roundNumber(champion.damage*champion.hpScaleFactor*2)}</Col> {/* why hpScaleFactor? */}
+								<Col sm={2}>{champion.damage} / {this.roundNumber(champion.damage*champion.hpScaleFactor)} / {this.roundNumber(champion.damage*champion.hpScaleFactor*2)}</Col> {/* why hpScaleFactor? */}
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? champion.specialAbility.variables[2].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? champion.specialAbility.variables[2].values.join("/") : ""}</Col>							
+								<Col sm={3}>{champion.specialAbility.variables.length > 2 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[2].values) : ""}</Col>							
 							</Row>
 							<Row>
 								<Col sm={3}>Armor</Col>
 								<Col sm={2}>{champion.armor}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 3 ? champion.specialAbility.variables[3].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 3 ? champion.specialAbility.variables[3].values.join("/") : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 3 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[3].values) : ""}</Col>
 							</Row>
 							<Row>
 								<Col sm={3}>Magic Resistance</Col>
 								<Col sm={2}>{champion.magicResistance}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 4 ? champion.specialAbility.variables[4].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 4 ? champion.specialAbility.variables[4].values.join("/") : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 4 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[4].values) : ""}</Col>
 							</Row>
 							<Row>
 								<Col sm={3}>Base Attack Speed</Col>
 								<Col sm={2}>{champion.attackSpeed}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 5 ? champion.specialAbility.variables[5].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 5 ? champion.specialAbility.variables[5].values.join("/") : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 5 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[5].values) : ""}</Col>
 							</Row>
 							<Row>
 								<Col sm={3}>Auto Attack Range</Col>
 								<Col sm={2}>{champion.range}</Col>
 								<Col sm={1}></Col>
 								<Col sm={3}>{champion.specialAbility.variables.length > 6 ? champion.specialAbility.variables[6].name : ""}</Col>
-								<Col sm={3}>{champion.specialAbility.variables.length > 6 ? champion.specialAbility.variables[6].values.join("/") : ""}</Col>
+								<Col sm={3}>{champion.specialAbility.variables.length > 6 ? this.getValuesForAllFiveStars(champion.specialAbility.variables[6].values) : ""}</Col>
 							</Row>
+							{champion.specialAbility.variables.length > 7 && <Row>
+								<Col sm={6}></Col>
+								<Col sm={3}>{champion.specialAbility.variables[7].name}</Col>
+								<Col sm={3}>{this.getValuesForAllFiveStars(champion.specialAbility.variables[7].values)}</Col>
+							</Row>}
+							{champion.specialAbility.variables.length > 8 && <Row>
+								<Col sm={6}></Col>
+								<Col sm={3}>{champion.specialAbility.variables[8].name}</Col>
+								<Col sm={3}>{this.getValuesForAllFiveStars(champion.specialAbility.variables[8].values)}</Col>
+							</Row>}
+							{champion.specialAbility.variables.length > 9 && <Row>
+								<Col sm={6}></Col>
+								<Col sm={3}>{champion.specialAbility.variables[9].name}</Col>
+								<Col sm={3}>{this.getValuesForAllFiveStars(champion.specialAbility.variables[9].values)}</Col>
+							</Row>}
+							{champion.specialAbility.variables.length > 10 && <Row>
+								<Col sm={6}></Col>
+								<Col sm={3}>{champion.specialAbility.variables[10].name}</Col>
+								<Col sm={3}>{this.getValuesForAllFiveStars(champion.specialAbility.variables[10].values)}</Col>
+							</Row>}
 							
 						</div>
 					</div>
@@ -241,7 +262,8 @@ export default class ChampionContainer extends Component {
 							dropDownEntries.push(
 								<Dropdown.Item
 									key={"Extra" + champion.name + extra.name}
-									onClick={(e) => { e.preventDefault(); this.props.addClassOrOriginToChampion(champion, extra.name); this.setState({ showContextMenu: false}); }}
+									onClick={(e) => { e.preventDefault(); this.props.addTraitToChampion(champion, extra.name); this.setState({ showContextMenu: false}); }}
+									onContextMenu={(e) => { e.preventDefault(); this.props.addTraitToChampion(champion, extra.name); this.setState({ showContextMenu: false}); }}
 								>
 									{(champion.classes.indexOf(extra.name) >= 0 || champion.origins.indexOf(extra.name) >= 0) ? <FontAwesomeIcon style={{marginRight: "20px", color: "lightgreen"}}icon={faCheck} /> : <FontAwesomeIcon style={{visibility: "hidden", marginRight: "20px"}} icon={faCheck} />}
 									<div style={{ display: "inline"}}>
@@ -273,13 +295,13 @@ export default class ChampionContainer extends Component {
 				}
 
 				let championOpacity = 0.4;
-				if (!this.props.showOnlySynergeticChampions || this.props.selectedChampionsCount === 0 || this.props.selectedChampions[champion.name] || (this.props.className === null && this.props.originName === null)) {
+				if (!this.props.showOnlySynergeticChampions || this.props.selectedChampionsCount === 0 || this.props.isChampionSelected[champion.name] || (this.props.className === null && this.props.originName === null)) {
 					championOpacity = 1.0;
 				} else {
-					if (this.props.selectedClasses[this.props.className] > 0) {
+					if (this.props.traitsSelectedChampionsCount[this.props.className] > 0) {
 						championOpacity = championOpacity + 0.5
 					}
-					if (this.props.selectedOrigins[this.props.originName] > 0) {
+					if (this.props.traitsSelectedChampionsCount[this.props.originName] > 0) {
 						championOpacity = championOpacity + 0.5
 					}
 				}
@@ -335,6 +357,16 @@ export default class ChampionContainer extends Component {
 				{championImages}
 				
 			</div>
+		}
+	}
+
+	getValuesForAllFiveStars(values) {
+		if (values[0] === values[1] && values[1] === values[2] && values[2] === values[3] && values[3] === values[4]) {
+			return values[0];
+		} else {
+			return <><span style={{color: "#AAAAAA"}}>{values[0] + " / "}</span>{values[1] + " / " + values[2] + " / " + values[3]}</>; 
+			// return values[0] + "/" + values[1] + "/" + values[2] + "/" + values[3] + "/" + values[4]; 
+			// return values.join("/")
 		}
 	}
 

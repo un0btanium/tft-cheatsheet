@@ -70,20 +70,57 @@ class App extends Component {
 
 
 		/* Classes and Origins  */
-		let selectedClasses = {};
-		let selectedOrigins = {};
-		let classes = tftData.classes;
-		let origins = tftData.origins;
-		let classNames = [];
-		let originNames = [];
-		for (let className in classes) {
-			selectedClasses[className] = 0;
-			classNames.push(className);
+		let classNames = tftData.classNames;
+		let originNames = tftData.originNames;
+		let traitsSelectedChampionsCount = {};
+		for (let traitName in tftData.traits) {
+			traitsSelectedChampionsCount[traitName] = 0;
 		}
-		for (let originName in origins) {
-			selectedOrigins[originName] = 0;
-			originNames.push(originName);
+
+		/* Sort Classes and Origins by Alphabetically */
+		let sortFunction = function (a, b) {
+			if (a < b) {
+				return -1;
+			} else if (a > b) {
+				return 1;
+			}
+			return 0;
+		};
+		classNames = classNames.sort(sortFunction);
+		originNames = originNames.sort(sortFunction);
+		
+
+
+		/* Dynamically import images from folder */
+		let imageContext = require.context('./images/', false, /\.(png)$/);
+		let images = this.importImages(imageContext);
+
+		/* Classes and Origins Icons and Synergies */
+		let traitIcons = {};
+		let traitSynergyInfo = {};
+		for (let traitName in tftData.traits) {
+			traitIcons[traitName + "4"]  = images[traitName];
+			traitIcons[traitName + "1"] = images[traitName + "1"];
+			traitIcons[traitName + "2"] = images[traitName + "2"];
+			traitIcons[traitName + "3"] = images[traitName + "3"];
+			traitSynergyInfo[traitName] = this.getSynergyInfo(traitName, 0, tftData.traits[traitName]);
 		}
+
+
+
+		/* Selection Champions */
+		let isChampionSelected = [];
+		for (let championName in tftData.champions) {
+			let champion = tftData.champions[championName];
+			champion["defaultClasses"] = [...champion.classes];
+			champion["defaultOrigins"] = [...champion.origins];
+			isChampionSelected[champion.name] = false;
+		}
+
+		/* Champion Grid */
+		let championGrid = this.createGrid(tftData.champions, classNames, originNames);
+
+
 		
 		/* Item Recipes by Name */
 		let recipesByItems = {};
@@ -91,30 +128,6 @@ class App extends Component {
 			for (let baseItemB in baseItems) {
 				recipesByItems[itemRecipes[baseItemA][baseItemB]] = [baseItemA, baseItemB];
 			}
-		}
-
-
-		/* Dynamically import images from folder */
-		let imageContext = require.context('./images/', false, /\.(png)$/);
-		let images = this.importImages(imageContext);
-
-		/* Classes and Origins Icons */
-		let classIcons = {};
-		let originIcons = {};
-		let traitSynergyInfo = {};
-		for (let className in classes) {
-			classIcons[className + "4"]  = images[className];
-			classIcons[className + "1"] = images[className + "1"];
-			classIcons[className + "2"] = images[className + "2"];
-			classIcons[className + "3"] = images[className + "3"];
-			traitSynergyInfo[className] = this.getSynergyInfo(className, 0, tftData.classes[className]);
-		}
-		for (let originName in origins) {
-			originIcons[originName + "4"] = images[originName];
-			originIcons[originName + "1"] = images[originName + "1"];
-			originIcons[originName + "2"] = images[originName + "2"];
-			originIcons[originName + "3"] = images[originName + "3"];
-			traitSynergyInfo[originName] = this.getSynergyInfo(originName, 0, tftData.origins[originName]);
 		}
 
 		/* Item Images */
@@ -132,34 +145,6 @@ class App extends Component {
 			}
 		}
 
-
-		/* Sort Classes and Origins by Alphabetically */
-		let sortFunction = function (a, b) {
-			if (a < b) {
-				return -1;
-			} else if (a > b) {
-				return 1;
-			}
-			return 0;
-		};
-		classNames = classNames.sort(sortFunction);
-		originNames = originNames.sort(sortFunction);
-
-
-		/* Selection Champions */
-		let selectedChampions = [];
-		for (let championName in tftData.champions) {
-			let champion = tftData.champions[championName];
-			champion["defaultClasses"] = [...champion.classes];
-			champion["defaultOrigins"] = [...champion.origins];
-			selectedChampions[champion.name] = false;
-		}
-
-
-		/* Champion Grid */
-		let championGrid = this.createGrid(tftData.champions, classNames, originNames);
-
-
 		/* Base Items */
 		let selectedBaseItems = {};
 		let order = [];
@@ -169,15 +154,16 @@ class App extends Component {
 		}
 
 
+
 		/* Settings Related Methods */
 		this.toggleSetting = this.toggleSetting.bind(this);
 		this.preventEvent = this.preventEvent.bind(this);
 
 		/* Champion Grid Related Methods */
 		this.onChampionHover = this.onChampionHover.bind(this);
-		this.onClassOrOriginHover = this.onClassOrOriginHover.bind(this);
+		this.onTraitHover = this.onTraitHover.bind(this);
 		this.onChampionClick = this.onChampionClick.bind(this);
-		this.addClassOrOriginToChampion = this.addClassOrOriginToChampion.bind(this);
+		this.addTraitToChampion = this.addTraitToChampion.bind(this);
 
 		/* Item Grid Related Methods */
 		this.onItemHover = this.onItemHover.bind(this);
@@ -220,6 +206,7 @@ class App extends Component {
 		}
 
 
+
 		/* Set initial state */
 		this.state = {
 			/* Settings */
@@ -244,21 +231,18 @@ class App extends Component {
 
 				littleLegendLevel: 1,
 
-				classes: classNames,
-				origins: originNames,
-				classesData: classes,
-				originsData: origins,
+				classNames: classNames,
+				originNames: originNames,
+				traitData: tftData.traits,
 				grid: championGrid,
 
-				selectedChampions: selectedChampions,
+				isChampionSelected: isChampionSelected,
 				selectedChampionsCount: 0,
 				selectedChampionsByTier: [],
-				selectedClasses: selectedClasses,
-				selectedOrigins: selectedOrigins,
+				traitsSelectedChampionsCount: traitsSelectedChampionsCount,
 				traitSynergyInfo: traitSynergyInfo,
 
-				classIcons: classIcons,
-				originIcons: originIcons,
+				traitIcons: traitIcons,
 
 			/* Methods */
 				/* Settings Related Methods */
@@ -267,9 +251,9 @@ class App extends Component {
 		
 				/* Champion Grid Related Methods */
 					onChampionHover: this.onChampionHover,
-					onClassOrOriginHover: this.onClassOrOriginHover,
+					onTraitHover: this.onTraitHover,
 					onChampionClick: this.onChampionClick,
-					addClassOrOriginToChampion: this.addClassOrOriginToChampion,
+					addTraitToChampion: this.addTraitToChampion,
 
 				/* Item Grid Related Methods */
 					onItemHover: this.onItemHover,
@@ -412,7 +396,7 @@ class App extends Component {
 		}
 	}
 
-	onClassOrOriginHover(classOrOrigin, x, y) {
+	onTraitHover(classOrOrigin, x, y) {
 		if (classOrOrigin === null) {
 			this.setState({
 				hoveredClassOrOrigin: null
@@ -433,37 +417,36 @@ class App extends Component {
 	}
 	
 	toggleChampionSelection(champion) {
-		let selectedChampions = {...this.state.selectedChampions};
-		let selectedClasses = {...this.state.selectedClasses};
-		let selectedOrigins = {...this.state.selectedOrigins};
+		let isChampionSelected = {...this.state.isChampionSelected};
+		let traitsSelectedChampionsCount = {...this.state.traitsSelectedChampionsCount};
 		let traitSynergyInfo = {...this.state.traitSynergyInfo};
 
-		if (selectedChampions[champion.name]) { // is selected, got unselected, remove
+		if (isChampionSelected[champion.name]) { // is selected, got unselected, remove
 			for (let className of champion.classes) {
-				selectedClasses[className] = selectedClasses[className]-1;
+				traitsSelectedChampionsCount[className] = traitsSelectedChampionsCount[className]-1;
 			}
 			for (let originName of champion.origins) {
-				selectedOrigins[originName] = selectedOrigins[originName]-1;
+				traitsSelectedChampionsCount[originName] = traitsSelectedChampionsCount[originName]-1;
 			}
 		} else { // is not selected, got selected, add
 			for (let className of champion.classes) {
-				selectedClasses[className] = selectedClasses[className]+1;
+				traitsSelectedChampionsCount[className] = traitsSelectedChampionsCount[className]+1;
 			}
 			for (let originName of champion.origins) {
-				selectedOrigins[originName] = selectedOrigins[originName]+1;
+				traitsSelectedChampionsCount[originName] = traitsSelectedChampionsCount[originName]+1;
 			}
 		}
 		for (let className of champion.classes) {
-			traitSynergyInfo[className] = this.getSynergyInfo(className, selectedClasses[className], this.state.classesData[className]);
+			traitSynergyInfo[className] = this.getSynergyInfo(className, traitsSelectedChampionsCount[className], this.state.traitData[className]);
 		}
 		for (let originName of champion.origins) {
-			traitSynergyInfo[originName] = this.getSynergyInfo(originName, selectedOrigins[originName], this.state.originsData[originName]);
+			traitSynergyInfo[originName] = this.getSynergyInfo(originName, traitsSelectedChampionsCount[originName], this.state.traitData[originName]);
 		}
-		selectedChampions[champion.name] = !selectedChampions[champion.name];
+		isChampionSelected[champion.name] = !isChampionSelected[champion.name];
 		
 		let selectedChampionsByTier = [];
-		for (let championName in selectedChampions) {
-			if (selectedChampions[championName]) {
+		for (let championName in isChampionSelected) {
+			if (isChampionSelected[championName]) {
 				selectedChampionsByTier.push(this.state.championsByName[championName]);
 			}
 		}
@@ -477,120 +460,119 @@ class App extends Component {
 		});
 
 		let selectedChampionsCount;
-		if (selectedChampions[champion.name]) { // if true, then champion is now selected and vise versa
+		if (isChampionSelected[champion.name]) { // if true, then champion is now selected and vise versa
 			selectedChampionsCount = this.state.selectedChampionsCount+1;
 		} else {
 			selectedChampionsCount = this.state.selectedChampionsCount-1;
 		}
 
 		this.setState({
-			selectedChampions: selectedChampions,
+			isChampionSelected: isChampionSelected,
 			selectedChampionsCount: selectedChampionsCount,
 			selectedChampionsByTier: selectedChampionsByTier,
-			selectedClasses: selectedClasses,
-			selectedOrigins: selectedOrigins,
+			traitsSelectedChampionsCount: traitsSelectedChampionsCount,
 			traitSynergyInfo: traitSynergyInfo
 		})
 	}
 
-	addClassOrOriginToChampion(champion, classOrOrigin) {
-		if (this.state.classes.indexOf(classOrOrigin) >= 0) {
-			if (champion.classes.indexOf(classOrOrigin) < 0) {
+	addTraitToChampion(champion, traitName) {
+		if (this.state.classNames.indexOf(traitName) >= 0) {
+			if (champion.classes.indexOf(traitName) < 0) {
 				// add class
 				
 				let championNew = this.state.championsByName[champion.name];
-				championNew.classes.push(classOrOrigin);
+				championNew.classes.push(traitName);
 
 				let championsByName = {...this.state.championsByName};
 				championsByName[champion.name] = championNew;
 
-				let selectedClasses = {...this.state.selectedClasses};
-				if (this.state.selectedChampions[champion.name]) {
-					selectedClasses[classOrOrigin] = selectedClasses[classOrOrigin]+1;
+				let traitsSelectedChampionsCount = {...this.state.traitsSelectedChampionsCount};
+				if (this.state.isChampionSelected[champion.name]) {
+					traitsSelectedChampionsCount[traitName] = traitsSelectedChampionsCount[traitName]+1;
 				}
 
 				let traitSynergyInfo = {...this.state.traitSynergyInfo};
-				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedClasses[classOrOrigin], this.state.classesData[classOrOrigin]);
+				traitSynergyInfo[traitName] = this.getSynergyInfo(traitName, traitsSelectedChampionsCount[traitName], this.state.traitData[traitName]);
 
 				this.setState({
 					championsByName: championsByName,
-					selectedClasses: selectedClasses,
+					traitsSelectedChampionsCount: traitsSelectedChampionsCount,
 					traitSynergyInfo: traitSynergyInfo,
-					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+					grid: this.createGrid(championsByName, this.state.classNames, this.state.originNames)
 				});
 
 			} else {
 				// remove class
 				
 				let championNew = this.state.championsByName[champion.name];
-				championNew.classes.splice(championNew.classes.indexOf(classOrOrigin), 1);
+				championNew.classes.splice(championNew.classes.indexOf(traitName), 1);
 
 				let championsByName = {...this.state.championsByName};
 				championsByName[champion.name] = championNew;
 
-				let selectedClasses = {...this.state.selectedClasses};
-				if (this.state.selectedChampions[champion.name]) {
-					selectedClasses[classOrOrigin] = selectedClasses[classOrOrigin]-1;
+				let traitsSelectedChampionsCount = {...this.state.traitsSelectedChampionsCount};
+				if (this.state.isChampionSelected[champion.name]) {
+					traitsSelectedChampionsCount[traitName] = traitsSelectedChampionsCount[traitName]-1;
 				}
 
 				let traitSynergyInfo = {...this.state.traitSynergyInfo};
-				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedClasses[classOrOrigin], this.state.classesData[classOrOrigin]);
+				traitSynergyInfo[traitName] = this.getSynergyInfo(traitName, traitsSelectedChampionsCount[traitName], this.state.traitData[traitName]);
 
 				this.setState({
 					championsByName: championsByName,
-					selectedClasses: selectedClasses,
+					traitsSelectedChampionsCount: traitsSelectedChampionsCount,
 					traitSynergyInfo: traitSynergyInfo,
-					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+					grid: this.createGrid(championsByName, this.state.classNames, this.state.originNames)
 				});
 			}
 
-		} else if (this.state.origins.indexOf(classOrOrigin) >= 0) {
-			if (champion.origins.indexOf(classOrOrigin) < 0) {
+		} else if (this.state.originNames.indexOf(traitName) >= 0) {
+			if (champion.origins.indexOf(traitName) < 0) {
 				// add origin
 				
 				let championNew = this.state.championsByName[champion.name];
-				championNew.origins.push(classOrOrigin);
+				championNew.origins.push(traitName);
 
 				let championsByName = {...this.state.championsByName};
 				championsByName[champion.name] = championNew;
 
-				let selectedOrigins = {...this.state.selectedOrigins};
-				if (this.state.selectedChampions[champion.name]) {
-					selectedOrigins[classOrOrigin] = selectedOrigins[classOrOrigin]+1;
+				let traitsSelectedChampionsCount = {...this.state.traitsSelectedChampionsCount};
+				if (this.state.isChampionSelected[champion.name]) {
+					traitsSelectedChampionsCount[traitName] = traitsSelectedChampionsCount[traitName]+1;
 				}
 
 				let traitSynergyInfo = {...this.state.traitSynergyInfo};
-				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedOrigins[classOrOrigin], this.state.originsData[classOrOrigin]);
+				traitSynergyInfo[traitName] = this.getSynergyInfo(traitName, traitsSelectedChampionsCount[traitName], this.state.traitData[traitName]);
 
 				this.setState({
 					championsByName: championsByName,
-					selectedOrigins: selectedOrigins,
+					traitsSelectedChampionsCount: traitsSelectedChampionsCount,
 					traitSynergyInfo: traitSynergyInfo,
-					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+					grid: this.createGrid(championsByName, this.state.classNames, this.state.originNames)
 				});
 
 			} else {
 				// remove origin
 				
 				let championNew = this.state.championsByName[champion.name];
-				championNew.origins.splice(championNew.origins.indexOf(classOrOrigin), 1);
+				championNew.origins.splice(championNew.origins.indexOf(traitName), 1);
 
 				let championsByName = {...this.state.championsByName};
 				championsByName[champion.name] = championNew;
 
-				let selectedOrigins = {...this.state.selectedOrigins};
-				if (this.state.selectedChampions[champion.name]) {
-					selectedOrigins[classOrOrigin] = selectedOrigins[classOrOrigin]-1;
+				let traitsSelectedChampionsCount = {...this.state.traitsSelectedChampionsCount};
+				if (this.state.isChampionSelected[champion.name]) {
+					traitsSelectedChampionsCount[traitName] = traitsSelectedChampionsCount[traitName]-1;
 				}
 
 				let traitSynergyInfo = {...this.state.traitSynergyInfo};
-				traitSynergyInfo[classOrOrigin] = this.getSynergyInfo(classOrOrigin, selectedOrigins[classOrOrigin], this.state.originsData[classOrOrigin]);
+				traitSynergyInfo[traitName] = this.getSynergyInfo(traitName, traitsSelectedChampionsCount[traitName], this.state.traitData[traitName]);
 
 				this.setState({
 					championsByName: championsByName,
-					selectedOrigins: selectedOrigins,
+					traitsSelectedChampionsCount: traitsSelectedChampionsCount,
 					traitSynergyInfo: traitSynergyInfo,
-					grid: this.createGrid(championsByName, this.state.classes, this.state.origins)
+					grid: this.createGrid(championsByName, this.state.classNames, this.state.originNames)
 				});
 			}
 		}
@@ -646,6 +628,10 @@ class App extends Component {
 
 	createGrid(championsByName, classes, origins) {
 		let grid = [];
+
+		// TODO create seperate champion collection and save their grid coordinate pairs, then just add, remove and check them.
+		// can be used to update grid and not create a new grid every time. 
+		// can also save more data in the grid itself, like if a champions is being hoevered, highlight all occurencers of that champion 
 
 		// initialize grid
 		for (let className of classes) {

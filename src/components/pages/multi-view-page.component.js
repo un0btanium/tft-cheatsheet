@@ -70,14 +70,13 @@ export default class MultiViewPage extends Component {
 									selectedChampionsByTier={this.props.selectedChampionsByTier}
 									advancedItems={this.props.advancedItems}
 									itemImages={this.props.itemImages}
-									selectedClasses={this.props.selectedClasses}
-									selectedOrigins={this.props.selectedOrigins}
+									traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 									championGridShowChampionTierBorder={this.props.championGridShowChampionTierBorder}
 									championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 									championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
 									onChampionHover={this.props.onChampionHover}
 									onChampionClick={this.props.onChampionClick}
-									addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
+									addTraitToChampion={this.props.addTraitToChampion}
 								/>
 								<ItemGridInfo
 									hoveredItem={this.props.hoveredItem}
@@ -116,14 +115,13 @@ export default class MultiViewPage extends Component {
 									selectedChampionsByTier={this.props.selectedChampionsByTier}
 									advancedItems={this.props.advancedItems}
 									itemImages={this.props.itemImages}
-									selectedClasses={this.props.selectedClasses}
-									selectedOrigins={this.props.selectedOrigins}
+									traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 									championGridShowChampionTierBorder={this.props.championGridShowChampionTierBorder}
 									championGridShowChampionTierOverlay={this.props.championGridShowChampionTierOverlay}
 									championGridShowChampionTooltip={this.props.championGridShowChampionTooltip}
 									onChampionHover={this.props.onChampionHover}
 									onChampionClick={this.props.onChampionClick}
-									addClassOrOriginToChampion={this.props.addClassOrOriginToChampion}
+									addTraitToChampion={this.props.addTraitToChampion}
 								/>
 								<ItemGridInfo
 									hoveredItem={this.props.hoveredItem}

@@ -1,0 +1,222 @@
+{
+    "additions": {},
+    "removals": {},
+    "changes": {
+        "Morgana": {
+            "specialAbility": {
+                "variables": {
+                    "Damage": {
+                        "values": {
+                            "was": [
+                                125,
+                                250,
+                                375,
+                                500,
+                                625
+                            ],
+                            "is": [
+                                75,
+                                200,
+                                325,
+                                450,
+                                575
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Evelynn": {
+            "damage": {
+                "was": 60,
+                "is": 70
+            }
+        },
+        "Cho'Gath": {
+            "specialAbility": {
+                "variables": {
+                    "Damage": {
+                        "values": {
+                            "was": [
+                                0,
+                                250,
+                                500,
+                                750,
+                                1000
+                            ],
+                            "is": [
+                                0,
+                                200,
+                                400,
+                                600,
+                                800
+                            ]
+                        }
+                    },
+                    "Knock Duration": {
+                        "values": {
+                            "was": [
+                                0.5,
+                                1,
+                                1.5,
+                                2,
+                                2.5
+                            ],
+                            "is": [
+                                1.25,
+                                1.5,
+                                1.75,
+                                2,
+                                2.25
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Anivia": {
+            "specialAbility": {
+                "variables": {
+                    "Total Damage": {
+                        "values": {
+                            "was": [
+                                500,
+                                800,
+                                1100,
+                                1400,
+                                1700
+                            ],
+                            "is": [
+                                450,
+                                700,
+                                950,
+                                1200,
+                                1450
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Mordekaiser": {
+            "maxHealthpoints": {
+                "was": 500,
+                "is": 550
+            }
+        },
+        "Kennen": {
+            "specialAbility": {
+                "variables": {
+                    "Damage": {
+                        "values": {
+                            "was": [
+                                0,
+                                250,
+                                500,
+                                750,
+                                1000
+                            ],
+                            "is": [
+                                0,
+                                225,
+                                450,
+                                675,
+                                900
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Rengar": {
+            "damage": {
+                "was": 65,
+                "is": 70
+            },
+            "attackSpeed": {
+                "was": 0.55,
+                "is": 0.6
+            }
+        },
+        "Kha'Zix": {
+            "damage": {
+                "was": 50,
+                "is": 55
+            }
+        },
+        "Kindred": {
+            "damage": {
+                "was": 65,
+                "is": 60
+            }
+        },
+        "Lucian": {
+            "damage": {
+                "was": 60,
+                "is": 65
+            },
+            "attackSpeed": {
+                "was": 0.7,
+                "is": 0.65
+            }
+        },
+        "Zed": {
+            "damage": {
+                "was": 60,
+                "is": 65
+            }
+        },
+        "Aatrox": {
+            "maxHealthpoints": {
+                "was": 750,
+                "is": 700
+            },
+            "specialAbility": {
+                "variables": {
+                    "Damage": {
+                        "values": {
+                            "was": [
+                                50,
+                                350,
+                                650,
+                                950,
+                                1250
+                            ],
+                            "is": [
+                                50,
+                                250,
+                                600,
+                                950,
+                                1300
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Rek'Sai": {
+            "specialAbility": {
+                "variables": {
+                    "Knockup Damage": {
+                        "values": {
+                            "was": [
+                                50,
+                                175,
+                                300,
+                                425,
+                                550
+                            ],
+                            "is": [
+                                50,
+                                200,
+                                350,
+                                500,
+                                650
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

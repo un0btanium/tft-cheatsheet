@@ -21,9 +21,6 @@ import ContactPage from './components/pages/contact-page.component';
 
 import tftData from './tft-data/data.js';
 
-import baseItems from './itemdata/base-items';
-import advancedItems from './itemdata/advanced-items';
-import itemRecipes from './itemdata/item-recipes';
 
 let synergyBackgroundColors = [
 	{
@@ -121,6 +118,10 @@ class App extends Component {
 		let championGrid = this.createGrid(tftData.champions, classNames, originNames);
 
 
+		/* Items */
+		let baseItems = tftData.baseItems;
+		let advancedItems = tftData.advancedItems;
+		let itemRecipes = tftData.itemRecipes;
 		
 		/* Item Recipes by Name */
 		let recipesByItems = {};
@@ -680,7 +681,7 @@ class App extends Component {
 	onItemClick(e, itemName) {
 		e.preventDefault();
 
-		if (baseItems[itemName] !== undefined) {
+		if (tftData.baseItems[itemName] !== undefined) {
 			if (e.type === 'click') {
 				let selectedBaseItems = {...this.state.selectedBaseItems};
 				selectedBaseItems[itemName] = selectedBaseItems[itemName]+1;
@@ -695,7 +696,7 @@ class App extends Component {
 				});
 			}
 			
-		} else if (advancedItems[itemName] !== undefined) {
+		} else if (tftData.advancedItems[itemName] !== undefined) {
 			if (e.type === 'click') {
 				let selectedBaseItems = {...this.state.selectedBaseItems};
 				for (let requiredItem of this.state.recipesByItems[itemName]) {

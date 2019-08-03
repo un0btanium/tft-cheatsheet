@@ -14,16 +14,24 @@
     "react-dom": "^16.8.6",
     "react-full-screen": "^0.2.4",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "readline-sync": "^1.4.9"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deployDO": "scp -r ./build/* tft-cheatsheet.com:/home/build/",
+	"eject": "react-scripts eject",
+	
+    "predeployDO": "npm run build",
+	"deployDO": "scp -r ./build/* tft-cheatsheet.com:/home/build/",
+	
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+	"deploy": "gh-pages -d build",
+	
+	"convert": "node convertTFTData.js",
+    "patchnote": "node generateTFTPatchNotes.js",
+	"update": "node updateTFTData.js"
   },
   "eslintConfig": {
     "extends": "react-app"

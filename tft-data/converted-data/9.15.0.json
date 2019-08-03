@@ -1,4 +1,4 @@
-var data = {
+{
     "champions": {
         "Twisted Fate": {
             "name": "Twisted Fate",
@@ -381,11 +381,11 @@ var data = {
                     {
                         "name": "Damage",
                         "values": [
-                            75,
-                            200,
-                            325,
-                            450,
-                            575
+                            125,
+                            250,
+                            375,
+                            500,
+                            625
                         ]
                     },
                     {
@@ -443,7 +443,7 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 70,
+            "damage": 60,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -573,20 +573,20 @@ var data = {
                         "name": "Damage",
                         "values": [
                             0,
-                            200,
-                            400,
-                            600,
-                            800
+                            250,
+                            500,
+                            750,
+                            1000
                         ]
                     },
                     {
                         "name": "Knock Duration",
                         "values": [
-                            1.25,
+                            0.5,
+                            1,
                             1.5,
-                            1.75,
                             2,
-                            2.25
+                            2.5
                         ]
                     },
                     {
@@ -630,11 +630,11 @@ var data = {
                     {
                         "name": "Total Damage",
                         "values": [
-                            450,
-                            700,
-                            950,
-                            1200,
-                            1450
+                            500,
+                            800,
+                            1100,
+                            1400,
+                            1700
                         ]
                     },
                     {
@@ -1288,7 +1288,7 @@ var data = {
             "origins": [
                 "Phantom"
             ],
-            "maxHealthpoints": 550,
+            "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 100,
             "damage": 50,
@@ -1452,10 +1452,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             0,
-                            225,
-                            450,
-                            675,
-                            900
+                            250,
+                            500,
+                            750,
+                            1000
                         ]
                     },
                     {
@@ -1852,13 +1852,13 @@ var data = {
             "maxHealthpoints": 550,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 70,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.6,
+            "attackSpeed": 0.55,
             "range": 1,
             "specialAbility": {
                 "name": "Savagery",
@@ -2204,7 +2204,7 @@ var data = {
             "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 50,
-            "damage": 55,
+            "damage": 50,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -2676,7 +2676,7 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 150,
-            "damage": 60,
+            "damage": 65,
             "damageScaleFactor": 1.25,
             "armor": 20,
             "magicResistance": 20,
@@ -2723,13 +2723,13 @@ var data = {
             "maxHealthpoints": 600,
             "hpScaleFactor": 1.8,
             "maxMana": 35,
-            "damage": 65,
+            "damage": 60,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
             "critMultiplier": 1.5,
             "critChance": 0.25,
-            "attackSpeed": 0.65,
+            "attackSpeed": 0.7,
             "range": 3,
             "specialAbility": {
                 "name": "Relentless Pursuit",
@@ -2770,7 +2770,7 @@ var data = {
             "maxHealthpoints": 500,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
-            "damage": 65,
+            "damage": 60,
             "damageScaleFactor": 1.25,
             "armor": 25,
             "magicResistance": 20,
@@ -2814,7 +2814,7 @@ var data = {
             "origins": [
                 "Demon"
             ],
-            "maxHealthpoints": 700,
+            "maxHealthpoints": 750,
             "hpScaleFactor": 1.8,
             "maxMana": 75,
             "damage": 65,
@@ -2833,10 +2833,10 @@ var data = {
                         "name": "Damage",
                         "values": [
                             50,
-                            250,
-                            600,
+                            350,
+                            650,
                             950,
-                            1300
+                            1250
                         ]
                     }
                 ]
@@ -2910,10 +2910,10 @@ var data = {
                         "name": "Knockup Damage",
                         "values": [
                             50,
-                            200,
-                            350,
-                            500,
-                            650
+                            175,
+                            300,
+                            425,
+                            550
                         ]
                     }
                 ]
@@ -3010,11 +3010,11 @@ var data = {
                 },
                 {
                     "requiredUnits": 4,
-                    "effect": "35% Chance to Mana Burn"
+                    "effect": "40% Chance to Mana Burn"
                 },
                 {
                     "requiredUnits": 6,
-                    "effect": "60% Chance to Mana Burn"
+                    "effect": "80% Chance to Mana Burn"
                 }
             ]
         },
@@ -3323,291 +3323,5 @@ var data = {
         "Noble",
         "Glacial",
         "Imperial"
-    ],
-    "baseItems": {
-        "B.F. Sword": {
-            "img": "1038",
-            "effect": "+20 Attack Damage"
-        },
-        "Needlessly Large Rod": {
-            "img": "1058",
-            "effect": "+20% Spell Damage"
-        },
-        "Recurve Bow": {
-            "img": "1043",
-            "effect": "+20% Attack Speed"
-        },
-        "Tear of the Goddess": {
-            "img": "3070",
-            "effect": "+20 Mana on round start"
-        },
-        "Chain Vest": {
-            "img": "1031",
-            "effect": "+20 Armor"
-        },
-        "Negatron Cloak": {
-            "img": "1057",
-            "effect": "+20 Magic Resistance"
-        },
-        "Giant's Belt": {
-            "img": "1011",
-            "effect": "+200 Health Points"
-        },
-        "Spatula": {
-            "altimg": "spatula",
-            "effect": "Used to craft special items. When combined with another item, doubles that other items' stat power.",
-            "effectShort": "Doubles the stat power of the other, 2nd item."
-        }
-    },
-    "advancedItems": {
-        "Infinity Edge": {
-            "img": "3031",
-            "effect": "+150% Critical Strike Damage"
-        },
-        "Hextech Gunblade": {
-            "img": "3146",
-            "effect": "Heal 33% of all damage dealt, except damage dealt from item effects",
-            "effectShort": "Heal 33% of all damage dealt"
-        },
-        "Sword of the Divine": {
-            "img": "3131",
-            "effect": "5% chance each second to gain 100% crit chance for the rest of the round",
-            "effectShort": "5% chance/sec to always crit"
-        },
-        "Spear of Shojin": {
-            "img": "3161",
-            "effect": "After the first spell cast: Attacks give 15% of maximum Mana",
-            "effectShort": "After 1st spell: Attacks give additional mana"
-        },
-        "Guardian Angel": {
-            "img": "3026",
-            "effect": "Upon death: Revive with 1000HP after 2 seconds"
-        },
-        "Bloodthirster": {
-            "img": "3072",
-            "effect": "Heal for 50% of damage dealt by basic attacks"
-        },
-        "Zeke's Herald": {
-            "altimg": "zekesherald",
-            "effect": "On Round Start: Adjacent allies two spaces to the left and right of the wearer gain 15% attack speed",
-            "effectShort": "On Round Start: +15% AS for 4 adjacent allies"
-        },
-        "Youmuu's Ghostblade": {
-            "img": "3142",
-            "effect": "Champion becomes an Assassin"
-        },
-        "Rabadon's Deathcap": {
-            "img": "3089",
-            "effect": "Increases Ability Power by 50%"
-        },
-        "Guinsoo's Rageblade": {
-            "img": "3124",
-            "effect": "On every Basic Attack: Gain an additional 4% attack speed. This effect stacks with no upper limit",
-            "effectShort": "Basic Attacks grant +4% AS, stacks infinitely"
-        },
-        "Luden's Echo": {
-            "img": "3285",
-            "effect": "Special Ability deals 200 magic damage to all adjacent enemies to target",
-            "effectShort": "Ability deals additional 200 AoE magic damage"
-        },
-        "Locket of the Iron Solari": {
-            "img": "3190",
-            "effect": "On Round Start: The weaerer and adjacent allies two space to left and right gain a 250 Health shield for 4 seconds",
-            "effectShort": "On Round Start: 250HP Shield for 4s"
-        },
-        "Ionic Spark": {
-            "altimg": "ionicspark",
-            "effect": "Enemies take 150 true damage whenever they cast their Special Ability",
-            "effectShort": "Enemy Spells deal 150 true damage to caster"
-        },
-        "Morellonomicon": {
-            "img": "3165",
-            "effect": "Special Ability applies a burn for 3 seconds, dealing 5% of target's maximum health as true damage per second and preventing healing",
-            "effectShort": "Ability applies burn and prevents healing"
-        },
-        "Yuumi": {
-            "altimg": "yuumi",
-            "effect": "Champion becomes a Sorcerer"
-        },
-        "Rapid Firecannon": {
-            "img": "3094",
-            "effect": "Doubles attack range, basic attacks cannot miss"
-        },
-        "Statikk Shiv": {
-            "img": "3087",
-            "effect": "On every third Basic Attack: Deal 90 magic damage to the target and 3 additional enemies",
-            "effectShort": "Every 3rd attack: 90 magic damage to 4 enemies"
-        },
-        "Phantom Dancer": {
-            "img": "3046",
-            "effect": "Champion dodges all critical strikes. In other words: Take no damage from basic attacks which critical strike",
-            "effectShort": "Take no damage from critical strikes"
-        },
-        "Cursed Blade": {
-            "altimg": "cursedblade",
-            "effect": "On every Basic Attack: 20% chance to shrink the target, removing 1 star. Can reduce targets to 0 star.",
-            "effectShort": "Basic attacks can shrink the target by one Star"
-        },
-        "Titanic Hydra": {
-            "img": "3748",
-            "effect": "Basic attacks deal 10% of your maximum Healthpoints as bonus damage to the target and the enemies standing behind",
-            "effectShort": "Basic attacks deal AoE damage in a cone"
-        },
-        "Blade of the Ruined King": {
-            "img": "3153",
-            "effect": "Champion becomes a Blademaster"
-        },
-        "Seraph's Embrace": {
-            "img": "3040",
-            "effect": "After each Special Ability cast: Gain 20 mana"
-        },
-        "Frozen Heart": {
-            "img": "3110",
-            "effect": "Adjacent enemies have their Attack Speed reduced by 20%",
-            "effectShort": "Reduces adjacent enemies' Attack Speed"
-        },
-        "Hush": {
-            "altimg": "hush",
-            "effect": "On every Basic Attack: 50% chance to silence the target for 3s",
-            "effectShort": "Basic Attacks can silence the target"
-        },
-        "Redemption": {
-            "img": "3107",
-            "effect": "On 25% HP: Heals nearby allies for 1000 health after a short delay",
-            "effectShort": "On 25% HP: Heals nearby allies for 1000HP"
-        },
-        "Darkin": {
-            "altimg": "darkin",
-            "effect": "Champion becomes a Demon"
-        },
-        "Thornmail": {
-            "img": "3075",
-            "effect": "Reflect 100% of all physical damage mitigated from enemy basic attacks as magic damage back to the attacker",
-            "effectShort": "Reflect all mitigated physical damage"
-        },
-        "Sword Breaker": {
-            "altimg": "swordbreaker",
-            "effect": "On every Basic attack: 25% chance to disarm the target for 4s",
-            "effectShort": "Basic Attacks can disarm the target"
-        },
-        "Red Buff": {
-            "altimg": "redbuff",
-            "effect": "Basic Attacks deal 2.5% of target's maximum Healthpoints as true damage per second and prevent healing on the target",
-            "effectShort": "Deal burning true damage and prevent healing"
-        },
-        "Knight's Vow": {
-            "img": "3109",
-            "effect": "Champion becomes a Knight"
-        },
-        "Dragon's Claw": {
-            "altimg": "dragonsclaw",
-            "effect": "Gain 83% resistance to magic damage"
-        },
-        "Zephyr": {
-            "img": "3172",
-            "effect": "On Round Start: Banishes for 5 seconds the unit that point-mirrors the wielder placement on the other side of the board",
-            "effectShort": "On Round Start: Banish an enemy for 5 seconds"
-        },
-        "Runaan's Hurricane": {
-            "img": "3085",
-            "effect": "On every Basic Attack: Attacks one extra targets with 25% of damage, but can apply on-hit effects",
-            "effectShort": "On every Basic Attack: Attacks 1 extra targets"
-        },
-        "Warmog's Armor": {
-            "img": "3083",
-            "effect": "Regenerates 6% of missing Healthpoints per second",
-            "effectShort": "Regenerates 6% of missing HP/sec"
-        },
-        "Frozen Mallet": {
-            "img": "3022",
-            "effect": "Champion becomes a Glacial"
-        },
-        "Force of Nature": {
-            "img": "4401",
-            "effect": "Increases the Unit Cap for your board by one"
-        }
-    },
-    "itemRecipes": {
-        "B.F. Sword": {
-            "B.F. Sword": "Infinity Edge",
-            "Needlessly Large Rod": "Hextech Gunblade",
-            "Recurve Bow": "Sword of the Divine",
-            "Tear of the Goddess": "Spear of Shojin",
-            "Chain Vest": "Guardian Angel",
-            "Negatron Cloak": "Bloodthirster",
-            "Giant's Belt": "Zeke's Herald",
-            "Spatula": "Youmuu's Ghostblade"
-        },
-        "Needlessly Large Rod": {
-            "B.F. Sword": "Hextech Gunblade",
-            "Needlessly Large Rod": "Rabadon's Deathcap",
-            "Recurve Bow": "Guinsoo's Rageblade",
-            "Tear of the Goddess": "Luden's Echo",
-            "Chain Vest": "Locket of the Iron Solari",
-            "Negatron Cloak": "Ionic Spark",
-            "Giant's Belt": "Morellonomicon",
-            "Spatula": "Yuumi"
-        },
-        "Recurve Bow": {
-            "B.F. Sword": "Sword of the Divine",
-            "Needlessly Large Rod": "Guinsoo's Rageblade",
-            "Recurve Bow": "Rapid Firecannon",
-            "Tear of the Goddess": "Statikk Shiv",
-            "Chain Vest": "Phantom Dancer",
-            "Negatron Cloak": "Cursed Blade",
-            "Giant's Belt": "Titanic Hydra",
-            "Spatula": "Blade of the Ruined King"
-        },
-        "Tear of the Goddess": {
-            "B.F. Sword": "Spear of Shojin",
-            "Needlessly Large Rod": "Luden's Echo",
-            "Recurve Bow": "Statikk Shiv",
-            "Tear of the Goddess": "Seraph's Embrace",
-            "Chain Vest": "Frozen Heart",
-            "Negatron Cloak": "Hush",
-            "Giant's Belt": "Redemption",
-            "Spatula": "Darkin"
-        },
-        "Chain Vest": {
-            "B.F. Sword": "Guardian Angel",
-            "Needlessly Large Rod": "Locket of the Iron Solari",
-            "Recurve Bow": "Phantom Dancer",
-            "Tear of the Goddess": "Frozen Heart",
-            "Chain Vest": "Thornmail",
-            "Negatron Cloak": "Sword Breaker",
-            "Giant's Belt": "Red Buff",
-            "Spatula": "Knight's Vow"
-        },
-        "Negatron Cloak": {
-            "B.F. Sword": "Bloodthirster",
-            "Needlessly Large Rod": "Ionic Spark",
-            "Recurve Bow": "Cursed Blade",
-            "Tear of the Goddess": "Hush",
-            "Chain Vest": "Sword Breaker",
-            "Negatron Cloak": "Dragon's Claw",
-            "Giant's Belt": "Zephyr",
-            "Spatula": "Runaan's Hurricane"
-        },
-        "Giant's Belt": {
-            "B.F. Sword": "Zeke's Herald",
-            "Needlessly Large Rod": "Morellonomicon",
-            "Recurve Bow": "Titanic Hydra",
-            "Tear of the Goddess": "Redemption",
-            "Chain Vest": "Red Buff",
-            "Negatron Cloak": "Zephyr",
-            "Giant's Belt": "Warmog's Armor",
-            "Spatula": "Frozen Mallet"
-        },
-        "Spatula": {
-            "B.F. Sword": "Youmuu's Ghostblade",
-            "Needlessly Large Rod": "Yuumi",
-            "Recurve Bow": "Blade of the Ruined King",
-            "Tear of the Goddess": "Darkin",
-            "Chain Vest": "Knight's Vow",
-            "Negatron Cloak": "Runaan's Hurricane",
-            "Giant's Belt": "Frozen Mallet",
-            "Spatula": "Force of Nature"
-        }
-    }
+    ]
 }
-export default data;

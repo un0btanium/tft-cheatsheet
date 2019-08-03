@@ -15,8 +15,6 @@ export default class PoolTable extends Component {
 			});
 
 			let rowStyle = {};
-			console.log(this.props.selectedChampionsCount);
-			console.log(y+2);
 			if (this.props.selectedChampionsCount === y+2 || (y+2 === 2 && this.props.selectedChampionsCount < 3) || (y+2 === 9 && this.props.selectedChampionsCount > 9)) {
 				rowStyle = {color: "#ffdd00"}
 			}

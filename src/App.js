@@ -284,18 +284,18 @@ class App extends Component {
 					<div className="full-screenable-node">
 						<Navbar bg={BG} variant={VARIANT} expand="xl" style={{ boxShadow: '0px 2px 5px #000000'}}>
 							<Navbar.Brand style={{ marginLeft: "15%"}}>
-							<a href={"http://" + WEBSITE_URL}>
-								<img src={logo} width="35" height="35" alt="Logo" />
-								<b>{' ' + WEBSITE_URL}</b>
-							</a>
+								<a href={"http://" + WEBSITE_URL}>
+									<img src={logo} width="35" height="35" alt="Logo" />
+									<b>{' TFT CheatSheet'}</b>
+								</a>
 							</Navbar.Brand>
 
 							<Navbar.Toggle aria-controls="basic-navbar-nav" />
 							<Navbar.Collapse id="basic-navbar-nav" style={{ marginRight: "10%"}}>
 								<Nav className="mr-auto">
+									<Nav.Link as={Link} variant="light" to="/multiview"><b>Multiview</b></Nav.Link>
 									<Nav.Link as={Link} variant="light" to="/items"><b>Items</b></Nav.Link>
 									<Nav.Link as={Link} variant="light" to="/champions"><b>Champions</b></Nav.Link>
-									<Nav.Link as={Link} variant="light" to="/multiview"><b>Multiview</b></Nav.Link>
 								</Nav>
 
 								<Nav>

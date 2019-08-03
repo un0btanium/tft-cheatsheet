@@ -15,6 +15,7 @@ import Nav from 'react-bootstrap/Nav';
 
 import ChampionGridPage from './components/pages/champion-grid-page.component';
 import ItemGridPage from './components/pages/item-grid-page.component';
+import PoolTablePage from './components/pages/pool-table-page.component';
 import MultiViewPage from './components/pages/multi-view-page.component';
 import AboutPage from './components/pages/about-page.component';
 import ContactPage from './components/pages/contact-page.component';
@@ -206,8 +207,6 @@ class App extends Component {
 			}
 		}
 
-
-
 		/* Set initial state */
 		this.state = {
 			/* Settings */
@@ -244,6 +243,10 @@ class App extends Component {
 				traitSynergyInfo: traitSynergyInfo,
 
 				traitIcons: traitIcons,
+
+			/* Pool Table */
+				rollChances: tftData.rollchances,
+				championPool: tftData.championpool,
 
 			/* Methods */
 				/* Settings Related Methods */
@@ -296,6 +299,7 @@ class App extends Component {
 									<Nav.Link as={Link} variant="light" to="/multiview"><b>Multiview</b></Nav.Link>
 									<Nav.Link as={Link} variant="light" to="/items"><b>Items</b></Nav.Link>
 									<Nav.Link as={Link} variant="light" to="/champions"><b>Champions</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/pool"><b>Pool</b></Nav.Link>
 								</Nav>
 
 								<Nav>
@@ -325,6 +329,10 @@ class App extends Component {
 								/>}
 							/>
 							<Route exact path="/champions" render={(props) => <ChampionGridPage {...props}
+									{...this.state}
+								/>}
+							/>
+							<Route exact path="/pool" render={(props) => <PoolTablePage {...props}
 									{...this.state}
 								/>}
 							/>

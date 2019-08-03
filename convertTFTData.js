@@ -254,6 +254,8 @@ function convertRawDataToCustomFormat(rawDataFolderName, lolVersion) {
 	convertedTftData.baseItems = MANUAL_DATA.baseItems;
 	convertedTftData.advancedItems = MANUAL_DATA.advancedItems;
 	convertedTftData.itemRecipes = MANUAL_DATA.itemRecipes;
+	convertedTftData.rollchances = MANUAL_DATA.rollchances;
+	convertedTftData.championpool = MANUAL_DATA.championpool;
 
 
 	let stringifiedJSON = JSON.stringify(convertedTftData, null, 4);

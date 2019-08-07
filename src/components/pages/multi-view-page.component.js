@@ -1,29 +1,16 @@
 import React, {Component} from 'react';
 
-import { Form, Container, Row, Col } from 'react-bootstrap';
-
-import ItemGridInfo from '../item-grid/item-grid-info.component';
 import ItemGridSettings from '../item-grid/item-grid-settings.component';
 import ItemGrid from '../item-grid/item-grid.component';
 
-import ChampionGridInfo from '../champion-grid/champion-grid-info.component';
 import ChampionGridSettings from '../champion-grid/champion-grid-settings.component';
 import ChampionGrid from '../champion-grid/champion-grid.component';
+
+import MultiViewInfoAndSettings from '../multi-view/multi-view-info-and-settings.component';
 
 export default class MultiViewPage extends Component {
 
 	render () {
-
-		let settingsBox = <Container className="disableSelection" style={{display: "block", margin: "0px 0px 15px 0px", padding: "5px 15px 5px 15px", minHeight: "35px", width: "100%", backgroundColor: "#4e5d6c", borderRadius: "5px", boxShadow: '2px 2px 5px #000000'}}>
-			<Row className="fadeIn">
-				<Col xs={6}>
-					<Form.Check id="toggleMultiViewSwapSide" type="checkbox" className="custom-switch" custom="true" label="Swap Sides" checked={this.props.multiViewSwapSide} onChange={(e) => this.props.toggleSetting("multiViewSwapSide")} />
-				</Col>
-				<Col xs={6}>
-					<Form.Check id="toggleMultiViewShowSettings" type="checkbox" className="custom-switch" custom="true" label="Show Settings" checked={this.props.multiViewShowSettings} onChange={(e) => this.props.toggleSetting("multiViewShowSettings")} />
-				</Col>
-			</Row>
-		</Container>
 
 
 		if (this.props.multiViewSwapSide) {
@@ -53,7 +40,6 @@ export default class MultiViewPage extends Component {
 					<div style={{ display: "inline-block", width: "100%", height:"100%"}}>
 						<div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "15px 0px 5px 0px" }}>
 							<div style={{ maxWidth: "640px" }}>
-								{settingsBox}
 								{this.props.multiViewShowSettings &&
 								<ItemGridSettings
 									toggleSetting={this.props.toggleSetting}
@@ -66,9 +52,8 @@ export default class MultiViewPage extends Component {
 									itemGridAdditionalHighlighting={this.props.itemGridAdditionalHighlighting}
 									itemGridHighlightAlmostBuyableItems={this.props.itemGridHighlightAlmostBuyableItems}
 								/>}
-								<ChampionGridInfo 
+								<MultiViewInfoAndSettings
 									selectedChampionsByTier={this.props.selectedChampionsByTier}
-									advancedItems={this.props.advancedItems}
 									itemImages={this.props.itemImages}
 									traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 									championGridShowChampionTierBorder={this.props.championGridShowChampionTierBorder}
@@ -77,11 +62,18 @@ export default class MultiViewPage extends Component {
 									onChampionHover={this.props.onChampionHover}
 									onChampionClick={this.props.onChampionClick}
 									addTraitToChampion={this.props.addTraitToChampion}
-								/>
-								<ItemGridInfo
+					
 									hoveredItem={this.props.hoveredItem}
 									baseItems ={this.props.baseItems}
+
 									advancedItems ={this.props.advancedItems}
+									
+									selectedChampionsCount={this.props.selectedChampionsCount}
+									rollChances={this.props.rollChances}
+									championPool={this.props.championPool}
+									toggleSetting={this.props.toggleSetting}
+									multiViewSwapSide={this.props.multiViewSwapSide}
+									multiViewShowSettings={this.props.multiViewShowSettings}
 								/>
 								<ItemGrid
 									{...this.props}
@@ -99,7 +91,6 @@ export default class MultiViewPage extends Component {
 					<div style={{ display: "inline-block", width: "100%", height:"100%"}}>
 						<div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "15px 0px 5px 0px" }}>
 							<div style={{ maxWidth: "640px" }}>
-								{settingsBox}
 								{this.props.multiViewShowSettings && <ItemGridSettings
 									toggleSetting={this.props.toggleSetting}
 									itemGridIsYAxisFlipped={this.props.itemGridIsYAxisFlipped}
@@ -111,9 +102,8 @@ export default class MultiViewPage extends Component {
 									itemGridAdditionalHighlighting={this.props.itemGridAdditionalHighlighting}
 									itemGridHighlightAlmostBuyableItems={this.props.itemGridHighlightAlmostBuyableItems}
 								/>}
-								<ChampionGridInfo 
+								<MultiViewInfoAndSettings
 									selectedChampionsByTier={this.props.selectedChampionsByTier}
-									advancedItems={this.props.advancedItems}
 									itemImages={this.props.itemImages}
 									traitsSelectedChampionsCount={this.props.traitsSelectedChampionsCount}
 									championGridShowChampionTierBorder={this.props.championGridShowChampionTierBorder}
@@ -122,11 +112,18 @@ export default class MultiViewPage extends Component {
 									onChampionHover={this.props.onChampionHover}
 									onChampionClick={this.props.onChampionClick}
 									addTraitToChampion={this.props.addTraitToChampion}
-								/>
-								<ItemGridInfo
+					
 									hoveredItem={this.props.hoveredItem}
 									baseItems ={this.props.baseItems}
+
 									advancedItems ={this.props.advancedItems}
+									
+									selectedChampionsCount={this.props.selectedChampionsCount}
+									rollChances={this.props.rollChances}
+									championPool={this.props.championPool}
+									toggleSetting={this.props.toggleSetting}
+									multiViewSwapSide={this.props.multiViewSwapSide}
+									multiViewShowSettings={this.props.multiViewShowSettings}
 								/>
 								<ItemGrid
 									{...this.props}

@@ -5,6 +5,7 @@ import ChampionGridInfo from '../champion-grid/champion-grid-info.component';
 import ChampionGridSettings from '../champion-grid/champion-grid-settings.component';
 import ChampionGrid from '../champion-grid/champion-grid.component';
 
+import PoolTable from '../pool-table/pool-table.component';
 
 export default class ChampionGridPage extends Component {
 	
@@ -88,6 +89,13 @@ export default class ChampionGridPage extends Component {
 					<ChampionGrid
 						{...this.props}
 					/>
+					<div style={{marginTop: "15px"}}>
+						<PoolTable
+							selectedChampionsCount={this.props.selectedChampionsCount}
+							rollChances={this.props.rollChances}
+							championPool={this.props.championPool}
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

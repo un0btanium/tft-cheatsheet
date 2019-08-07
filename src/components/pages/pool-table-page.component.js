@@ -12,7 +12,9 @@ export default class PoolTablePage extends Component {
 			<div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "25px 0px 15px 0px" }}>
 				<div style={{ width: "640px" }}>
 					<PoolTable
-						{...this.props}
+						selectedChampionsCount={this.props.selectedChampionsCount}
+						rollChances={this.props.rollChances}
+						championPool={this.props.championPool}
 					/>
 				</div>
 			</div>

@@ -36,8 +36,8 @@ const PATCHNOTES_PATH = "./tft-data/patchnotes/";
 
 
 
-// getUserInput();
-createPatchnotes("9.15.0.json", "9.15.0a.json");
+getUserInput();
+// createPatchnotes("9.15.0.json", "9.15.0a.json");
 
 function getUserInput() {
 	let convertedFolderNames = getFiles(TFT_DATA_PATH)

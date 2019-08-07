@@ -118,9 +118,9 @@ function convertRawDataToCustomFormat(rawDataFolderName, lolVersion) {
 				}
 				variableName += variableOriginalName.split(/(?=[A-Z])/).join(" ");
 				variableName = variableName
-					.replace("A D ", "Attack Damage ")
-					.replace("A S ", "Attackspeed ")
-					.replace("D R ", "Damage Reduction ")
+					.replace("A D", "Attack Damage")
+					.replace("A S", "Attackspeed")
+					.replace("D R", "Damage Reduction")
 					.replace("Num ", "Number of ")
 					.replace("Ho T ", "Healing over Time ")
 					.replace("Q ", "")

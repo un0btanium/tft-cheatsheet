@@ -2518,7 +2518,7 @@ var data = {
                         ]
                     },
                     {
-                        "name": "Transform A D",
+                        "name": "Transform Attack Damage",
                         "values": [
                             0,
                             30,
@@ -2642,7 +2642,7 @@ var data = {
                 "originalDescription": "Braum gains a barrier that blocks incoming damage",
                 "variables": [
                     {
-                        "name": "Shield D R",
+                        "name": "Shield Damage Reduction",
                         "values": [
                             60,
                             70,

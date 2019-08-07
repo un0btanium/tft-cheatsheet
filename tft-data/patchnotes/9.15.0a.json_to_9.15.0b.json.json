@@ -1,0 +1,132 @@
+{
+    "additions": {},
+    "removals": {},
+    "changes": {
+        "Kayle": {
+            "maxMana": {
+                "was": 100,
+                "is": 125
+            }
+        },
+        "Karthus": {
+            "specialAbility": {
+                "variables": {
+                    "Damage": {
+                        "values": {
+                            "was": [
+                                100,
+                                400,
+                                700,
+                                1000,
+                                1300
+                            ],
+                            "is": [
+                                100,
+                                350,
+                                600,
+                                850,
+                                1100
+                            ]
+                        }
+                    },
+                    "Number Of Targets": {
+                        "values": {
+                            "was": [
+                                1,
+                                5,
+                                9,
+                                13,
+                                17
+                            ],
+                            "is": [
+                                1,
+                                5,
+                                7,
+                                9,
+                                11
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Veigar": {
+            "specialAbility": {
+                "variables": {
+                    "Damage": {
+                        "values": {
+                            "was": [
+                                100,
+                                300,
+                                500,
+                                700,
+                                900
+                            ],
+                            "is": [
+                                50,
+                                300,
+                                550,
+                                800,
+                                1050
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Elise": {
+            "damage": {
+                "was": 40,
+                "is": 45
+            }
+        },
+        "Gnar": {
+            "specialAbility": {
+                "variables": {
+                    "Transform Attack Damage": {
+                        "name": {
+                            "was": "Transform A D",
+                            "is": "Transform Attack Damage"
+                        }
+                    }
+                }
+            }
+        },
+        "Braum": {
+            "specialAbility": {
+                "variables": {
+                    "Shield Damage Reduction": {
+                        "name": {
+                            "was": "Shield D R",
+                            "is": "Shield Damage Reduction"
+                        }
+                    }
+                }
+            }
+        },
+        "Pyke": {
+            "specialAbility": {
+                "variables": {
+                    "Stun Duration": {
+                        "values": {
+                            "was": [
+                                1.5,
+                                2,
+                                2.5,
+                                3,
+                                3.5
+                            ],
+                            "is": [
+                                1,
+                                1.5,
+                                2,
+                                2.5,
+                                3
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

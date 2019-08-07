@@ -1,4 +1,5 @@
 {
+	"patchVersion": "9.15.0b",
 	"notes": {
 		"champions": {
 			"Cho'Gath" : {
@@ -87,8 +88,8 @@
 		},
 		"Sword of the Divine": {
 			"img": "3131",
-			"effect": "5% chance each second to gain 100% crit chance for the rest of the round",
-			"effectShort": "5% chance/sec to always crit"
+			"effect": "7% chance each second to gain 100% crit chance for the remainder of the round",
+			"effectShort": "7% chance/sec to always crit"
 		},
 		"Spear of Shojin": {
 			"img": "3161",
@@ -97,7 +98,7 @@
 		},
 		"Guardian Angel": {
 			"img": "3026",
-			"effect": "Upon death: Revive with 1000HP after 2 seconds"
+			"effect": "Upon death: Revive with 800HP after 2 seconds"
 		},
 		"Bloodthirster": {
 			"img": "3072",
@@ -118,8 +119,8 @@
 		},
 		"Guinsoo's Rageblade": {
 			"img": "3124",
-			"effect": "On every Basic Attack: Gain an additional 4% attack speed. This effect stacks with no upper limit",
-			"effectShort": "Basic Attacks grant +4% AS, stacks infinitely"
+			"effect": "On every Basic Attack: Gain an additional 5% attack speed. This effect stacks with no upper limit",
+			"effectShort": "Basic Attacks grant +5% AS, stacks infinitely"
 		},
 		"Luden's Echo": {
 			"img": "3285",
@@ -138,7 +139,7 @@
 		},
 		"Morellonomicon": {
 			"img": "3165",
-			"effect": "Special Ability applies a burn for 3 seconds, dealing 5% of target's maximum health as true damage per second and preventing healing",
+			"effect": "Special Ability applies a burn for 5 seconds, dealing 4% of target's maximum health as true damage per second and preventing healing",
 			"effectShort": "Ability applies burn and prevents healing"
 		},
 		"Yuumi": {
@@ -156,7 +157,7 @@
 		},
 		"Phantom Dancer": {
 			"img": "3046",
-			"effect": "Champion dodges all critical strikes. In other words: Take no damage from basic attacks which critical strike",
+			"effect": "Champion dodges all critical strikes. In other words: Take no damage from basic attacks AND abilities which critical strike",
 			"effectShort": "Take no damage from critical strikes"
 		},
 		"Cursed Blade": {
@@ -226,7 +227,7 @@
 		},
 		"Runaan's Hurricane": {
 			"img": "3085",
-			"effect": "On every Basic Attack: Attacks one extra targets with 25% of damage, but can apply on-hit effects",
+			"effect": "On every Basic Attack: Attacks one extra targets with 75% of damage, but can apply on-hit effects",
 			"effectShort": "On every Basic Attack: Attacks 1 extra targets"
 		},
 		"Warmog's Armor": {

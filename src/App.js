@@ -58,7 +58,6 @@ const reloadWindow = () => window.location.reload();
 
 
 const WEBSITE_URL = "tft-cheatsheet.com";
-const PATCH_VERSION = "9.15.0";
 
 class App extends Component {
 
@@ -305,7 +304,7 @@ class App extends Component {
 								<Nav>
 									<Nav.Link as={Link} variant="light" to="/about"><b>About</b></Nav.Link>
 									<Nav.Link as={Link} variant="light" to="/contact"><b>Contact</b></Nav.Link>
-									<Navbar.Text style={{ color: "rgb(223, 105, 26)", marginLeft: "20px"}}><b>Patch {PATCH_VERSION}</b></Navbar.Text>
+									<Navbar.Text style={{ color: "rgb(223, 105, 26)", marginLeft: "20px"}}><b>Patch {tftData.patchVersion}</b></Navbar.Text>
 									{/* <Form inline style={{marginLeft: "20px"}}><Form.Check id="toggleIsFullScreen" type="checkbox" className="custom-switch" custom="true" label="Go Fullscreen" checked={this.state.isFullScreen} onChange={(e) => this.toggleSetting("isFullScreen")} /></Form> */}
 								</Nav>
 							</Navbar.Collapse>

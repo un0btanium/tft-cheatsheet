@@ -1,4 +1,5 @@
 {
+	"patchVersion": "9.15.0",
     "champions": {
         "Twisted Fate": {
             "name": "Twisted Fate",

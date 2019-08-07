@@ -1,4 +1,4 @@
-var data = {
+{
     "champions": {
         "Twisted Fate": {
             "name": "Twisted Fate",
@@ -3676,4 +3676,3 @@ var data = {
     ],
     "patchVersion": "9.15.0b"
 }
-export default data;

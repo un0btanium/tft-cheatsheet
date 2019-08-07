@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
-let borderColorsByTier = [
+let tierColors = [
 	"#FFFFFF",
 	"#00e33d",
 	"#0099ff",
@@ -107,9 +107,9 @@ export default class ChampionContainer extends Component {
 
 				let championPictureBorder;
 				if (this.props.showChampionTierBorder) {
-					championPictureBorder = "solid 3px " + borderColorsByTier[champion.tier-1]; 
+					championPictureBorder = "solid 3px " + tierColors[champion.tier-1]; 
 				} else {
-					championPictureBorder = "solid 0px " + borderColorsByTier[champion.tier-1]; 
+					championPictureBorder = "solid 0px " + tierColors[champion.tier-1]; 
 				}
 				let championPictureStretch = pictureStretch[Math.min(champions.length-1, pictureStretch.length-1)];
 				let championPictureWidth = (1/champions.length)*100 + "%";
@@ -129,7 +129,7 @@ export default class ChampionContainer extends Component {
 				}
 				
 
-				let tooltipStyle = { position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", minWidth: "700px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + borderColorsByTier[champion.tier-1], color: "#FFFFFF" };
+				let tooltipStyle = { position: "absolute", zIndex: "1", whiteSpace: "nowrap", fontSize: "14px", minWidth: "700px", padding: "15px", background: "rgba(0,0,0,0.85)", border: "solid 3px " + tierColors[champion.tier-1], color: "#FFFFFF" };
 				if (this.props.y < 5) {
 					tooltipStyle.top = "40px";
 				} else {
@@ -143,7 +143,7 @@ export default class ChampionContainer extends Component {
 					tooltip = <div style={{ position: "relative", display: "inline-block", zIndex: "100", pointerEvents: "none" }}>
 						<div style={tooltipStyle}>
 							<h5 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.name}</b></h5>
-							<hr style={{ margin: "7px 0px 7px 0px", borderColor: borderColorsByTier[champion.tier-1]}}/>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: tierColors[champion.tier-1]}}/>
 							<h6 style={{textAlign: "center",}}><b>{this.state.showChampionTooltip.specialAbility.name}</b></h6>
 							<h6 style={{textAlign: "center", whiteSpace: "normal"}}><b>{this.state.showChampionTooltip.specialAbility.originalDescription}</b></h6>
 							<Row>
@@ -162,7 +162,7 @@ export default class ChampionContainer extends Component {
 								<Col sm={3}>{champion.origins.join(", ")}</Col>
 							</Row>
 							
-							<hr style={{ margin: "7px 0px 7px 0px", borderColor: borderColorsByTier[champion.tier-1]}}/>
+							<hr style={{ margin: "7px 0px 7px 0px", borderColor: tierColors[champion.tier-1]}}/>
 							<Row>
 								<Col sm={1}><h6><b></b></h6></Col>
 								<Col sm={1}><h6><b>Champion Stats (1/2/3 stars)</b></h6></Col>

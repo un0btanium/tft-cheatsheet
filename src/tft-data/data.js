@@ -2864,7 +2864,7 @@ var data = {
             "range": 1,
             "specialAbility": {
                 "name": "Burrow",
-                "originalDescription": "Rek'Sai burrows for a short duration becoming untargetable and healing. When Rek'Sai unburrows she deals damage and knocks up the closest enemy for @KnockUpDuration@s",
+                "originalDescription": "Rek'Sai burrows for a short duration becoming untargetable and healing. When Rek'Sai unburrows she deals damage and knocks up the closest enemy for 1.75s",
                 "variables": [
                     {
                         "name": "Heal Amount",

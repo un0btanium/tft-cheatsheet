@@ -66,6 +66,8 @@ function convertRawDataToCustomFormat(rawDataFolderName, lolVersion) {
 	let tftData = JSON.parse(readFileSync("./tft-data/raw-data/" + rawDataFolderName + "/en_gb_TFT.json"));
 
 	let convertedTftData = {};
+	convertedTftData.patchVersion = MANUAL_DATA.patchVersion;
+
 	convertedTftData.champions = {};
 	for (let championId in tftData.champions) {
 		let c = tftData.champions[championId];
@@ -86,6 +88,11 @@ function convertRawDataToCustomFormat(rawDataFolderName, lolVersion) {
 		let originalDescription = c.ability.desc.split(/(?:<br>)/).join("");
 		let variables = [];
 		for (let variable of c.ability.variables) {
+
+			if (c.name === "Rek'Sai" && variable.key === "KnockupDamage") { // workaround
+				variable.key = "KnockUpDamage";
+			}
+
 			if (Array.isArray(variable.values)) {
 				let inlineVariableKey = "@" + variable.key + "@";
 				let index = originalDescription.indexOf(inlineVariableKey);
@@ -107,6 +114,11 @@ function convertRawDataToCustomFormat(rawDataFolderName, lolVersion) {
 					}
 					// console.log("[" + c.name + "] Unused ability variable in description text: " + variable.key);
 				}
+
+				if (c.name === "Rek'Sai" && variable.key === "KnockUpDamage") { // workaround undo
+					variable.key = "KnockupDamage";
+				}
+
 				let variableName = "";
 				let variableOriginalName = variable.key;
 				if (variable.key.startsWith("CC")) {
@@ -256,7 +268,6 @@ function convertRawDataToCustomFormat(rawDataFolderName, lolVersion) {
 	convertedTftData.itemRecipes = MANUAL_DATA.itemRecipes;
 	convertedTftData.rollchances = MANUAL_DATA.rollchances;
 	convertedTftData.championpool = MANUAL_DATA.championpool;
-	convertedTftData.patchVersion = MANUAL_DATA.patchVersion;
 
 
 	let stringifiedJSON = JSON.stringify(convertedTftData, null, 4);

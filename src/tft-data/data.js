@@ -1878,10 +1878,10 @@ var data = {
                         "name": "Attackspeed Buff",
                         "values": [
                             0.1,
-                            0.4,
+                            0.3,
+                            0.5,
                             0.7,
-                            1,
-                            1.3
+                            0.9
                         ]
                     },
                     {

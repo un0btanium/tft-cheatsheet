@@ -319,7 +319,7 @@ class App extends Component {
 						</div> */}
 
 						<Switch>
-							<Route exact path="/" render={(props) => <ItemGridPage {...props}
+							<Route exact path="/" render={(props) => <MultiViewPage {...props}
 									{...this.state}
 								/>}
 							/>

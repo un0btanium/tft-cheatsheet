@@ -1,4 +1,4 @@
-var data = {
+{
     "patchVersion": "9.16.0",
     "champions": {
         "Twisted Fate": {
@@ -3960,4 +3960,3 @@ var data = {
         10
     ]
 }
-export default data;

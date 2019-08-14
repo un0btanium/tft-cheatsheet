@@ -1,5 +1,5 @@
 {
-	"patchVersion": "9.15.0b",
+	"patchVersion": "9.16.0",
 	"notes": {
 		"champions": {
 			"Cho'Gath" : {
@@ -29,15 +29,7 @@
 				"note": "Golem HP: 2200"
 			},
 			"Guardian": {
-				"note": "Guardians dont buff themselves."
-			},
-			"Dragon": {
-				"effects": [
-					{
-						"requiredUnits": 2,
-						"effect": "Dragons gain 83% Resistance to Magic Damage"
-					}
-				]
+				"note": "Guardians dont buff themselves but can buff each other."
 			}
 		}
 	},
@@ -79,7 +71,7 @@
 	"advancedItems": {
 		"Infinity Edge": {
 			"img": "3031",
-			"effect": "+150% Critical Strike Damage"
+			"effect": "+200% Critical Strike Damage"
 		},
 		"Hextech Gunblade": {
 			"img": "3146",
@@ -98,7 +90,8 @@
 		},
 		"Guardian Angel": {
 			"img": "3026",
-			"effect": "Upon death: Revive with 800HP after 2 seconds"
+			"effect": "Upon death: Revive with 500HP after 2 seconds and removes Grievous Wounds",
+			"effectShort": "Upon death: Revive with 500HP after 2 seconds"
 		},
 		"Bloodthirster": {
 			"img": "3072",
@@ -129,17 +122,17 @@
 		},
 		"Locket of the Iron Solari": {
 			"img": "3190",
-			"effect": "On Round Start: The weaerer and adjacent allies two space to left and right gain a 250 Health shield for 4 seconds",
-			"effectShort": "On Round Start: 250HP Shield for 4s"
+			"effect": "On Round Start: The weaerer and adjacent allies two space to left and right gain a 250 Health shield for 6 seconds",
+			"effectShort": "On Round Start: 250HP Shield for 6s"
 		},
 		"Ionic Spark": {
 			"altimg": "ionicspark",
-			"effect": "Enemies take 150 true damage whenever they cast their Special Ability",
-			"effectShort": "Enemy Spells deal 150 true damage to caster"
+			"effect": "Enemies take 125 true damage whenever they cast their Special Ability",
+			"effectShort": "Enemy Spells deal 125 true damage to caster"
 		},
 		"Morellonomicon": {
 			"img": "3165",
-			"effect": "Special Ability applies a burn for 5 seconds, dealing 4% of target's maximum health as true damage per second and preventing healing",
+			"effect": "Special Ability applies a burn for 10 seconds, dealing 2% of target's maximum health as true damage per second and preventing healing",
 			"effectShort": "Ability applies burn and prevents healing"
 		},
 		"Yuumi": {
@@ -152,7 +145,7 @@
 		},
 		"Statikk Shiv": {
 			"img": "3087",
-			"effect": "On every third Basic Attack: Deal 90 magic damage to the target and 3 additional enemies",
+			"effect": "On every third Basic Attack: Deal 100 magic damage to the target and 2 additional enemies",
 			"effectShort": "Every 3rd attack: 90 magic damage to 4 enemies"
 		},
 		"Phantom Dancer": {
@@ -185,13 +178,13 @@
 		},
 		"Hush": {
 			"altimg": "hush",
-			"effect": "On every Basic Attack: 50% chance to silence the target for 3s",
-			"effectShort": "Basic Attacks can silence the target"
+			"effect": "On every Basic Attack: 33% chance to prevent the target from gaining mana (Mana Lock) for 4s",
+			"effectShort": "Basic Attacks \"Mana Lock\" the target"
 		},
 		"Redemption": {
 			"img": "3107",
-			"effect": "On 25% HP: Heals nearby allies for 1000 health after a short delay",
-			"effectShort": "On 25% HP: Heals nearby allies for 1000HP"
+			"effect": "On 25% HP: Heals nearby allies for 1500 health after a short delay",
+			"effectShort": "On 25% HP: Heals nearby allies for 1500HP"
 		},
 		"Darkin": {
 			"altimg": "darkin",
@@ -204,12 +197,12 @@
 		},
 		"Sword Breaker": {
 			"altimg": "swordbreaker",
-			"effect": "On every Basic attack: 25% chance to disarm the target for 4s",
+			"effect": "On every Basic attack: 25% chance to disarm the target for 4s. Prevents the target from autoattacking.",
 			"effectShort": "Basic Attacks can disarm the target"
 		},
 		"Red Buff": {
 			"altimg": "redbuff",
-			"effect": "Basic Attacks deal 2.5% of target's maximum Healthpoints as true damage per second and prevent healing on the target",
+			"effect": "Basic Attacks apply a burn for 10 seconds dealing 2% of target's maximum Healthpoints as true damage per second and preventing healing on the target",
 			"effectShort": "Deal burning true damage and prevent healing"
 		},
 		"Knight's Vow": {
@@ -232,7 +225,7 @@
 		},
 		"Warmog's Armor": {
 			"img": "3083",
-			"effect": "Regenerates 6% of missing Healthpoints per second",
+			"effect": "Regenerates 6% of missing Healthpoints per second (max. 400HP per second)",
 			"effectShort": "Regenerates 6% of missing HP/sec"
 		},
 		"Frozen Mallet": {
@@ -368,6 +361,7 @@
 		"Robot",
 		"Void",
 		"Wild",
-		"Yordle"
+		"Yordle",
+		"Hextech"
 	]
 }

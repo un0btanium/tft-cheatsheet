@@ -18,7 +18,7 @@ export default class ItemGridInfo extends Component {
 			}
 			hoveredItemText = <div style={{ textAlign: "center"}}>
 				<h5 style={{margin: "0px 0px 0px 0px"}}>{this.props.hoveredItem.itemName}</h5>
-				<p style={{margin: "auto auto auto auto", maxWidth: "525px", wordWrap: "normal"}}>{descriptionText}</p>
+				<p style={{margin: "auto auto auto auto", maxWidth: "550px", wordWrap: "normal"}}>{descriptionText}</p>
 			</div>
 		} else {
 			hoveredItemText = <div style={{ textAlign: "center"}}>

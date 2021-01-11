@@ -1,6 +1,6 @@
 # TFT CheatSheet
 
-Website: https://tft-cheatsheet.com/
+Website: https://un0btanium.github.io/tft-cheatsheet/
 
 This React web application for the League of Legends Teamfight Tactics gamemode provides you with a fast overview of your items and chamions. It shows you which options you have when it comes to combining them into more advanced ones. Add and remove items/champions with ease and see everything you need to know via many customizable highlighting features.
 

@@ -66,7 +66,7 @@ export default class ChampionContainer extends Component {
 		];
 
 		this.state = {
-			showContextMenu: null,
+			showContextMenu: false,
 			showChampionTooltip: null,
 			extraOriginsAndClasses: extraOriginsAndClasses
 		}
@@ -287,11 +287,11 @@ export default class ChampionContainer extends Component {
 						}
 					}
 
-					contextMenu = <Dropdown.Menu show onContextMenu={this.preventEvent} >
+					contextMenu = <div className="dropdown-menu show" show onContextMenu={this.preventEvent}>
 						<Dropdown.Header>Add class or origin to champion</Dropdown.Header>
 						<Dropdown.Divider />
 						{dropDownEntries}
-					</Dropdown.Menu>
+					</div>
 				}
 
 				let championOpacity = 0.4;
@@ -371,15 +371,14 @@ export default class ChampionContainer extends Component {
 	}
 
 	toggleContextMenu(e, champion) {
-		if (this.state.showContextMenu === null || this.state.showContextMenu.name !== champion.name) {
-			this.preventEvent(e);
+		this.preventEvent(e);
+		if (!this.state.showContextMenu || this.state.showContextMenu.name !== champion.name) {
 			this.setState({
 				showContextMenu: champion
 			});
 		} else {
-			this.preventEvent(e);
 			this.setState({
-				showContextMenu: null
+				showContextMenu: false
 			});
 		}
 	}

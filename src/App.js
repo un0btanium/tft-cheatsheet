@@ -57,7 +57,7 @@ const VARIANT = "dark"; // dark, light
 const reloadWindow = () => window.location.reload();
 
 
-const WEBSITE_URL = "tft-cheatsheet.com";
+const WEBSITE_URL = "un0btanium.github.io/tft-cheatsheet/";
 
 class App extends Component {
 
@@ -263,7 +263,7 @@ class App extends Component {
 					onItemClick: this.onItemClick
 		};
 
-
+		console.log(this.state)
 
 		// let url = '' + window.location.href;
 		// if ( !(url.indexOf("localhost") >= 0 || url.indexOf(WEBSITE_URL) >= 0)  ) {
@@ -286,7 +286,7 @@ class App extends Component {
 					<div className="full-screenable-node">
 						<Navbar bg={BG} variant={VARIANT} expand="xl" style={{ boxShadow: '0px 2px 5px #000000'}}>
 							<Navbar.Brand style={{ marginLeft: "15%"}}>
-								<a href={"http://" + WEBSITE_URL}>
+								<a href={"https://" + WEBSITE_URL}>
 									<img src={logo} width="35" height="35" alt="Logo" />
 									<b>{' TFT CheatSheet'}</b>
 								</a>

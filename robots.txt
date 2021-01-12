@@ -1,1 +1,1 @@
-Sitemap: https://tft-cheatsheet.com/sitemap.xml
+Sitemap: https://un0btanium.github.io/tft-cheatsheet/sitemap.xml

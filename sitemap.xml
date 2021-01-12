@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tft-cheatsheet.com/</loc>
-    <lastmod>2019-07-16</lastmod>
+    <loc>https://un0btanium.github.io/tft-cheatsheet/</loc>
+    <lastmod>2021-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tft-cheatsheet.com/about</loc>
-    <lastmod>2019-07-16</lastmod>
+    <loc>https://un0btanium.github.io/tft-cheatsheet/about</loc>
+    <lastmod>2021-01-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tft-cheatsheet.com/contact</loc>
-    <lastmod>2019-07-16</lastmod>
+    <loc>https://un0btanium.github.io/tft-cheatsheet/contact</loc>
+    <lastmod>2021-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tft-cheatsheet.com/items</loc>
-    <lastmod>2019-07-16</lastmod>
+    <loc>https://un0btanium.github.io/tft-cheatsheet/items</loc>
+    <lastmod>2021-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://tft-cheatsheet.com/champions</loc>
-    <lastmod>2019-07-16</lastmod>
+    <loc>https://un0btanium.github.io/tft-cheatsheet/champions</loc>
+    <lastmod>2021-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tft-cheatsheet.com/multiview</loc>
-    <lastmod>2019-07-16</lastmod>
+    <loc>https://un0btanium.github.io/tft-cheatsheet/multiview</loc>
+    <lastmod>2021-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

@@ -287,7 +287,7 @@ export default class ChampionContainer extends Component {
 						}
 					}
 
-					contextMenu = <div className="dropdown-menu show" show onContextMenu={this.preventEvent}>
+					contextMenu = <div className="dropdown-menu show" onContextMenu={this.preventEvent}>
 						<Dropdown.Header>Add class or origin to champion</Dropdown.Header>
 						<Dropdown.Divider />
 						{dropDownEntries}

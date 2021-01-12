@@ -263,14 +263,6 @@ class App extends Component {
 					onItemClick: this.onItemClick
 		};
 
-		console.log(this.state)
-
-		// let url = '' + window.location.href;
-		// if ( !(url.indexOf("localhost") >= 0 || url.indexOf(WEBSITE_URL) >= 0)  ) {
-		//   console.log("Yo wtf u doin?");
-		//   window.location.assign("http://" + WEBSITE_URL + "/");
-		// }
-
 		// TODO axios request latest league patch for icon url
 
 	}
@@ -295,62 +287,54 @@ class App extends Component {
 							<Navbar.Toggle aria-controls="basic-navbar-nav" />
 							<Navbar.Collapse id="basic-navbar-nav" style={{ marginRight: "10%"}}>
 								<Nav className="mr-auto">
-									<Nav.Link as={Link} variant="light" to="/multiview"><b>Multiview</b></Nav.Link>
-									<Nav.Link as={Link} variant="light" to="/items"><b>Items</b></Nav.Link>
-									<Nav.Link as={Link} variant="light" to="/champions"><b>Champions</b></Nav.Link>
-									<Nav.Link as={Link} variant="light" to="/pool"><b>Pool</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/tft-cheatsheet/multiview"><b>Multiview</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/tft-cheatsheet/items"><b>Items</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/tft-cheatsheet/champions"><b>Champions</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/tft-cheatsheet/pool"><b>Pool</b></Nav.Link>
 								</Nav>
 
 								<Nav>
-									<Nav.Link as={Link} variant="light" to="/about"><b>About</b></Nav.Link>
-									<Nav.Link as={Link} variant="light" to="/contact"><b>Contact</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/tft-cheatsheet/about"><b>About</b></Nav.Link>
+									<Nav.Link as={Link} variant="light" to="/tft-cheatsheet/contact"><b>Contact</b></Nav.Link>
 									<Navbar.Text style={{ color: "rgb(223, 105, 26)", marginLeft: "20px"}}><b>Patch {tftData.patchVersion}</b></Navbar.Text>
 									{/* <Form inline style={{marginLeft: "20px"}}><Form.Check id="toggleIsFullScreen" type="checkbox" className="custom-switch" custom="true" label="Go Fullscreen" checked={this.state.isFullScreen} onChange={(e) => this.toggleSetting("isFullScreen")} /></Form> */}
 								</Nav>
 							</Navbar.Collapse>
 						</Navbar>
 
-						{/* <div>
-							<div style={{ width: "100%", height:"100%"}}>
-							<div style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "0x 0px 0px 0px" }}>
-								<iframe style={{marginTop: "25px"}} frameBorder="0" border="0" width="320" height="50" title="Amazon" src="https://rcm-eu.amazon-adsystem.com/e/cm?o=3&p=288&l=ez&f=ifr&linkID=16a5d25b2b5cdbac352adcd7eddf3054&t=tftcheatsheet-21&tracking_id=tftcheatsheet-21"></iframe>
-							</div>
-							</div>
-						</div> */}
-
 						<Switch>
-							<Route exact path="/" render={(props) => <MultiViewPage {...props}
+							<Route exact path="/tft-cheatsheet/" render={(props) => <MultiViewPage {...props}
 									{...this.state}
 								/>}
 							/>
-							<Route exact path="/items" render={(props) => <ItemGridPage {...props}
+							<Route exact path="/tft-cheatsheet/items" render={(props) => <ItemGridPage {...props}
 									{...this.state}
 								/>}
 							/>
-							<Route exact path="/champions" render={(props) => <ChampionGridPage {...props}
+							<Route exact path="/tft-cheatsheet/champions" render={(props) => <ChampionGridPage {...props}
 									{...this.state}
 								/>}
 							/>
-							<Route exact path="/pool" render={(props) => <PoolTablePage {...props}
+							<Route exact path="/tft-cheatsheet/pool" render={(props) => <PoolTablePage {...props}
 									{...this.state}
 								/>}
 							/>
-							<Route exact path="/multiview" render={(props) => <MultiViewPage {...props}
+							<Route exact path="/tft-cheatsheet/multiview" render={(props) => <MultiViewPage {...props}
 									{...this.state}
 								/>}
 							/>
-							<Route exact path="/about" render={(props) => <AboutPage {...props}
+							<Route exact path="/tft-cheatsheet/about" render={(props) => <AboutPage {...props}
 							
 								/>}
 							/>
-							<Route exact path="/contact" render={(props) => <ContactPage {...props}
+							<Route exact path="/tft-cheatsheet/contact" render={(props) => <ContactPage {...props}
 							
 								/>}
 							/>
-							<Route exact path="/sitemap.xml" onEnter={reloadWindow} />
-							<Route exact path="/robots.txt" onEnter={reloadWindow} />
-							<Route render={(props) => <ItemGridPage {...props}
-							
+							<Route exact path="/tft-cheatsheet/sitemap.xml" onEnter={reloadWindow} />
+							<Route exact path="/tft-cheatsheet/robots.txt" onEnter={reloadWindow} />
+							<Route render={(props) => <MultiViewPage {...props}
+									{...this.state}
 								/>}
 							/>
 						</Switch>

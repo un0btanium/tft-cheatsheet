@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f978bd7135574e32bef62ed82cd5e8df",
+    "revision": "a8784f565f91282e9b5f2cdca5597a2f",
     "url": "/tft-cheatsheet/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tft-cheatsheet/static/css/2.266e55a5.chunk.css"
   },
   {
-    "revision": "5f2595e2253cdb8aef2b",
+    "revision": "8c0af4ca8cc63511c771",
     "url": "/tft-cheatsheet/static/css/main.3836ae6e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tft-cheatsheet/static/js/2.f152ed1d.chunk.js"
   },
   {
-    "revision": "5f2595e2253cdb8aef2b",
-    "url": "/tft-cheatsheet/static/js/main.3cb1d189.chunk.js"
+    "revision": "8c0af4ca8cc63511c771",
+    "url": "/tft-cheatsheet/static/js/main.5603fb4f.chunk.js"
   },
   {
     "revision": "396c5233f94e82f27660",

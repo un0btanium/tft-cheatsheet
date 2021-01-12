@@ -15,7 +15,7 @@ export default class ItemGrid extends Component {
 
 		let axisXHighlighted = [];
 		let axisYHighlighted = [];
-		if (this.props.hoveredItem !== null) {
+		if (this.props.hoveredItem !== null && this.props.hoveredItem !== undefined) {
 			let colXhovered = this.props.hoveredItem.x;
 			let rowYhovered = this.props.hoveredItem.y;
 			for (let i = 0; i < this.props.order.length; i++) {
